@@ -1,8 +1,14 @@
 # Common Mistakes
 
+## Missing COMMAS
+
+A missing comma between columns, parameters, or values can cause syntax errors.
+
+---
+
 ## Forgetting GO
 
-Some SQL statements require `GO` to separate execution batches.
+Some SQL scripts require `GO` to separate batches when working in SQL Server Management Studio (SSMS).
 
 ---
 
@@ -14,4 +20,4 @@ Every table should have a primary key whenever possible.
 
 ## Using VARCHAR instead of NVARCHAR
 
-Use NVARCHAR when storing Unicode characters such as Vietnamese.
+Use `NVARCHAR` instead of `VARCHAR` when storing Unicode text such as Vietnamese.
