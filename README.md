@@ -1,58 +1,45 @@
 # SQL Learning Journey
 
-This repository documents my journey of learning SQL Server and T-SQL through structured notes, practical exercises, and hands-on examples.
+This repository documents my journey of learning SQL through structured notes, practical exercises, and real-world database projects.
 
-## About
-
-This repository serves as my personal SQL knowledge base. It is designed to organize everything I learn into a structured format, making it easier to review concepts, track my progress, and continuously improve my database skills.
-
-Rather than simply storing SQL scripts, this repository focuses on understanding the concepts behind them and documenting my learning process.
+The goal is not only to learn SQL syntax but also to understand database design, develop problem-solving skills, and build projects that reflect practical database development.
 
 ## Learning Objectives
 
-- Build a strong foundation in SQL
+- Build a strong SQL foundation
 - Master SQL Server and T-SQL
 - Understand relational database design
-- Write clean, readable, and efficient SQL
-- Learn database optimization techniques
-- Prepare for a career as a SQL Developer
-- Build the foundation for becoming a Database Administrator (DBA)
+- Write clean and efficient SQL queries
+- Develop practical database projects
+- Prepare for SQL Developer and Database Administrator (DBA) roles
 
 ## Repository Structure
 
-```text
-01_SQL_Basics/
-02_SELECT/
-03_WHERE/
-04_ORDER_BY/
-05_GROUP_BY/
-06_JOINS/
-07_SUBQUERIES/
-08_VIEWS/
-09_FUNCTIONS/
-10_STORED_PROCEDURES/
-11_TRIGGERS/
-12_TRANSACTIONS/
-13_INDEXES/
+```
+00_Fundamentals/
+01_SELECT/
+02_WHERE/
+03_ORDER_BY/
+04_GROUP_BY/
+05_JOINS/
+06_SUBQUERIES/
+07_VIEWS/
+08_FUNCTIONS/
+09_STORED_PROCEDURES/
+10_TRIGGERS/
+11_TRANSACTIONS/
+12_INDEXES/
+
+Database_Projects/
+
 Resources/
 ```
 
-Each learning module contains:
+## Learning Progress
 
-```text
-README.md
-Syntax.sql
-Examples.sql
-Practice.sql
-Common_Mistakes.md
-References.md
-```
-
-## Progress
-
-| Topic | Status |
-|------|:------:|
-| SQL Basics | ⬜ |
+| Module | Status |
+|---------|--------|
+| Fundamentals | ⬜ |
 | SELECT | ⬜ |
 | WHERE | ⬜ |
 | ORDER BY | ⬜ |
@@ -65,10 +52,6 @@ References.md
 | Triggers | ⬜ |
 | Transactions | ⬜ |
 | Indexes | ⬜ |
-
-## Related Repository
-
-Practical database projects are maintained separately in my **Database Projects** repository.
 
 ## Author
 
