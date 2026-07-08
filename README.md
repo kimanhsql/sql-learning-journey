@@ -1,22 +1,26 @@
 # SQL Learning Journey
 
-This repository documents my SQL learning journey through structured notes, practical exercises, and hands-on projects.
+This repository documents my journey of learning SQL Server and T-SQL through structured notes, practical exercises, and hands-on examples.
 
 ## About
 
-I created this repository to organize everything I learn about SQL in one place. It serves as both a personal knowledge base and a portfolio that demonstrates my progress toward becoming a SQL Developer.
+This repository serves as my personal SQL knowledge base. It is designed to organize everything I learn into a structured format, making it easier to review concepts, track my progress, and continuously improve my database skills.
 
-## Learning Goals
+Rather than simply storing SQL scripts, this repository focuses on understanding the concepts behind them and documenting my learning process.
+
+## Learning Objectives
 
 - Build a strong foundation in SQL
 - Master SQL Server and T-SQL
-- Learn database design principles
-- Write clean and efficient SQL queries
-- Prepare for SQL Developer and Database Administrator (DBA) roles
+- Understand relational database design
+- Write clean, readable, and efficient SQL
+- Learn database optimization techniques
+- Prepare for a career as a SQL Developer
+- Build the foundation for becoming a Database Administrator (DBA)
 
 ## Repository Structure
 
-```
+```text
 01_SQL_Basics/
 02_SELECT/
 03_WHERE/
@@ -33,9 +37,9 @@ I created this repository to organize everything I learn about SQL in one place.
 Resources/
 ```
 
-Each topic contains:
+Each learning module contains:
 
-```
+```text
 README.md
 Syntax.sql
 Examples.sql
@@ -47,7 +51,7 @@ References.md
 ## Progress
 
 | Topic | Status |
-|--------|:------:|
+|------|:------:|
 | SQL Basics | ⬜ |
 | SELECT | ⬜ |
 | WHERE | ⬜ |
@@ -61,6 +65,10 @@ References.md
 | Triggers | ⬜ |
 | Transactions | ⬜ |
 | Indexes | ⬜ |
+
+## Related Repository
+
+Practical database projects are maintained separately in my **Database Projects** repository.
 
 ## Author
 
