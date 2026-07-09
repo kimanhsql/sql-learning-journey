@@ -2,22 +2,14 @@
 
 ## Overview
 
-SQL Fundamentals introduces the essential concepts required before writing SQL queries.
+This module introduces the fundamental concepts of relational databases and SQL Server. It provides the knowledge required before learning SQL statements.
 
-This module focuses on understanding how relational databases work, the role of SQL Server, and the basic building blocks of a database.
+## Contents
 
-## Topics
-
-- What is SQL?
-- What is a Database?
-- DBMS vs RDBMS
-- SQL Server
-- Tables
-- Rows and Columns
+- Database Concepts
+- SQL Server Introduction
 - Data Types
-- Primary Keys
-- Foreign Keys
 
 ## Learning Outcome
 
-After completing this module, I will understand the core concepts behind relational databases and be ready to start writing SQL queries.
+After completing this module, I will understand the basic concepts of databases and be ready to learn SQL queries.
