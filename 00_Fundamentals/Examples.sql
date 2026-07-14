@@ -2,10 +2,10 @@
 Creating a Database
 ==========================================*/
 
-CREATE DATABASE SchoolDB;
+CREATE DATABASE SchoolDB
 GO
 
-USE SchoolDB;
+USE SchoolDB
 GO
 
 /*******************************************
@@ -17,5 +17,5 @@ CREATE TABLE Students
     StudentID INT PRIMARY KEY,
     FullName NVARCHAR(100),
     BirthDate DATE
-);
+)
 GO

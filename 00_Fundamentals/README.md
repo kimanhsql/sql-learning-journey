@@ -7,7 +7,6 @@ This module introduces the fundamental concepts of relational databases and SQL 
 ## Contents
 
 - Database Concepts
-- SQL Server Introduction
 - Data Types
 
 ## Learning Outcome
