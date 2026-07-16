@@ -11,12 +11,16 @@ Correct
 SELECT HOTEN
     FROM CAUTHU
 
+---
+
 ## Misspelling Column Names
 
 Wrong
 
 SELECT HOTENN
     FROM CAUTHU
+
+---
 
 ## Using SELECT * Unnecessarily
 

@@ -8,12 +8,19 @@ SELECT will decrease the time to find the data fits with question.
 
 SELECT are the most statement we use in DBMS.
 
+---
+
 ## Topics
 
-- Syntax
-- Examples
-- Practice
-- Common Mistakes
+Topics
+
+- Selecting all columns
+- Selecting specific columns
+- DISTINCT
+- Column Aliases
+- Literal Values
+
+---
 
 ## Learning Outcome
 
