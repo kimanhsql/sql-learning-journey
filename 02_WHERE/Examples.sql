@@ -16,9 +16,9 @@ SELECT *
 SELECT *
     FROM PLAYER
     WHERE POSITION = 'Goalkeeper'
-        AND COUNTRY = 'Brazil';
+        AND COUNTRY = 'Brazil'
 
 
 SELECT *
     FROM PLAYER
-    WHERE PLAYER_NAME LIKE 'N%';
+    WHERE PLAYER_NAME LIKE 'N%'
