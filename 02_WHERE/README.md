@@ -1,10 +1,10 @@
-# WHERE Statement
+# WHERE Clause
 
 ## Overview
 
 The `WHERE` clause is used to filter records based on specified conditions.
 
-It allows users to retrieve only the data that meets the required criteria by using comparison operators, logical operators, and other SQL expressions.
+It allows users to retrieve only the records that meet the specified criteria by using comparison operators, logical operators, and other SQL expressions.
 
 ## Topics
 

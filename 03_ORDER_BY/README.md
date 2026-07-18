@@ -1,4 +1,4 @@
-# ORDER BY Statement
+# ORDER BY Clause
 
 ## Overview
 
@@ -6,7 +6,7 @@ The `ORDER BY` clause is used to sort query results in ascending or descending o
 
 Sorting data makes it easier to read, analyze, and present information. It is especially useful when creating reports, charts, or dashboards.
 
-The `ORDER BY` clause can sort data by one or multiple columns. It can also be combined with other SQL clauses such as `WHERE`, `DISTINCT`, and `TOP`.
+The `ORDER BY` clause can sort data by one or more columns. It can also be combined with other SQL keywords and clauses, such as `WHERE`, `DISTINCT`, and `TOP`.
 
 Without the `ORDER BY` clause, SQL Server does not guarantee the order of the returned rows.
 

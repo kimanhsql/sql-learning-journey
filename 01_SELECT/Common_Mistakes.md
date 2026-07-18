@@ -1,6 +1,6 @@
 # Common Mistakes
 
-## Forgetting FROM
+## Forgetting `FROM`
 
 Wrong
 
@@ -9,7 +9,7 @@ SELECT HOTEN
 Correct
 
 SELECT HOTEN
-    FROM CAUTHU
+FROM CAUTHU
 
 ---
 
@@ -18,7 +18,7 @@ SELECT HOTEN
 Wrong
 
 SELECT HOTENN
-    FROM CAUTHU
+FROM CAUTHU
 
 ---
 

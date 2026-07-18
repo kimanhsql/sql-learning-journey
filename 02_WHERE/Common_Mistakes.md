@@ -11,14 +11,14 @@ Always make sure the columns you reference belong to the table in the `FROM` cla
 Wrong
 
 SELECT PLAYER_ID, PLAYER_NAME
-    FROM PLAYER
-    WHERE YEAR(GETDATE(BIRTH_DATE)) > 2000
+FROM PLAYER
+WHERE YEAR(GETDATE(BIRTH_DATE)) > 2000
 
 Correct
 
 SELECT PLAYER_ID, PLAYER_NAME
-    FROM PLAYER
-    WHERE BIRTH_DATE >= '2001-01-01'
+FROM PLAYER
+WHERE BIRTH_DATE >= '2001-01-01'
 
 ---
 
@@ -29,12 +29,12 @@ The question asks to find names that **contain** `"an"`, not only names that sta
 Wrong
 
 SELECT PLAYER_ID, PLAYER_NAME
-    FROM PLAYER
-    WHERE PLAYER_NAME LIKE '%an'
-        OR PLAYER_NAME LIKE 'an%'
+FROM PLAYER
+WHERE PLAYER_NAME LIKE '%an'
+    OR PLAYER_NAME LIKE 'an%'
 
 Correct
 
 SELECT PLAYER_ID, PLAYER_NAME
-    FROM PLAYER
-    WHERE PLAYER_NAME LIKE '%an%'
+FROM PLAYER
+WHERE PLAYER_NAME LIKE '%an%'

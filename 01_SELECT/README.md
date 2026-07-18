@@ -2,11 +2,11 @@
 
 ## Overview
 
-SELECT statements will be the first topic I learned after the Fundamentals topic.
+The `SELECT` statement is the first SQL topic I study after completing SQL Fundamentals.
 
-SELECT will decrease the time to find the data fits with question.
+It allows users to retrieve only the data they need.
 
-SELECT are the most statement we use in DBMS.
+The `SELECT` statement is one of the most commonly used SQL statements in relational database systems.
 
 ---
 

@@ -16,34 +16,36 @@ The goal is not only to learn SQL syntax but also to understand database design,
 ## Repository Structure
 
 ```
-00_Fundamentals/
-01_SELECT/
-02_WHERE/
-03_ORDER_BY/
-04_GROUP_BY/
-05_JOINS/
-06_SUBQUERIES/
-07_VIEWS/
-08_FUNCTIONS/
-09_STORED_PROCEDURES/
-10_TRIGGERS/
-11_TRANSACTIONS/
-12_INDEXES/
-
-Database_Projects/
-
-Resources/
+00_FUNDAMENTALS
+01_SELECT
+02_WHERE
+03_ORDER_BY
+04_GROUP_BY
+05_HAVING
+06_JOINS
+07_SUBQUERIES
+08_VIEWS
+09_FUNCTIONS
+10_STORED_PROCEDURES
+11_TRIGGERS
+12_TRANSACTIONS
+13_INDEXES
+14_DATABASE_PROJECTS
+Resources
 ```
+
+## Learning Progress
 
 ## Learning Progress
 
 | Module | Status |
 |---------|--------|
-| Fundamentals | ⬜ |
-| SELECT | ⬜ |
-| WHERE | ⬜ |
-| ORDER BY | ⬜ |
-| GROUP BY | ⬜ |
+| Fundamentals | ✅ |
+| SELECT | ✅ |
+| WHERE | ✅ |
+| ORDER BY | ✅ |
+| GROUP BY | 🚧 |
+| HAVING | ⬜ |
 | JOINs | ⬜ |
 | Subqueries | ⬜ |
 | Views | ⬜ |
@@ -52,6 +54,9 @@ Resources/
 | Triggers | ⬜ |
 | Transactions | ⬜ |
 | Indexes | ⬜ |
+| Database Projects | ⬜ |
+
+(✅: Completed; 🚧: In Progress; ⬜: Not Started)
 
 ## Author
 

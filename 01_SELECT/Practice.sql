@@ -3,35 +3,35 @@
 -- Display all columns from the PLAYER table.
 
 SELECT *
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 2
 -- Display only player names.
 
 SELECT PLAYER_NAME
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 3
 -- Display player names and their positions.
 
 SELECT PLAYER_NAME, POSITION
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 4
 -- Display all distinct countries.
 
 SELECT DISTINCT COUNTRY_NAME
-    FROM COUNTRY
+FROM COUNTRY
 
 
 -- Exercise 5
 -- Display all coaches.
 
 SELECT *
-    FROM COACH
+FROM COACH
 
 
 --- INTERMEDIATE ---
@@ -39,35 +39,35 @@ SELECT *
 -- Display player names, jersey numbers, and positions.
 
 SELECT PLAYER_NAME, JERSEY_NUMBER, POSITION
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 7
 -- Display all stadium names.
 
 SELECT STADIUM_NAME
-    FROM STADIUM
+FROM STADIUM
 
 
 -- Exercise 8
 -- Display all club names.
 
 SELECT CLUB_NAME
-    FROM CLUB
+FROM CLUB
 
 
 -- Exercise 9
 -- Display player names and birth dates.
 
 SELECT PLAYER_NAME, BIRTH_DATE
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 10
 -- Display all countries.
 
 SELECT *
-    FROM COUNTRY
+FROM COUNTRY
 
 
 --- ADVANCED ---
@@ -76,7 +76,7 @@ SELECT *
 
 SELECT PLAYER_NAME AS PLAYER_NAME,
         PLAYER_NAME AS FULLNAME
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 12
@@ -84,7 +84,7 @@ SELECT PLAYER_NAME AS PLAYER_NAME,
 
 SELECT PLAYER_NAME,
         'ACTIVE PLAYER' AS STATUS
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 13
@@ -92,7 +92,7 @@ SELECT PLAYER_NAME,
 
 SELECT PLAYER_NAME,
         GETDATE() AS CURRENT_DATE
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 14
@@ -103,7 +103,7 @@ SELECT PLAYER_ID AS ID,
         POSITION AS POSITION,
         JERSEY_NUMBER AS NUM,
         BIRTH_DATE AS BIRTHDAY,
-    FROM PLAYER
+FROM PLAYER
 
 
 -- Exercise 15
@@ -112,4 +112,4 @@ SELECT PLAYER_ID AS ID,
 SELECT PLAYER_NAME,
         POSITION,
         JERSEY_NUMBER
-    FROM PLAYER
+FROM PLAYER
