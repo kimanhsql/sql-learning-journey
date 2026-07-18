@@ -36,15 +36,13 @@ Resources
 
 ## Learning Progress
 
-## Learning Progress
-
 | Module | Status |
 |---------|--------|
 | Fundamentals | ✅ |
 | SELECT | ✅ |
 | WHERE | ✅ |
 | ORDER BY | ✅ |
-| GROUP BY | 🚧 |
+| GROUP BY | ✅ |
 | HAVING | ⬜ |
 | JOINs | ⬜ |
 | Subqueries | ⬜ |
