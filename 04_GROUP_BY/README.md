@@ -1,4 +1,4 @@
-# GROUP BY Statement
+# GROUP BY Clause
 
 ## Overview
 
