@@ -43,8 +43,8 @@ Resources
 | WHERE | ✅ |
 | ORDER BY | ✅ |
 | GROUP BY | ✅ |
-| HAVING | 🚧 |
-| JOINs | ⬜ |
+| HAVING | ✅ |
+| JOINs | 🚧 |
 | Subqueries | ⬜ |
 | Views | ⬜ |
 | Functions | ⬜ |
