@@ -44,8 +44,8 @@ Resources
 | ORDER BY | ✅ |
 | GROUP BY | ✅ |
 | HAVING | ✅ |
-| JOINs | 🚧 |
-| Subqueries | ⬜ |
+| JOINs | ✅ |
+| Subqueries | 🚧 |
 | Views | ⬜ |
 | Functions | ⬜ |
 | Stored Procedures | ⬜ |
