@@ -17,7 +17,7 @@ ON T1.column_name = T2.column_name
 -- RIGHT OUTER JOIN
 
 SELECT column_name
-FROM table1 1
+FROM table1 T1
 RIGHT OUTER JOIN table2 T2
 ON T1.column_name = T2.column_name
 
