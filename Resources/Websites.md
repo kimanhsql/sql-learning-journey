@@ -1,17 +1,5 @@
 # References
 
-## Microsoft Learn
-
-https://learn.microsoft.com/sql/
-
----
-
-## SQLBolt
-
-https://sqlbolt.com/
-
----
-
 ## SQL Server Tutorial
 
 https://www.sqlservertutorial.net/
@@ -27,3 +15,9 @@ https://www.w3schools.com/sql/
 ## Quest
 
 https://www.quest.com/learn/
+
+---
+
+## roadmap
+
+https://roadmap.sh/

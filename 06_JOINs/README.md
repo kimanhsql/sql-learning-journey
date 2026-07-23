@@ -36,7 +36,7 @@ If there is no matching row, the missing side is filled with NULL values.
 
 5. CROSS JOIN
 
-Returns every possible combination of rows from both tables.
+Returns every possible combination of rows from both tables, producing a Cartesian product.
 
 No matching condition is required.
 
