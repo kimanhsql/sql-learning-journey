@@ -1,4 +1,4 @@
-# Common Mistakes
+# Mistakes
 
 ## Missing Commas
 

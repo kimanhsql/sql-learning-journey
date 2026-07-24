@@ -4,6 +4,8 @@ This repository documents my journey of learning SQL through structured notes, p
 
 The goal is not only to learn SQL syntax but also to understand database design, develop problem-solving skills, and build projects that reflect practical database development.
 
+---
+
 ## Learning Objectives
 
 - Build a strong SQL foundation
@@ -12,6 +14,8 @@ The goal is not only to learn SQL syntax but also to understand database design,
 - Write clean and efficient SQL queries
 - Develop practical database projects
 - Prepare for SQL Developer and Database Administrator (DBA) roles
+
+---
 
 ## Repository Structure
 
@@ -34,6 +38,8 @@ The goal is not only to learn SQL syntax but also to understand database design,
 Resources
 ```
 
+---
+
 ## Learning Progress
 
 | Module | Status |
@@ -45,8 +51,8 @@ Resources
 | GROUP BY | ✅ |
 | HAVING | ✅ |
 | JOINs | ✅ |
-| Subqueries | 🚧 |
-| Views | ⬜ |
+| Subqueries | ✅ |
+| Views | 🚧 |
 | Functions | ⬜ |
 | Stored Procedures | ⬜ |
 | Triggers | ⬜ |
@@ -55,6 +61,8 @@ Resources
 | Database Projects | ⬜ |
 
 (✅: Completed; 🚧: In Progress; ⬜: Not Started)
+
+---
 
 ## Author
 

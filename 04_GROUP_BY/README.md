@@ -12,6 +12,8 @@ We can group numeric values, text values, dates, or calculated expressions.
 
 The `HAVING` clause filters grouped data after the GROUP BY clause.
 
+---
+
 ## Topics
 
 - Basic GROUP BY
@@ -19,6 +21,8 @@ The `HAVING` clause filters grouped data after the GROUP BY clause.
 - GROUP BY Multiple Columns
 - GROUP BY with WHERE
 - GROUP BY with ORDER BY
+
+---
 
 ## Learning Outcome
 

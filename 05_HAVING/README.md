@@ -16,7 +16,7 @@ The `HAVING` clause is optional. However, it can only be used after the GROUP BY
 
 The `HAVING` clause comes after the GROUP BY clause because SQL must create the groups before filtering them.
 
-
+---
 
 ## Topics
 
@@ -27,6 +27,8 @@ The `HAVING` clause comes after the GROUP BY clause because SQL must create the 
 - HAVING with MIN and MAX
 - HAVING with WHERE
 - HAVING with ORDER BY
+
+---
 
 ## Learning Outcome
 

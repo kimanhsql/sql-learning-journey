@@ -2,11 +2,14 @@
 
 ## Numeric
 
+- TINYINT
+- SMALLINT
 - INT
 - BIGINT
-- SMALLINT
 - DECIMAL
+- NUMERIC
 - FLOAT
+- REAL
 
 ---
 

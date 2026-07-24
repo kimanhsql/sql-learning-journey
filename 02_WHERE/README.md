@@ -6,6 +6,8 @@ The `WHERE` clause is used to filter records based on specified conditions.
 
 It allows users to retrieve only the records that meet the specified criteria by using comparison operators, logical operators, and other SQL expressions.
 
+---
+
 ## Topics
 
 - Comparison Operators
@@ -17,6 +19,8 @@ It allows users to retrieve only the records that meet the specified criteria by
 - Examples
 - Practice
 - Common Mistakes
+
+---
 
 ## Learning Outcome
 

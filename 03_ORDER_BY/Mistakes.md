@@ -1,4 +1,4 @@
-# Common Mistakes
+# Mistakes
 
 ## Including columns which appear in `ORDER BY` clause
 
@@ -6,15 +6,19 @@ Columns used in the ORDER BY clause should also appear in the SELECT statement s
 
 Wrong
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME
 FROM PLAYER
 ORDER BY JERSEY_NUMBER
+```
 
 Correct
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME, JERSEY_NUMBER
 FROM PLAYER
 ORDER BY JERSEY_NUMBER
+```
 
 ---
 
@@ -24,15 +28,19 @@ The problem said that sorting birth_date from youngest to oldest, which means so
 
 Wrong
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME, BIRTH_DATE
 FROM PLAYER
 ORDER BY BIRTH_DATE ASC
+```
 
 Correct
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME, BIRTH_DATE
 FROM PLAYER
 ORDER BY BIRTH_DATE DESC
+```
 
 ---
 
@@ -42,13 +50,17 @@ COUNTRY_ID appears in COUNTRY table, we use WHERE clause to connect two tables: 
 
 Wrong
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME
 FROM PLAYER
 ORDER BY COUNTRY_NAME
+```
 
 Correct
 
+```sql
 SELECT PLAYER_ID, PLAYER_NAME, COUNTRY_NAME
 FROM PLAYER P, COUNTRY C
 WHERE P.COUNTRY_ID = C.COUNTRY
 ORDER BY COUNTRY_NAME
+```

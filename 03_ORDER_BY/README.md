@@ -10,6 +10,8 @@ The `ORDER BY` clause can sort data by one or more columns. It can also be combi
 
 Without the `ORDER BY` clause, SQL Server does not guarantee the order of the returned rows.
 
+---
+
 ## Topics
 
 - Basic ORDER BY
@@ -18,6 +20,8 @@ Without the `ORDER BY` clause, SQL Server does not guarantee the order of the re
 - Sorting by Multiple Columns
 - Sorting by Column Position
 - Sorting by Aliases
+
+---
 
 ## Learning Outcome
 

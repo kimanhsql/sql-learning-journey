@@ -1,15 +1,19 @@
-# Common Mistakes
+# Mistakes
 
 ## Forgetting `FROM`
 
 Wrong
 
+```sql
 SELECT HOTEN
+```
 
 Correct
 
+```sql
 SELECT HOTEN
 FROM CAUTHU
+```
 
 ---
 
@@ -17,8 +21,10 @@ FROM CAUTHU
 
 Wrong
 
+```sql
 SELECT HOTENN
 FROM CAUTHU
+```
 
 ---
 

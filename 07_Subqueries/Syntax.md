@@ -8,6 +8,7 @@ WHERE column_name operator
     FROM table_name
 )
 
+---
 
 -- Subquery in WHERE clause (Multiple-row Subquery)
 
@@ -19,6 +20,7 @@ WHERE column_name IN
     FROM table_name
 )
 
+---
 
 -- Subquery in FROM clause
 
@@ -29,6 +31,7 @@ FROM
     FROM table_name
 ) AS alias_name
 
+---
 
 -- Subquery in SELECT clause
 

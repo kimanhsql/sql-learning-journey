@@ -1,4 +1,4 @@
-# Common Mistakes
+# Mistakes
 
 ## Forgetting the bridge table
 
@@ -6,14 +6,17 @@ When two tables have a many-to-many relationship, they must be connected through
 
 Wrong
 
+```sql
 SELECT COACH_NAME,
        CLUB_NAME
 FROM COACH
 INNER JOIN CLUB
 ON COACH.COACH_ID = CLUB.COACH_ID
+```
 
 Correct
 
+```sql
 SELECT COACH_NAME,
        CLUB_NAME
 FROM COACH CH
@@ -21,6 +24,7 @@ INNER JOIN COACH_CLUB CC
 ON CH.COACH_ID = CC.COACH_ID
 INNER JOIN CLUB C
 ON CC.CLUB_ID = C.CLUB_ID
+```
 
 ---
 
@@ -32,21 +36,25 @@ This means the query must return rows even when there is no matching record in t
 
 Wrong
 
+```sql
 SELECT CLUB_ID,
         CLUB_NAME,
         PLAYER_NAME
 FROM CLUB C
 INNER JOIN PLAYER PL
 ON C.CLUB_ID = PL.CLUB_ID
+```
 
 Correct
 
+```sql
 SELECT CLUB_ID,
         CLUB_NAME,
         PLAYER_NAME
 FROM CLUB C
 LEFT OUTER JOIN PLAYER PL
 ON C.CLUB_ID = PL.CLUB_ID
+```
 
 ---
 
@@ -58,21 +66,25 @@ There is no need to join the COUNTRY table with itself.
 
 Wrong
 
+```sql
 SELECT COUNTRY_ID,
         COUNTRY_NAME,
         PLAYER_NAME
 FROM COUNTRY CT1
 INNER JOIN COUNTRY CT2
 ON CT1.COUNTRY_ID = CT2.COUNTRY_ID
+```
 
 Correct
 
+```sql
 SELECT COUNTRY_ID,
         COUNTRY_NAME,
         PLAYER_NAME
 FROM COUNTRY CT
 LEFT OUTER JOIN PLAYER PL
 ON CT.COUNTRY_ID = PL.COUNTRY_ID
+```
 
 ---
 
@@ -84,15 +96,18 @@ A CROSS JOIN returns every possible combination of rows, which is not the expect
 
 Wrong
 
+```sql
 SELECT COACH_ID,
         COACH_NAME,
         CLUB_ID,
         CLUB_NAME
 FROM COACH
 CROSS JOIN CLUB
+```
 
 Correct
 
+```sql
 SELECT CH.COACH_ID,
        COACH_NAME,
        CLUB_NAME
@@ -101,6 +116,7 @@ LEFT OUTER JOIN COACH_CLUB CC
 ON CH.COACH_ID = CC.COACH_ID
 LEFT OUTER JOIN CLUB C
 ON CC.CLUB_ID = C.CLUB_ID
+```
 
 ---
 
@@ -108,15 +124,18 @@ ON CC.CLUB_ID = C.CLUB_ID
 
 Wrong
 
+```sql
 SELECT PLAYER_ID,
         PLAYER_NAME,
         POSITION
 FROM PLAYER PL1
 FULL OUTER JOIN PLAYER PL2
 ON PL1.POSITION = PL2.POSITION
+```
 
 Correct
 
+```sql
 SELECT PL1.PLAYER_ID,
        PL1.PLAYER_NAME,
        PL1.POSITION
@@ -124,6 +143,7 @@ FROM PLAYER PL1
 INNER JOIN PLAYER PL2
 ON PL1.POSITION = PL2.POSITION
 WHERE PL1.PLAYER_ID < PL2.PLAYER_ID
+```
 
 ---
 
@@ -131,17 +151,21 @@ WHERE PL1.PLAYER_ID < PL2.PLAYER_ID
 
 Wrong
 
+```sql
 SELECT CLUB_ID,
        PLAYER_NAME
 FROM CLUB C
 LEFT JOIN PLAYER PL
 ON C.CLUB_ID = PL.CLUB_ID
+```
 
 Correct
 
+```sql
 SELECT C.CLUB_ID,
        C.CLUB_NAME,
        PL.PLAYER_NAME
 FROM CLUB C
 LEFT JOIN PLAYER PL
 ON C.CLUB_ID = PL.CLUB_ID
+```

@@ -14,6 +14,8 @@ A SQL statement can contain one or more subqueries. A subquery can also be neste
 
 The subquery is evaluated first, and its result is then used by the outer query.
 
+---
+
 ## Operators Used with Subqueries
 
 - Comparison Operators
@@ -38,6 +40,8 @@ EXISTS
 ANY
 ALL
 
+---
+
 ## Topics
 
 - Single-row Subqueries
@@ -48,6 +52,8 @@ ALL
 - Subqueries in SELECT
 - Subqueries in FROM
 - Subqueries in WHERE
+
+---
 
 ## Learning Outcome
 

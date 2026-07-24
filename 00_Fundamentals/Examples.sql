@@ -1,6 +1,4 @@
-/*==========================================
-Creating a Database
-==========================================*/
+-- Creating a Database
 
 CREATE DATABASE SchoolDB
 GO
@@ -9,9 +7,7 @@ USE SchoolDB
 GO
 
 
-/*******************************************
-Creating a Table
-*******************************************/
+-- Creating a Table
 
 CREATE TABLE Students
 (

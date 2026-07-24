@@ -10,6 +10,8 @@ Without JOINs, it is difficult to retrieve related data correctly because SQL Se
 
 JOINs are commonly used when tables have relationships, such as primary keys and foreign keys.
 
+---
+
 ## JOINs Types
 
 1. INNER JOIN
@@ -46,6 +48,8 @@ Joins a table with itself.
 
 It is useful when comparing rows within the same table.
 
+---
+
 ## Topics
 
 - INNER JOIN
@@ -54,6 +58,8 @@ It is useful when comparing rows within the same table.
 - FULL OUTER JOIN
 - CROSS JOIN
 - SELF JOIN
+
+---
 
 ## Learning Outcome
 
