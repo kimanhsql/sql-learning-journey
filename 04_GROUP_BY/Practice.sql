@@ -1,3 +1,15 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which column should be grouped?
+- Which aggregate function should I use?
+- Do I need HAVING?
+- Should the result be sorted?
+*/
+
+
 -- Exercise 1
 -- Display the number of players in each position.
 

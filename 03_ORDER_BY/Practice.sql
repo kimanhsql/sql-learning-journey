@@ -1,3 +1,19 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which column should be used for sorting?
+- Should the result be sorted in ascending or descending order?
+- Do I need to sort by one column or multiple columns?
+- Does the sorting improve the readability of the result?
+- Should ORDER BY be combined with WHERE, GROUP BY, or DISTINCT?
+
+Sorting the result does not change the data in the table.
+It only changes the order in which the rows are displayed.
+*/
+
+
 -- Exercise 1
 -- Display all players sorted by name.
 

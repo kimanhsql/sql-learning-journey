@@ -1,4 +1,6 @@
--- Basic ORDER BY
+# Syntax
+
+## Basic ORDER BY
 
 ```sql
 SELECT column_name
@@ -8,7 +10,7 @@ ORDER BY column_name
 
 ---
 
--- Ascending Order
+## Ascending Order
 
 ```sql
 SELECT column_name
@@ -18,7 +20,7 @@ ORDER BY column_name ASC
 
 ---
 
--- Descending Order
+## Descending Order
 
 ```sql
 SELECT column_name
@@ -28,7 +30,7 @@ ORDER BY column_name DESC
 
 ---
 
--- Multiple Columns
+## Multiple Columns
 
 ```sql
 SELECT column1, column2
@@ -39,7 +41,7 @@ ORDER BY column1 ASC,
 
 ---
 
--- Order by Alias
+## Order by Alias
 
 ```sql
 SELECT column_name AS alias_name
@@ -49,7 +51,7 @@ ORDER BY alias_name
 
 ---
 
--- Order by Column Position
+## Order by Column Position
 
 ```sql
 SELECT column1, column2

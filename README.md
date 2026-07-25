@@ -52,8 +52,8 @@ Resources
 | HAVING | ✅ |
 | JOINs | ✅ |
 | Subqueries | ✅ |
-| Views | 🚧 |
-| Functions | ⬜ |
+| Views | ✅ |
+| Functions | 🚧 |
 | Stored Procedures | ⬜ |
 | Triggers | ⬜ |
 | Transactions | ⬜ |

@@ -1,4 +1,6 @@
--- INNER JOIN
+# Syntax
+
+## INNER JOIN
 
 SELECT column_name
 FROM table1 T1
@@ -7,7 +9,7 @@ ON T1.column_name = T2.column_name
 
 ---
 
--- LEFT OUTER JOIN
+## LEFT OUTER JOIN
 
 SELECT column_name
 FROM table1 T1
@@ -16,7 +18,7 @@ ON T1.column_name = T2.column_name
 
 ---
 
--- RIGHT OUTER JOIN
+## RIGHT OUTER JOIN
 
 SELECT column_name
 FROM table1 T1
@@ -25,7 +27,7 @@ ON T1.column_name = T2.column_name
 
 ---
 
--- FULL OUTER JOIN
+## FULL OUTER JOIN
 
 SELECT column_name
 FROM table1 T1
@@ -34,7 +36,7 @@ ON T1.column_name = T2.column_name
 
 ---
 
--- CROSS JOIN
+## CROSS JOIN
 
 SELECT column_name
 FROM table1
@@ -42,7 +44,7 @@ CROSS JOIN table2
 
 ---
 
--- SELF JOIN
+## SELF JOIN
 
 SELECT column_name
 FROM table1 T1

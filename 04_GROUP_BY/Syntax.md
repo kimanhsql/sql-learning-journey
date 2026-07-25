@@ -1,4 +1,6 @@
--- Basic GROUP BY
+# Syntax
+
+## Basic GROUP BY
 
 ```sql
 SELECT column_name
@@ -8,7 +10,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with COUNT()
+## GROUP BY with COUNT()
 
 ```sql
 SELECT column_name,
@@ -19,7 +21,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with SUM()
+## GROUP BY with SUM()
 
 ```sql
 SELECT column_name,
@@ -30,7 +32,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with AVG()
+## GROUP BY with AVG()
 
 ```sql
 SELECT column_name,
@@ -41,7 +43,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with MAX()
+## GROUP BY with MAX()
 
 ```sql
 SELECT column_name,
@@ -52,7 +54,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with MIN()
+## GROUP BY with MIN()
 
 ```sql
 SELECT column_name,
@@ -63,7 +65,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY Multiple Columns
+## GROUP BY Multiple Columns
 
 ```sql
 SELECT column1,
@@ -76,7 +78,7 @@ GROUP BY column1,
 
 ---
 
--- GROUP BY with WHERE
+## GROUP BY with WHERE
 
 ```sql
 SELECT column_name,
@@ -88,7 +90,7 @@ GROUP BY column_name
 
 ---
 
--- GROUP BY with ORDER BY
+## GROUP BY with ORDER BY
 
 ```sql
 SELECT column_name,

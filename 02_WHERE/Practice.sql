@@ -1,3 +1,16 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which table contains the required data?
+- Which column should be filtered?
+- Which comparison operator should I use?
+- Do I need AND, OR, or NOT?
+- Should I use LIKE, BETWEEN, or IN?
+*/
+
+
 -- Exercise 1
 -- Display all players whose position is Forward.
 

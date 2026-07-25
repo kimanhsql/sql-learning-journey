@@ -1,3 +1,22 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which column should be grouped?
+- Which aggregate function should I use?
+- Should I use WHERE or HAVING?
+- Do I need to filter rows or groups?
+- Does the condition contain an aggregate function?
+
+Remember:
+
+- WHERE filters rows before grouping.
+- HAVING filters groups after GROUP BY.
+- HAVING is commonly used with COUNT(), SUM(), AVG(), MIN(), and MAX().
+*/
+
+
 -- Exercise 1
 -- Display positions that have more than 2 players.
 

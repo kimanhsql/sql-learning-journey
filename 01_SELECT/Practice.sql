@@ -1,3 +1,20 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which table should I query?
+- Which columns do I need to display?
+- Should I use SELECT * or specific columns?
+- Do I need DISTINCT?
+- Should I rename any column using AS?
+- Is the output easy to read?
+
+Understanding the question comes first.
+Writing SQL comes second.
+*/
+
+
 --- BASIC ---
 -- Exercise 1
 -- Display all columns from the PLAYER table.

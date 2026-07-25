@@ -1,4 +1,6 @@
--- Basic WHERE
+# Syntax
+
+## Basic WHERE
 
 ```sql
 SELECT column_name
@@ -8,7 +10,7 @@ WHERE condition
 
 ---
 
--- Comparison Operators
+## Comparison Operators
 
 ```sql
 SELECT column_name
@@ -38,7 +40,7 @@ WHERE column_name <= value
 
 ---
 
--- AND
+## AND
 
 ```sql
 SELECT column_name
@@ -49,7 +51,7 @@ WHERE condition1
 
 ---
 
--- OR
+## OR
 
 ```sql
 SELECT column_name
@@ -60,7 +62,7 @@ WHERE condition1
 
 ---
 
--- NOT
+## NOT
 
 ```sql
 SELECT column_name
@@ -70,7 +72,7 @@ WHERE NOT condition
 
 ---
 
--- BETWEEN
+## BETWEEN
 
 ```sql
 SELECT column_name
@@ -80,7 +82,7 @@ WHERE column_name BETWEEN value1 AND value2
 
 ---
 
--- IN
+## IN
 
 ```sql
 SELECT column_name
@@ -90,7 +92,7 @@ WHERE column_name IN (value1, value2, value3)
 
 ---
 
--- LIKE
+## LIKE
 
 ```sql
 SELECT column_name
@@ -100,7 +102,7 @@ WHERE column_name LIKE pattern
 
 ---
 
--- IS NULL
+## IS NULL
 
 ```sql
 SELECT column_name
@@ -110,7 +112,7 @@ WHERE column_name IS NULL
 
 ---
 
--- IS NOT NULL
+## IS NOT NULL
 
 ```sql
 SELECT column_name

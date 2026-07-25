@@ -1,3 +1,15 @@
+/*
+Think before writing SQL.
+
+Ask yourself:
+
+- Which tables are required?
+- What is the relationship between them?
+- Which keys should be used?
+- Which JOIN type is appropriate?
+*/
+
+
 -- Exercise 1
 -- Display player names together with their club names.
 

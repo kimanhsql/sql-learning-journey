@@ -1,13 +1,14 @@
 /*
-
-Try to identify the main query and the subquery before writing SQL.
+Think before writing SQL.
 
 Ask yourself:
-- What information do I need first?
-- Which query should be executed first?
-- Should the subquery return a single value or multiple values?
 
+- What is the main query?
+- What information should the subquery return?
+- Will the subquery return one value or multiple values?
+- Should I use =, IN, EXISTS, ANY, or ALL?
 */
+
 
 -- Exercise 1
 -- Display players whose jersey number is greater than the average jersey number.

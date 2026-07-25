@@ -1,4 +1,6 @@
--- Basic SYNTAX
+# Syntax
+
+## Basic SYNTAX
 
 ```sql
 SELECT column_name,
@@ -10,7 +12,7 @@ HAVING condition
 
 ---
 
--- HAVING with COUNT
+## HAVING with COUNT
 
 ```sql
 SELECT column_name,
@@ -22,7 +24,7 @@ HAVING COUNT(*) > value
 
 ---
 
--- HAVING with SUM
+## HAVING with SUM
 
 ```sql
 SELECT column_name,
@@ -34,7 +36,7 @@ HAVING SUM(column_name) > value
 
 ---
 
--- HAVING with AVG
+## HAVING with AVG
 
 ```sql
 SELECT column_name,
@@ -46,7 +48,7 @@ HAVING AVG(column_name) >= value
 
 ---
 
--- HAVING with MIN
+## HAVING with MIN
 
 ```sql
 SELECT column_name,
@@ -58,7 +60,7 @@ HAVING MIN(column_name) >= value
 
 ---
 
--- HAVING with MAX
+## HAVING with MAX
 
 ```sql
 SELECT column_name,
