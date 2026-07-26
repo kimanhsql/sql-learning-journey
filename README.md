@@ -29,12 +29,13 @@ The goal is not only to learn SQL syntax but also to understand database design,
 06_JOINS
 07_SUBQUERIES
 08_VIEWS
-09_FUNCTIONS
-10_STORED_PROCEDURES
-11_TRIGGERS
-12_TRANSACTIONS
-13_INDEXES
-14_DATABASE_PROJECTS
+09_BUILT_IN_FUNCTIONS
+10_USER_DEFINED_FUNCTIONS
+11_STORED_PROCEDURES
+12_TRIGGERS
+13_TRANSACTIONS
+14_INDEXES
+15_DATABASE_PROJECTS
 Resources
 ```
 
@@ -53,7 +54,8 @@ Resources
 | JOINs | ✅ |
 | Subqueries | ✅ |
 | Views | ✅ |
-| Functions | 🚧 |
+| Built-in Functions | ✅ |
+| User-Defined Functions | 🚧 |
 | Stored Procedures | ⬜ |
 | Triggers | ⬜ |
 | Transactions | ⬜ |
