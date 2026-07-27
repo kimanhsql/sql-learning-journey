@@ -55,8 +55,8 @@ Resources
 | Subqueries | ✅ |
 | Views | ✅ |
 | Built-in Functions | ✅ |
-| User-Defined Functions | 🚧 |
-| Stored Procedures | ⬜ |
+| User-Defined Functions | ✅ |
+| Stored Procedures | 🚧 |
 | Triggers | ⬜ |
 | Transactions | ⬜ |
 | Indexes | ⬜ |
