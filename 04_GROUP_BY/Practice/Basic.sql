@@ -3,10 +3,14 @@ Think before writing SQL.
 
 Ask yourself:
 
-- Which column should be grouped?
+- Which column should I group by?
 - Which aggregate function should I use?
-- Do I need HAVING?
-- Should the result be sorted?
+- Should every selected column be grouped or aggregated?
+- Do I need one grouping column or multiple grouping columns?
+- Does the output answer the question correctly?
+
+Group the data first.
+Then calculate the required result.
 */
 
 

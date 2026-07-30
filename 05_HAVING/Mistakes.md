@@ -107,3 +107,63 @@ GROUP BY C.CLUB_ID,
          CLUB_NAME
 HAVING COUNT(*) > 1
 ```
+
+---
+
+## Using a non-grouped column in the HAVING clause
+
+Only grouped columns or aggregate functions can be used in the HAVING clause.
+
+Wrong
+
+```sql
+SELECT COUNTRY_NAME,
+        COUNT(POSITION) AS PlayerPosition
+FROM COUNTRY CT, PLAYER PL
+WHERE CT.COUNTRY_ID = PL.COUNTRY_ID
+GROUP BY COUNTRY_NAME
+HAVING COUNT(POSITION) > 1
+        AND POSITION = 'Goalkeeper'
+```
+
+Correct
+
+```sql
+SELECT COUNTRY_NAME,
+        COUNT(*) AS PlayerPosition
+FROM COUNTRY CT, PLAYER PL
+WHERE CT.COUNTRY_ID = PL.COUNTRY_ID
+      AND POSITION = 'Goalkeeper'
+GROUP BY COUNTRY_NAME
+HAVING COUNT(*) > 1
+```
+
+---
+
+## Comparing a non-aggregate column after GROUP BY
+
+After GROUP BY, individual row values no longer exist. You must compare aggregate values instead.
+
+Wrong
+
+```sql
+SELECT POSITION,
+        AVG(JERSEY_NUMBER) AS AverageJerseyNum
+FROM PLAYER
+GROUP BY POSITION
+HAVING JERSEY_NUMBER >= AVG(JERSEY_NUMBER)
+```
+
+Correct
+
+```sql
+SELECT POSITION,
+       AVG(JERSEY_NUMBER) AS AverageJerseyNum
+FROM PLAYER
+GROUP BY POSITION
+HAVING AVG(JERSEY_NUMBER) >
+(
+    SELECT AVG(JERSEY_NUMBER)
+    FROM PLAYER
+)
+```

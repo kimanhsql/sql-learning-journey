@@ -3,17 +3,17 @@ Think before writing SQL.
 
 Ask yourself:
 
-- Which column should be grouped?
+- Which column should I group by?
 - Which aggregate function should I use?
-- Should I use WHERE or HAVING?
-- Do I need to filter rows or groups?
-- Does the condition contain an aggregate function?
+- Do I need HAVING?
+- Does the condition use an aggregate function?
+- Which groups should be displayed?
 
 Remember:
 
-- WHERE filters rows before grouping.
-- HAVING filters groups after GROUP BY.
-- HAVING is commonly used with COUNT(), SUM(), AVG(), MIN(), and MAX().
+- GROUP BY creates groups.
+- HAVING filters groups after grouping.
+- HAVING is used with aggregate functions such as COUNT(), SUM(), AVG(), MIN(), and MAX().
 */
 
 

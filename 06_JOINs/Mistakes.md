@@ -169,3 +169,102 @@ FROM CLUB C
 LEFT JOIN PLAYER PL
 ON C.CLUB_ID = PL.CLUB_ID
 ```
+
+---
+
+## Forgetting GROUP BY when using aggregate functions
+
+According to excercise 5, aggregate functions and normal columns cannot be selected together without GROUP BY.
+
+Wrong
+
+```sql
+SELECT CLUB_NAME,
+       COUNT(*) AS NumberOfCoaches
+FROM CLUB C
+INNER JOIN COACH_CLUB CC
+ON CC.CLUB_ID = C.CLUB_ID
+```
+
+Correct
+
+```sql
+SELECT CLUB_NAME,
+       COUNT(*) AS NumberOfCoaches
+FROM CLUB C
+INNER JOIN COACH_CLUB CC
+ON CC.CLUB_ID = C.CLUB_ID
+GROUP BY CLUB_NAME
+```
+
+---
+
+## Selecting a column from a table that was never joined
+
+Every selected column must come from a table included in the query (exercise 9).
+
+Wrong
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       COUNTRY_NAME,
+       COACH_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN COUNTRY CT
+ON CT.COUNTRY_ID = PL.COUNTRY_ID
+INNER JOIN COACH_CLUB CC
+ON CC.CLUB_ID = C.CLUB_ID
+```
+
+Correct
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       COUNTRY_NAME,
+       COACH_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN COUNTRY CT
+ON CT.COUNTRY_ID = PL.COUNTRY_ID
+INNER JOIN COACH_CLUB CC
+ON CC.CLUB_ID = C.CLUB_ID
+INNER JOIN COACH CH
+ON CH.COACH_ID = CC.COACH_ID
+```
+
+---
+
+## Assuming foreign keys without checking the database schema
+
+Before writing a JOIN, verify that the two tables are directly related (exercise 1).
+
+Wrong
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       STADIUM_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN STADIUM ST
+ON ST.STADIUM_ID = PL.STADIUM_ID
+```
+
+Correct
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       STADIUM_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN STADIUM ST
+ON ST.STADIUM_ID = C.STADIUM_ID
+```

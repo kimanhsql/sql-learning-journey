@@ -4,10 +4,12 @@ Think before writing SQL.
 Ask yourself:
 
 - Which table contains the required data?
-- Which column should be filtered?
+- Which column should I filter?
 - Which comparison operator should I use?
-- Do I need AND, OR, or NOT?
-- Should I use LIKE, BETWEEN, or IN?
+- Should I use =, >, <, >=, <=, or <>?
+- Does the condition match exactly what the question asks?
+
+Focus on identifying the correct condition before writing the WHERE clause.
 */
 
 

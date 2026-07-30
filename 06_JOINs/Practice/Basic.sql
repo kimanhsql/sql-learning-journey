@@ -5,8 +5,11 @@ Ask yourself:
 
 - Which tables are required?
 - What is the relationship between them?
-- Which keys should be used?
-- Which JOIN type is appropriate?
+- Which columns should be joined?
+- Which key connects the tables?
+- Which JOIN type should I use?
+
+Focus on understanding the relationship before writing the JOIN.
 */
 
 
