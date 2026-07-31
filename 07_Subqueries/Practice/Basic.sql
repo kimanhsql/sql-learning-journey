@@ -6,7 +6,14 @@ Ask yourself:
 - What is the main query?
 - What information should the subquery return?
 - Will the subquery return one value or multiple values?
-- Should I use =, IN, EXISTS, ANY, or ALL?
+- Which comparison operator should I use?
+- Does the subquery belong in WHERE?
+
+Remember:
+
+- The subquery runs first.
+- The main query uses the result returned by the subquery.
+- A single-row subquery usually works with =, >, <, >=, <=, or <>.
 */
 
 

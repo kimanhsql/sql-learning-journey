@@ -1,5 +1,6 @@
 # Mistakes
 
+-- Basic
 ## Forgetting the bridge table
 
 When two tables have a many-to-many relationship, they must be connected through a bridge table.
@@ -172,9 +173,42 @@ ON C.CLUB_ID = PL.CLUB_ID
 
 ---
 
+-- Advanced
+## Assuming foreign keys without checking the database schema
+
+Exercise 1 requires before writing a JOIN, verify that the two tables are directly related.
+
+Wrong
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       STADIUM_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN STADIUM ST
+ON ST.STADIUM_ID = PL.STADIUM_ID
+```
+
+Correct
+
+```sql
+SELECT PLAYER_NAME,
+       CLUB_NAME,
+       STADIUM_NAME
+FROM PLAYER PL
+INNER JOIN CLUB C
+ON C.CLUB_ID = PL.CLUB_ID
+INNER JOIN STADIUM ST
+ON ST.STADIUM_ID = C.STADIUM_ID
+```
+
+---
+
 ## Forgetting GROUP BY when using aggregate functions
 
-According to excercise 5, aggregate functions and normal columns cannot be selected together without GROUP BY.
+Excercise 5 requires aggregate functions and normal columns cannot be selected together without GROUP BY.
 
 Wrong
 
@@ -201,7 +235,7 @@ GROUP BY CLUB_NAME
 
 ## Selecting a column from a table that was never joined
 
-Every selected column must come from a table included in the query (exercise 9).
+Exercise 9 requires every selected column must come from a table included in the query.
 
 Wrong
 
@@ -239,32 +273,36 @@ ON CH.COACH_ID = CC.COACH_ID
 
 ---
 
-## Assuming foreign keys without checking the database schema
+-- Challenge
+## Grouping by too many columns
 
-Before writing a JOIN, verify that the two tables are directly related (exercise 1).
+Challenge 4 requires when counting related records, group by the main entity instead of every joined table.
 
 Wrong
 
 ```sql
-SELECT PLAYER_NAME,
-       CLUB_NAME,
-       STADIUM_NAME
-FROM PLAYER PL
+SELECT COACH_NAME,
+        CLUB_NAME
+FROM COACH CH
+INNER JOIN COACH_CLUB CC
+ON CC.COACH_ID = CH.COACH_ID
 INNER JOIN CLUB C
-ON C.CLUB_ID = PL.CLUB_ID
-INNER JOIN STADIUM ST
-ON ST.STADIUM_ID = PL.STADIUM_ID
+ON C.CLUB_ID = CC.CLUB_ID
+GROUP BY COACH_NAME,
+        CLUB_NAME
+HAVING COUNT(*) > 1
 ```
 
 Correct
 
 ```sql
-SELECT PLAYER_NAME,
-       CLUB_NAME,
-       STADIUM_NAME
-FROM PLAYER PL
-INNER JOIN CLUB C
-ON C.CLUB_ID = PL.CLUB_ID
-INNER JOIN STADIUM ST
-ON ST.STADIUM_ID = C.STADIUM_ID
+SELECT CH.COACH_ID,
+        COACH_NAME,
+        COUNT(*) AS NumberOfClubs
+FROM COACH CH
+INNER JOIN COACH_CLUB CC
+ON CC.COACH_ID = CH.COACH_ID
+GROUP BY CH.COACH_ID,
+        COACH_NAME
+HAVING COUNT(*) > 1
 ```
