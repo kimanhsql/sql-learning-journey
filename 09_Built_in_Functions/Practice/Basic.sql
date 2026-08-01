@@ -1,14 +1,19 @@
 /*
-Before writing SQL, think about the following questions:
+Think before writing SQL.
 
-- Which function do I need?
-- Does the function return a single value or a set of values?
-- Do I need to combine the function with GROUP BY?
-- Should I use a string, date, math, conversion, or aggregate function?
-- What column should be passed into the function?
+Ask yourself:
 
-Read the requirement carefully before writing SQL.
-Focus on choosing the right function first.
+- Which function solves the problem?
+- What data type am I working with?
+- Does the function require one or more arguments?
+- Will the function return a single value or one value for each row?
+- Should I use a built-in function or an aggregate function?
+
+Remember:
+
+- Scalar functions return one value for each row.
+- Aggregate functions return one value for a group or the entire table.
+- Choose the correct function before writing the query.
 */
 
 

@@ -1,14 +1,20 @@
 /*
-Before writing SQL, think about the following questions:
+Think before writing SQL.
+
+Ask yourself:
 
 - What should the function return?
 - Does the function need parameters?
 - Should I create a scalar function or a table-valued function?
-- Which table contains the required data?
-- Can the same logic be reused many times?
+- Which data type should the function return?
+- Can the function solve the problem by itself?
 
-Read the requirement carefully before writing SQL.
-Choose the correct function type first.
+Remember:
+
+- Scalar functions return a single value.
+- Table-valued functions return a result set.
+- Every function must specify RETURNS.
+- Scalar functions use RETURN to return one value.
 */
 
 
