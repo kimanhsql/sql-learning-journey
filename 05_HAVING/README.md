@@ -1,20 +1,20 @@
 # HAVING Clause
 
-## Overview
+## Definition
 
-The `HAVING` clause filters groups based on specified conditions.
+The `HAVING` clause is used to filter groups after the data has been grouped by the `GROUP BY` clause.
 
-Both `WHERE` and `HAVING` filter data, but only `HAVING` can filter aggregated results.
+It is commonly used with aggregate functions to return only the groups that satisfy specified conditions.
 
-Aggregate functions cannot be used in the `WHERE` clause because filtering occurs before grouping.
+---
 
-The `WHERE` clause filters individual rows before grouping.
+## Characteristics
 
-The `HAVING` clause is commonly used with aggregate functions such as COUNT(), SUM(), AVG(), MIN(), and MAX().
-
-The `HAVING` clause is optional. However, it can only be used after the GROUP BY clause when filtering grouped data.
-
-The `HAVING` clause comes after the GROUP BY clause because SQL must create the groups before filtering them.
+- Filters grouped data instead of individual rows.
+- Is commonly used with aggregate functions such as `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
+- Is evaluated after the `GROUP BY` clause.
+- Can be combined with `WHERE` and `ORDER BY`.
+- Cannot be used without `GROUP BY` when filtering grouped results.
 
 ---
 
@@ -30,6 +30,17 @@ The `HAVING` clause comes after the GROUP BY clause because SQL must create the 
 
 ---
 
+## When to Use
+
+Use the `HAVING` clause whenever you need to:
+
+- Filter grouped data.
+- Apply conditions to aggregate functions.
+- Display only groups that satisfy specific requirements.
+- Generate summarized reports with filtering conditions.
+
+---
+
 ## Learning Outcome
 
-After completing this module, I will understand how to group data using the `GROUP BY` clause and filter grouped results using the `HAVING` clause.
+After completing this module, I will be able to filter grouped data by using the `HAVING` clause together with aggregate functions and combine it effectively with `GROUP BY`, `WHERE`, and `ORDER BY`.

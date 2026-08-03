@@ -1,18 +1,21 @@
-# Stored Procedure
+# Stored Procedures
 
-## Overview
+## Definition
 
 A stored procedure is a precompiled SQL program that is stored in the database and can be executed repeatedly.
 
-A function returns a value, while a stored procedure is designed to perform one or more database operations, may return result sets, output parameters, or no value at all.
+It is designed to perform one or more database operations, such as retrieving, inserting, updating, or deleting data.
 
-A stored procedure can accept one or more parameters.
+---
 
-A stored procedure is mainly used to perform actions such as inserting, updating, deleting, or retrieving data.
+## Characteristics
 
-We use stored procedures to perform tasks that need to be executed repeatedly.
-
-Writing the same SQL code repeatedly increases the chance of making mistakes. Stored procedures reduce code duplication and improve maintainability.
+- Is stored in the database.
+- Can accept zero, one, or multiple parameters.
+- Can return result sets, output parameters, or no value.
+- Can execute multiple SQL statements in a single procedure.
+- Can contain control-of-flow statements such as `IF`, `WHILE`, and `TRY...CATCH`.
+- Can modify database data.
 
 ---
 
@@ -26,6 +29,38 @@ Writing the same SQL code repeatedly increases the chance of making mistakes. St
 
 ---
 
+## When to Use
+
+Use a stored procedure whenever you need to:
+
+- Reuse SQL logic.
+- Perform multiple database operations in a single execution.
+- Encapsulate business logic.
+- Reduce repetitive SQL code.
+- Improve application maintainability.
+
+---
+
+## Advantages
+
+- Improves code reusability.
+- Reduces repetitive SQL statements.
+- Simplifies application development.
+- Encapsulates business logic.
+- Can improve security by limiting direct access to tables.
+
+---
+
+## Disadvantages
+
+- May become difficult to maintain if it is too large.
+- Debugging can be more complicated than debugging individual SQL statements.
+- Vendor-specific syntax may reduce portability between database systems.
+
+---
+
 ## Learning Outcome
 
-After completing this module, I will understand the differences between functions and stored procedures. I will also be able to create and use stored procedures to simplify SQL code and improve code reusability.
+After completing this module, I will be able to create, execute, modify, and manage stored procedures in SQL Server.
+
+I will also understand when to use stored procedures instead of user-defined functions and apply them to simplify SQL code and improve code reusability.

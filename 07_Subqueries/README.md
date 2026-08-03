@@ -1,44 +1,47 @@
 # Subqueries
 
-## Overview
+## Definition
 
-A subquery is a SQL query embedded inside another SQL query.
+A subquery is a SQL query nested inside another SQL query.
 
-A subquery is enclosed in parentheses.
+It returns a result that is used by the outer query to retrieve, filter, or compare data.
 
-Unlike a normal query, a subquery returns a result that is processed by the outer query.
+---
 
-We use subqueries when the result of one query is needed by another query.
+## Characteristics
 
-A SQL statement can contain one or more subqueries. A subquery can also be nested inside another subquery.
-
-The subquery is evaluated first, and its result is then used by the outer query.
+- Is enclosed in parentheses.
+- Is evaluated before the outer query.
+- Can return a single value, multiple values, or an entire result set.
+- Can be nested inside another subquery.
+- Can be used with comparison, membership, and existence operators.
+- Can appear in `SELECT`, `FROM`, and `WHERE` clauses.
 
 ---
 
 ## Operators Used with Subqueries
 
-- Comparison Operators
+### Comparison Operators
 
-=
->
-<
->=
-<=
-<>
+- `=`
+- `>`
+- `<`
+- `>=`
+- `<=`
+- `<>`
 
-- Membership Operator
+### Membership Operator
 
-IN
+- `IN`
 
-- Existence Operator
+### Existence Operator
 
-EXISTS
+- `EXISTS`
 
-- Quantified Comparison Operators
+### Quantified Comparison Operators
 
-ANY
-ALL
+- `ANY`
+- `ALL`
 
 ---
 
@@ -46,17 +49,27 @@ ALL
 
 - Single-row Subqueries
 - Multiple-row Subqueries
-- Subqueries with IN
-- Subqueries with EXISTS
+- Subqueries with `IN`
+- Subqueries with `EXISTS`
 - Correlated Subqueries
-- Subqueries in SELECT
-- Subqueries in FROM
-- Subqueries in WHERE
+- Subqueries in `SELECT`
+- Subqueries in `FROM`
+- Subqueries in `WHERE`
+
+---
+
+## When to Use
+
+Use subqueries whenever you need to:
+
+- Use the result of one query inside another query.
+- Compare values returned from another query.
+- Filter data based on aggregated results.
+- Retrieve data that depends on another query.
+- Simplify complex SQL statements.
 
 ---
 
 ## Learning Outcome
 
-Subqueries are one of the most challenging SQL concepts for beginners.
-
-After completing this module, I will be able to use subqueries confidently and choose the most appropriate way to write SQL queries.
+After completing this module, I will be able to write and understand different types of subqueries, choose the appropriate operator, and apply subqueries effectively to solve complex SQL problems.
