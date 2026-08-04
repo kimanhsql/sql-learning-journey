@@ -7,9 +7,7 @@ AFTER | INSTEAD OF
 INSERT, UPDATE, DELETE
 AS
 BEGIN
-
     -- SQL Statements
-
 END
 
 GO
@@ -23,9 +21,7 @@ ON PLAYER
 AFTER INSERT
 AS
 BEGIN
-
     PRINT 'Data inserted successfully.'
-
 END
 
 GO
@@ -38,9 +34,7 @@ ON PLAYER
 AFTER UPDATE
 AS
 BEGIN
-
     PRINT 'Data updated successfully.'
-
 END
 
 GO
@@ -53,9 +47,7 @@ ON PLAYER
 AFTER DELETE
 AS
 BEGIN
-
     PRINT 'Data deleted successfully.'
-
 END
 
 GO
@@ -68,9 +60,7 @@ ON PLAYER
 INSTEAD OF DELETE
 AS
 BEGIN
-
     PRINT 'Delete operation is blocked.'
-
 END
 
 GO
@@ -83,9 +73,7 @@ ON PLAYER
 AFTER INSERT
 AS
 BEGIN
-
     PRINT 'Player inserted.'
-
 END
 
 GO

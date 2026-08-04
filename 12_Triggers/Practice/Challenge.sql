@@ -17,89 +17,220 @@ Triggers should protect data consistency while keeping the database easy to main
 -- Challenge 1
 -- Prevent inserting players whose birth date is greater than today.
 
+CREATE TRIGGER trg_prevent_future_birthdate
+ON PLAYER
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM inserted WHERE BIRTH_DATE > CAST(GETDATE() AS DATE))
+    BEGIN
+        RAISERROR('Birth date cannot be in the future.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 2
 -- Prevent deleting a club that still has players.
 
+CREATE TRIGGER trg_prevent_delete_club_with_players
+ON CLUB
+FOR DELETE
+AS
+BEGIN
+    IF EXISTS
+    (
+        SELECT 1
+        FROM deleted d
+        INNER JOIN PLAYER PL
+        ON PL.CLUB_ID = d.CLUB_ID
+    )
+    BEGIN
+        RAISERROR('Cannot delete clubs that still have players.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 3
 -- Prevent assigning duplicate jersey numbers within the same club.
 
+CREATE TRIGGER trg_prevent_duplicate_jersey_numbers
+ON PLAYER
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS
+    (
+        SELECT 1
+        FROM inserted i
+        INNER JOIN PLAYER PL
+        ON PL.CLUB_ID = i.CLUB_ID
+        AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
+        AND PL.PLAYER_ID <> i.PLAYER_ID
+    )
+    BEGIN
+        RAISERROR('Jersey number already assigned within the same club.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 4
 -- Automatically display the inserted rows after every INSERT.
 
+CREATE TRIGGER trg_display_inserted_rows
+ON PLAYER
+AFTER INSERT
+AS
+BEGIN
+    SELECT *
+    FROM inserted
+END
 
-
-
-
+GO
 
 
 -- Challenge 5
 -- Automatically display the deleted rows after every DELETE.
 
+CREATE TRIGGER trg_display_deleted_rows
+ON PLAYER
+AFTER DELETE
+AS
+BEGIN
+    SELECT *
+    FROM deleted
+END
 
-
-
-
+GO
 
 
 -- Challenge 6
 -- Prevent updating a player's country after the player is created.
 
+CREATE TRIGGER trg_prevent_update_country
+ON PLAYER
+FOR UPDATE
+AS
+BEGIN
+    IF UPDATE(COUNTRY_ID)
+    BEGIN
+        IF EXISTS
+        (
+            SELECT 1
+            FROM inserted i
+            INNER JOIN deleted d
+            ON d.PLAYER_ID = i.PLAYER_ID
+            WHERE
+                (d.COUNTRY_ID <> i.COUNTRY_ID)
+                OR (d.COUNTRY_ID IS NULL AND i.COUNTRY_ID IS NOT NULL)
+                OR (d.COUNTRY_ID IS NOT NULL AND i.COUNTRY_ID IS NULL)
+        )
+        BEGIN
+            RAISERROR('Cannot update player country after creation.', 16, 1)
+            ROLLBACK TRANSACTION
+        END
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 7
 -- Prevent changing a player's primary key.
 
+CREATE TRIGGER trg_prevent_update_player_id
+ON PLAYER
+FOR UPDATE
+AS
+BEGIN
+    IF UPDATE(PLAYER_ID)
+    BEGIN
+        RAISERROR('Cannot change PLAYER_ID after creation.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 8
--- Prevent updating the club if the player does not exist.
+-- Prevent changing the club if the player does not have a valid club.
 
+CREATE TRIGGER trg_prevent_invalid_club_update
+ON PLAYER
+FOR UPDATE
+AS
+BEGIN
+    IF UPDATE(CLUB_ID)
+    BEGIN
+        IF EXISTS
+        (
+            SELECT 1
+            FROM inserted i
+            LEFT JOIN CLUB C
+            ON C.CLUB_ID = i.CLUB_ID
+            WHERE C.CLUB_ID IS NULL
+        )
+        BEGIN
+            RAISERROR('Cannot assign a player to a non-existent club.', 16, 1)
+            ROLLBACK TRANSACTION
+        END
+    END
+END
 
-
-
-
+GO
 
 
 -- Challenge 9
 -- Prevent deleting players whose position is Captain.
 
+CREATE TRIGGER trg_prevent_delete_captain
+ON PLAYER
+FOR DELETE
+AS
+BEGIN
+    IF EXISTS
+    (
+        SELECT 1
+        FROM deleted d
+        WHERE d.POSITION = 'Captain'
+    )
+    BEGIN
+        RAISERROR('Cannot delete players with the position of Captain.', 16, 1)
+        ROLLBACK TRANSACTION
+    END
+END
 
 
-
-
+GO
 
 
 -- Challenge 10
 -- Display both the old and new values whenever a player's jersey number changes.
 
+CREATE TRIGGER trg_display_jersey_number_change
+ON PLAYER
+AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(JERSEY_NUMBER)
+    BEGIN
+        SELECT d.PLAYER_ID,
+               d.JERSEY_NUMBER AS Old_Jersey_Number,
+               i.JERSEY_NUMBER AS New_Jersey_Number
+        FROM deleted d
+        INNER JOIN inserted i
+            ON d.PLAYER_ID = i.PLAYER_ID
+        WHERE d.JERSEY_NUMBER <> i.JERSEY_NUMBER
+    END
+END
 
-
-
-
-
+GO
