@@ -57,8 +57,8 @@ Resources
 | Built-in Functions | ✅ |
 | User-Defined Functions | ✅ |
 | Stored Procedures | ✅ |
-| Triggers | 🚧 |
-| Transactions | ⬜ |
+| Triggers | ✅ |
+| Transactions | 🚧 |
 | Indexes | ⬜ |
 | Database Projects | ⬜ |
 
