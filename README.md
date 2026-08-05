@@ -58,8 +58,8 @@ Resources
 | User-Defined Functions | ✅ |
 | Stored Procedures | ✅ |
 | Triggers | ✅ |
-| Transactions | 🚧 |
-| Indexes | ⬜ |
+| Transactions | ✅ |
+| Indexes | 🚧 |
 | Database Projects | ⬜ |
 
 (✅: Completed; 🚧: In Progress; ⬜: Not Started)

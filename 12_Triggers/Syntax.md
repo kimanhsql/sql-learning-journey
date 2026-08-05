@@ -1,6 +1,6 @@
 # Syntax
 
-/*
+```sql
 CREATE TRIGGER trigger_name
 ON table_name
 AFTER | INSTEAD OF
@@ -11,11 +11,13 @@ BEGIN
 END
 
 GO
-*/
+```
 
+---
 
--- AFTER INSERT
+## AFTER INSERT
 
+```sql
 CREATE TRIGGER trg_AfterInsert
 ON PLAYER
 AFTER INSERT
@@ -25,10 +27,13 @@ BEGIN
 END
 
 GO
+```
 
+---
 
--- AFTER UPDATE
+## AFTER UPDATE
 
+```sql
 CREATE TRIGGER trg_AfterUpdate
 ON PLAYER
 AFTER UPDATE
@@ -38,10 +43,13 @@ BEGIN
 END
 
 GO
+```
 
+---
 
--- AFTER DELETE
+## AFTER DELETE
 
+```sql
 CREATE TRIGGER trg_AfterDelete
 ON PLAYER
 AFTER DELETE
@@ -51,10 +59,13 @@ BEGIN
 END
 
 GO
+```
 
+---
 
--- INSTEAD OF Trigger
+## INSTEAD OF Trigger
 
+```sql
 CREATE TRIGGER trg_InsteadOfDelete
 ON PLAYER
 INSTEAD OF DELETE
@@ -64,10 +75,13 @@ BEGIN
 END
 
 GO
+```
 
+---
 
--- ALTER Trigger
+## ALTER Trigger
 
+```sql
 ALTER TRIGGER trg_AfterInsert
 ON PLAYER
 AFTER INSERT
@@ -77,10 +91,14 @@ BEGIN
 END
 
 GO
+```
 
+---
 
--- DROP Trigger
+## DROP Trigger
 
+```sql
 DROP TRIGGER trg_AfterInsert
 
 GO
+```
