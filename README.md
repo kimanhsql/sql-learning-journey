@@ -8,34 +8,36 @@ The goal is not only to learn SQL syntax but also to understand database design,
 
 ## Learning Objectives
 
-- Build a strong SQL foundation
-- Master SQL Server and T-SQL
-- Understand relational database design
-- Write clean and efficient SQL queries
-- Develop practical database projects
-- Prepare for SQL Developer and Database Administrator (DBA) roles
+* Build a strong SQL foundation
+* Master SQL Server and T-SQL
+* Understand relational database design
+* Write clean and efficient SQL queries
+* Develop practical database projects
+* Prepare for SQL Developer and Database Administrator (DBA) roles
 
 ---
 
 ## Repository Structure
 
-```
+```text
 00_FUNDAMENTALS
 01_SELECT
 02_WHERE
 03_ORDER_BY
-04_GROUP_BY
-05_HAVING
-06_JOINS
-07_SUBQUERIES
-08_VIEWS
-09_BUILT_IN_FUNCTIONS
-10_USER_DEFINED_FUNCTIONS
-11_STORED_PROCEDURES
-12_TRIGGERS
-13_TRANSACTIONS
-14_INDEXES
-15_DATABASE_PROJECTS
+04_AGGREGATE_FUNCTIONS
+05_GROUP_BY
+06_HAVING
+07_JOINS
+08_SUBQUERIES
+09_VIEWS
+10_BUILT_IN_FUNCTIONS
+11_USER_DEFINED_FUNCTIONS
+12_STORED_PROCEDURES
+13_TRIGGERS
+14_TRANSACTIONS
+15_UNION
+16_INDEXES
+17_DATABASE_PROJECTS
 Resources
 ```
 
@@ -43,26 +45,30 @@ Resources
 
 ## Learning Progress
 
-| Module | Status |
-|---------|--------|
-| Fundamentals | ✅ |
-| SELECT | ✅ |
-| WHERE | ✅ |
-| ORDER BY | ✅ |
-| GROUP BY | ✅ |
-| HAVING | ✅ |
-| JOINs | ✅ |
-| Subqueries | ✅ |
-| Views | ✅ |
-| Built-in Functions | ✅ |
-| User-Defined Functions | ✅ |
-| Stored Procedures | ✅ |
-| Triggers | ✅ |
-| Transactions | ✅ |
-| Indexes | ✅ |
-| Database Projects | 🚧 |
+| Module                 | Status |
+| ---------------------- | ------ |
+| Fundamentals           | ✅      |
+| SELECT                 | ✅      |
+| WHERE                  | ✅      |
+| ORDER BY               | ✅      |
+| Aggregate Functions    | ✅      |
+| GROUP BY               | ✅      |
+| HAVING                 | ✅      |
+| JOINs                  | ✅      |
+| Subqueries             | ✅      |
+| Views                  | ✅      |
+| Built-in Functions     | ✅      |
+| User-Defined Functions | ✅      |
+| Stored Procedures      | ✅      |
+| Triggers               | ✅      |
+| Transactions           | ✅      |
+| UNION                  | ✅      |
+| Indexes                | ✅      |
+| Database Projects      | 🚧      |
 
-(✅: Completed; 🚧: In Progress; ⬜: Not Started)
+> ✅: Completed
+> 🚧: In Progress
+> ⬜: Not Started
 
 ---
 

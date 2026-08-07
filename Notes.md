@@ -1,82 +1,115 @@
-# SQL Foundations - Notes
+# SQL Learning Notes
 
-## 1. SELECT
+This file summarizes the key concepts, problem-solving mindset, and important things to remember throughout the SQL learning journey.
 
-Before writing a query, identify the data that needs to be retrieved.
-
-* Select only the columns that are needed.
-* Use the correct table and column names.
-* Use aliases when they make the query easier to read.
-* Avoid `SELECT *` when only specific columns are required.
+The purpose is not to memorize syntax, but to understand **what the query is trying to achieve, how SQL processes the data, and which SQL feature is appropriate for the problem**.
 
 ---
 
-## 2. WHERE
+## 00. Fundamentals
 
-The `WHERE` clause filters individual rows before further processing.
+### Key Things to Remember
 
-* Choose the correct comparison operator.
-* Common operators include `=`, `<>`, `>`, `<`, `>=`, `<=`, `IN`, `BETWEEN`, and `LIKE`.
-* Use `IS NULL` or `IS NOT NULL` when working with `NULL`.
-* Do not use `= NULL`.
+* SQL works with relational data stored in tables.
+* Understand the relationship between:
+
+  * Database
+  * Table
+  * Row
+  * Column
+  * Primary Key
+  * Foreign Key
+* A primary key identifies a row uniquely.
+* A foreign key represents a relationship between tables.
+* Always understand the table structure before writing queries.
+
+### Problem-Solving Mindset
+
+Before writing SQL:
+
+* What table contains the information I need?
+* Which columns do I need?
+* Is there a relationship with another table?
+* What identifies each row?
+* Could the result contain duplicate rows?
 
 ---
 
-## 3. ORDER BY
+## 01. SELECT
 
-Before using `ORDER BY`, identify how the result should be sorted.
+### Key Things to Remember
 
-* `ASC` sorts values in ascending order.
-* `DESC` sorts values in descending order.
+* `SELECT` determines which columns or expressions appear in the result.
+* `SELECT *` returns all columns, but selecting only the required columns is usually clearer.
+* Column aliases can make results easier to understand.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* What information does the question require?
+* Which columns are actually needed?
+* Do I need to calculate or rename a column?
+
+---
+
+## 02. WHERE
+
+### Key Things to Remember
+
+* `WHERE` filters rows before the result is returned.
+* Common operators:
+
+  * `=`
+  * `<>`
+  * `>`
+  * `<`
+  * `>=`
+  * `<=`
+  * `AND`
+  * `OR`
+  * `NOT`
+  * `IN`
+  * `BETWEEN`
+  * `LIKE`
+  * `IS NULL`
+  * `IS NOT NULL`
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Which rows should remain?
+* What condition defines the required rows?
+* Am I filtering rows or trying to filter an aggregate result?
+
+---
+
+## 03. ORDER BY
+
+### Key Things to Remember
+
+* `ORDER BY` controls the order of the final result.
+* `ASC` sorts ascending.
+* `DESC` sorts descending.
 * Multiple columns can be used for sorting.
-* Consider the order of the columns when multiple sorting conditions are used.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Does the question require sorting?
+* Which column should determine the order?
+* Should the order be ascending or descending?
+* Is a second sorting condition necessary?
 
 ---
 
-## 4. Aggregate Functions
+## 04. Aggregate Functions
 
-Aggregate functions summarize multiple rows into a result.
+### Key Things to Remember
 
-* `COUNT()` → counts rows or values.
-* `SUM()` → calculates a total.
-* `AVG()` → calculates an average.
-* `MIN()` → returns the minimum value.
-* `MAX()` → returns the maximum value.
-* Understand the difference between `COUNT(*)` and `COUNT(column)`.
-* `COUNT(column)` does not count `NULL` values.
-
-Before using an aggregate function, determine what needs to be summarized.
-
----
-
-## 5. GROUP BY
-
-`GROUP BY` changes the way data is analyzed by creating groups of rows with the same values.
-
-Before writing `GROUP BY`, ask:
-
-* What should each group represent?
-* Which columns define the groups?
-* Which aggregate function should be used?
-
-Remember:
-
-* Every selected column that is not inside an aggregate function must appear in the `GROUP BY` clause.
-* Multiple columns can be used to create groups.
-* `GROUP BY` is commonly used with aggregate functions.
-
----
-
-## 6. HAVING
-
-`HAVING` filters groups after grouping.
-
-The main distinction is:
-
-* `WHERE` filters individual rows before grouping.
-* `HAVING` filters groups after grouping.
-
-Use `HAVING` when the condition depends on an aggregate result such as:
+Main aggregate functions:
 
 * `COUNT()`
 * `SUM()`
@@ -84,417 +117,471 @@ Use `HAVING` when the condition depends on an aggregate result such as:
 * `MIN()`
 * `MAX()`
 
-Before writing `HAVING`, ask whether the condition applies to individual rows or to an entire group.
+Aggregate functions reduce multiple rows into calculated results.
 
----
+Important distinction:
 
-## 7. JOINs
+* Without `GROUP BY`: calculate one result for the entire result set.
+* With `GROUP BY`: calculate one result for each group.
 
-Before writing a `JOIN`, understand the relationship between the tables.
+`COUNT(*)` counts rows.
 
-Ask:
+`COUNT(column)` counts non-NULL values in that column.
 
-* Which tables need to be combined?
-* Which columns connect the tables?
-* Where are the primary keys and foreign keys?
-* Which table's rows must always be preserved?
-* Should unmatched rows be included?
+`SUM()`, `AVG()`, `MIN()`, and `MAX()` generally ignore NULL values.
 
-### JOIN Selection
-
-* `INNER JOIN` → returns matching rows from both tables.
-* `LEFT JOIN` → keeps all rows from the left table.
-* `RIGHT JOIN` → keeps all rows from the right table.
-* `FULL OUTER JOIN` → keeps all rows from both tables.
-* `CROSS JOIN` → produces every possible combination of rows.
-* `SELF JOIN` → joins a table with itself.
-
-Be careful when using `LEFT JOIN` or other outer joins with `WHERE` conditions. A condition in `WHERE` can remove rows that would otherwise be preserved by the outer join.
-
----
-
-## 8. Subqueries
-
-Before writing a subquery, determine what result the inner query needs to provide.
+### Problem-Solving Mindset
 
 Ask:
 
-* Should the subquery return one value?
-* Can it return multiple values?
-* Do I only need to check whether matching rows exist?
-* Does the subquery depend on the current row of the outer query?
-
-### Operator Selection
-
-* Comparison operators such as `=`, `>`, `<`, `>=`, `<=`, and `<>` can be used when comparing with a single result.
-* `IN` can be used when the subquery returns multiple values.
-* `EXISTS` can be used when only row existence matters.
-* `ANY` and `ALL` can be used for comparisons against multiple values.
-
-Pay attention to the difference between:
-
-* Single-row subqueries
-* Multiple-row subqueries
-* Correlated subqueries
-
-A correlated subquery depends on values from the outer query, so its execution behavior should be considered carefully.
+* What value needs to be calculated?
+* Am I counting, totaling, averaging, finding a minimum, or finding a maximum?
+* Do I need one overall result?
+* Do I need one result for each group?
+* Can NULL values affect the result?
 
 ---
 
-## 9. Views
+## 05. GROUP BY
 
-Before creating a view, ask:
+### Key Things to Remember
 
-* Is this query used frequently?
-* Would a virtual table make data retrieval easier?
-* Should only specific columns or data be exposed?
-* Would the view simplify a complex query?
+* `GROUP BY` divides rows into groups.
+* Aggregate functions can then calculate values for each group.
+* Every selected non-aggregate column generally needs to be included in `GROUP BY`.
 
-Remember:
+Example concept:
 
-* A view is a virtual table created from a SQL query.
-* A view does not store a separate copy of the data in the same way as a normal table.
-* A view retrieves data from its underlying tables.
-* Changes to the underlying data are reflected when the view is queried.
+```sql
+SELECT CLUB_ID,
+       COUNT(*)
+FROM PLAYER
+GROUP BY CLUB_ID
+```
 
-Views can be useful for simplifying queries and controlling which data users can access.
+This produces one result for each club.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* What defines a group?
+* Do I need one result per club, position, country, or another category?
+* Which column should I group by?
+* Which aggregate function should be applied to each group?
+
+---
+
+## 06. HAVING
+
+### Key Things to Remember
+
+* `WHERE` filters rows.
+* `HAVING` filters groups after `GROUP BY`.
+
+Use `HAVING` when the condition depends on an aggregate result.
+
+Example:
+
+```sql
+GROUP BY CLUB_ID
+HAVING COUNT(*) > 2
+```
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Am I filtering individual rows?
+* Or am I filtering groups based on an aggregate value?
+
+If the condition involves `COUNT()`, `SUM()`, `AVG()`, `MIN()`, or `MAX()` after grouping, think about `HAVING`.
+
+---
+
+## 07. JOINs
+
+### Key Things to Remember
+
+JOINs combine related rows from different tables.
+
+Important types:
+
+* `INNER JOIN`
+* `LEFT JOIN`
+* `RIGHT JOIN`
+* `FULL OUTER JOIN`
+
+The join condition normally connects related columns, often a primary key and foreign key.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Which tables contain the information I need?
+* How are those tables related?
+* Which key connects them?
+* Do I want only matching rows?
+* Should rows from the left table remain even without a match?
+
+Do not use `JOIN` simply because multiple tables are involved. Understand the relationship first.
+
+---
+
+## 08. Subqueries
+
+### Key Things to Remember
+
+A subquery is a query inside another query.
+
+It can be used to:
+
+* Compare a value with another query result.
+* Filter rows.
+* Provide a temporary result for another query.
+* Check whether related data exists.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Do I need the result of one query to answer another query?
+* Should the inner query return:
+
+  * One value?
+  * Multiple values?
+  * A set of rows?
+* Would a `JOIN` be clearer for this problem?
+
+---
+
+## 09. Views
+
+### Key Things to Remember
+
+* A view is a saved query.
+* A view does not normally store a separate copy of the underlying data.
+* Views can simplify frequently used queries.
+* Views can hide unnecessary complexity from users.
+
+### Problem-Solving Mindset
+
+Ask:
+
+* Is this query used repeatedly?
+* Would a saved query make the database easier to use?
+* Should users see the underlying tables directly?
 
 ---
 
 ## 10. Built-in Functions
 
-Choose a function based on the type of operation that needs to be performed.
+### Key Things to Remember
 
-### Function Categories
+Built-in functions provide predefined operations for common tasks.
 
-* Aggregate functions → summarize data.
-* String functions → manipulate text.
-* Date and time functions → work with dates and times.
-* Mathematical functions → perform mathematical operations.
-* Conversion functions → convert data between data types.
+They can work with:
 
-Before using a function, consider:
+* Strings
+* Dates
+* Numbers
+* NULL values
+* Other SQL Server data types
 
-* What is the input data type?
-* What does the function return?
-* Can the input contain `NULL`?
-* Is the function appropriate for the required operation?
+### Problem-Solving Mindset
+
+Ask:
+
+* What type of data am I working with?
+* Is there already a SQL Server function that solves this problem?
+* Am I transforming, calculating, extracting, or formatting a value?
+
+Do not memorize functions without understanding the problem they solve.
 
 ---
 
 ## 11. User-Defined Functions
 
-Before creating a user-defined function, ask:
+### Key Things to Remember
 
-* Is this logic reused multiple times?
-* Should the function return a single value or a table?
-* Does the function need parameters?
+A user-defined function allows reusable custom logic.
 
-### Function Selection
+Important concepts:
 
-* Scalar function → returns a single value.
-* Table-valued function → returns a table.
+* Input parameters
+* Return values
+* Scalar functions
+* Table-valued functions
 
-UDFs are useful when the same logic needs to be reused.
+A function should generally represent reusable logic that produces a value or result.
 
-However, do not create a function simply to make a query more complicated. The function should provide a clear benefit such as reusable logic or better organization.
+### Problem-Solving Mindset
+
+Ask:
+
+* Is this logic reusable?
+* Should the logic return one value or a table?
+* What parameters does the function need?
+* Can the function make the query easier to understand?
 
 ---
 
 ## 12. Stored Procedures
 
-Before creating a stored procedure, ask:
+### Key Things to Remember
 
-* Is this operation performed repeatedly?
-* Does it require parameters?
-* Does it retrieve data, modify data, or perform multiple operations?
-* Does it need a transaction?
+Stored procedures contain reusable SQL statements and can accept parameters.
 
-Remember:
+They are useful for:
 
-* A function is designed to return a value.
-* A stored procedure is designed to perform one or more operations.
-* A stored procedure can return result sets, output parameters, or no value.
-* Stored procedures can contain operations such as `INSERT`, `UPDATE`, `DELETE`, and `SELECT`.
+* Performing database operations
+* Encapsulating business logic
+* Reusing complex operations
+* Controlling how database operations are executed
 
-Choose a stored procedure when the main purpose is to perform a reusable database operation.
+### Problem-Solving Mindset
+
+Ask:
+
+* Is this a sequence of database operations that should be executed together?
+* Does it need input parameters?
+* Should the procedure modify data?
+* Should it return a result set?
 
 ---
 
 ## 13. Triggers
 
-Before creating a trigger, ask:
+### Key Things to Remember
 
-* Which event should activate the trigger?
-* Is the event `INSERT`, `UPDATE`, or `DELETE`?
-* Should the operation be allowed or prevented?
-* Should the trigger use `inserted`, `deleted`, or both?
-* Can multiple rows be affected by the statement?
-* Will the trigger negatively affect database performance?
+A trigger automatically executes when a specified database event occurs.
+
+Common events:
+
+* `INSERT`
+* `UPDATE`
+* `DELETE`
+
+Important virtual tables:
+
+* `inserted`
+* `deleted`
 
 Remember:
 
-* Triggers execute automatically.
-* Triggers cannot be executed manually using `EXEC`.
-* `inserted` contains the new rows.
-* `deleted` contains the old or deleted rows.
-* `AFTER` triggers execute after the triggering operation succeeds.
-* `INSTEAD OF` triggers replace the original operation.
+* `inserted` represents new values.
+* `deleted` represents old values or deleted rows.
+* A trigger must handle multiple rows.
+* A trigger can prevent an operation by rolling back the transaction.
 
-### Important
+### Problem-Solving Mindset
 
-Never assume that a trigger affects only one row.
+Before writing a trigger:
 
-A single `INSERT`, `UPDATE`, or `DELETE` statement can affect multiple rows, so trigger logic should be written to handle sets of rows.
+* Which event should activate it?
+* Should I use `inserted`, `deleted`, or both?
+* Can multiple rows be affected?
+* Should the operation continue or be blocked?
+* Could the trigger negatively affect database performance?
+
+Triggers should protect data consistency without making database behavior unnecessarily difficult to maintain.
 
 ---
 
 ## 14. Transactions
 
-Before using a transaction, ask:
+### Key Things to Remember
+
+A transaction groups one or more database operations into a single unit of work.
+
+Main commands:
+
+* `BEGIN TRANSACTION`
+* `COMMIT TRANSACTION`
+* `ROLLBACK TRANSACTION`
+* `SAVE TRANSACTION`
+
+A transaction follows the ACID principles:
+
+* Atomicity
+* Consistency
+* Isolation
+* Durability
+
+A savepoint allows a partial rollback without ending the entire transaction.
+
+Advanced transaction concepts:
+
+* `TRY...CATCH`
+* `SAVE TRANSACTION`
+* `@@TRANCOUNT`
+* `XACT_STATE()`
+
+`@@TRANCOUNT` shows the number of active transactions.
+
+`XACT_STATE()` indicates whether the current transaction is:
+
+* Committable
+* Uncommittable
+* Not active
+
+### Problem-Solving Mindset
+
+Ask:
 
 * Which operations should belong to the same unit of work?
-* Should all operations succeed together?
-* What should happen if one operation fails?
-* Should the transaction be committed or rolled back?
+* Should all changes succeed together?
+* Should I commit or roll back?
 * Do I need a savepoint?
-* Do I need `TRY...CATCH`?
+* Where should the savepoint be created?
+* What should happen if an error occurs?
+* Should the entire transaction or only part of it be rolled back?
 
-### Basic Transaction
-
-```sql
-BEGIN TRANSACTION
-
--- operations
-
-COMMIT TRANSACTION
-```
-
-To undo the entire transaction:
-
-```sql
-ROLLBACK TRANSACTION
-```
-
-### Savepoints
-
-A savepoint allows part of an active transaction to be rolled back.
-
-```sql
-SAVE TRANSACTION SavepointName
-```
-
-Then:
-
-```sql
-ROLLBACK TRANSACTION SavepointName
-```
-
-Remember:
-
-* A savepoint does not end the transaction.
-* Rolling back to a savepoint removes changes made after that savepoint.
-* Changes made before the savepoint remain in the transaction.
-* The transaction must still be committed or fully rolled back afterward.
-* A transaction can contain multiple savepoints.
-
-### TRY...CATCH
-
-Use `TRY...CATCH` when controlled error handling is required.
-
-```sql
-BEGIN TRY
-    BEGIN TRANSACTION
-
-    -- operations
-
-    COMMIT TRANSACTION
-END TRY
-BEGIN CATCH
-    ROLLBACK TRANSACTION
-END CATCH
-```
+A savepoint does not end the transaction.
 
 ---
 
-## 15. Indexes
+## 15. UNION
 
-Before creating an index, do not start by asking:
+### Key Things to Remember
 
-> Which column should I index?
+`UNION` combines the results of multiple `SELECT` statements vertically.
 
-Instead, ask:
+`UNION` removes duplicate rows.
 
-> Which query needs to be improved?
+`UNION ALL` preserves duplicate rows.
 
-Consider:
+The combined `SELECT` statements must have:
 
-* Which columns are frequently used in `WHERE` conditions?
-* Which columns are frequently used in `JOIN` conditions?
-* Which columns are frequently used for sorting?
-* Which columns are commonly used together?
-* Is an existing index already sufficient?
-* Could the new index be unnecessary or redundant?
-* Will the index improve the target query enough to justify its maintenance cost?
+* The same number of columns.
+* Compatible data types in corresponding positions.
 
-### Clustered Index
+The final `ORDER BY` normally applies to the combined result.
 
-A clustered index determines the physical order of the data rows according to the index key.
+The output column names are normally determined by the first `SELECT`.
 
-Remember:
+### UNION vs JOIN
 
-* A table can have only one clustered index.
-* The clustered index should be chosen carefully because the table's rows are organized according to it.
+Do not confuse `UNION` with `JOIN`.
 
-### Nonclustered Index
+* `UNION` stacks compatible result sets vertically.
+* `JOIN` combines related rows horizontally.
 
-A nonclustered index is a separate index structure that helps SQL Server locate rows efficiently.
+### Problem-Solving Mindset
 
-Remember:
+Ask:
 
-* A table can have multiple nonclustered indexes.
-* Nonclustered indexes do not determine the physical order of the table's data rows.
-* Each additional index requires storage and maintenance.
+* Am I combining result sets or joining related rows?
+* Should duplicate rows be removed?
+* Should duplicates remain?
+* Do both `SELECT` statements have compatible structures?
+* Should filtering happen before the `UNION`?
+* Where should the final `ORDER BY` be applied?
 
-### Composite Index
+---
 
-A composite index uses multiple columns as index keys.
+## 16. Indexes
 
-```sql
-CREATE INDEX IndexName
-ON TableName (Column1, Column2)
-```
+### Key Things to Remember
 
-The order of the key columns matters.
+An index is a database structure designed to help SQL Server find data more efficiently.
 
-For example:
+Think of an index as an organized lookup structure rather than another copy of the table.
 
-```text
-(ColumnA, ColumnB)
-```
+Important concepts:
 
-is not equivalent to:
+* Clustered index
+* Nonclustered index
+* Composite index
+* Included columns
+* Index maintenance
+* Index design
 
-```text
-(ColumnB, ColumnA)
-```
+A table can have only one clustered index because the clustered index determines the physical order of the table's data.
 
-Choose the column order based on how the target queries filter, join, or sort the data.
+A table can have multiple nonclustered indexes.
 
-### INCLUDE Columns
+Included columns are stored with a nonclustered index to help cover queries without making those columns part of the index key.
 
-`INCLUDE` adds non-key columns to a nonclustered index.
+Indexes can improve read performance, but they are not free.
 
-```sql
-CREATE INDEX IX_PLAYER_CLUB
-ON PLAYER (CLUB_ID)
-INCLUDE (PLAYER_NAME, POSITION, JERSEY_NUMBER)
-```
+They can:
 
-In this example:
+* Require storage.
+* Increase the cost of `INSERT`, `UPDATE`, and `DELETE`.
+* Require maintenance.
+* Become unnecessary or redundant if poorly designed.
 
-* `CLUB_ID` is the index key.
-* `PLAYER_NAME`, `POSITION`, and `JERSEY_NUMBER` are included columns.
-* The included columns are not additional search keys.
-* `INCLUDE` can allow the index to provide additional requested columns without requiring another lookup to the base table in some queries.
+### Problem-Solving Mindset
 
-Do not think of `INCLUDE` as a backup search area that SQL Server checks after failing to find the index key. That is not how it works.
+Before creating an index:
+
+* Which columns are frequently searched or filtered?
+* Which columns are used together?
+* Which column should be the first key in a composite index?
+* Should the index be clustered or nonclustered?
+* Which columns should be index keys?
+* Which columns should be included columns?
+* Could an existing index already solve the problem?
+* Will the index improve performance enough to justify its maintenance cost?
+
+Do not create indexes simply because an index exists as a feature.
+
+The goal is to design indexes based on actual query patterns and database workload.
 
 ---
 
 # General SQL Problem-Solving Process
 
-When solving a new SQL problem:
+Before writing a query, try to answer these questions:
 
-### 1. Understand the requirement
-
-Identify exactly what the query or operation needs to accomplish.
-
-### 2. Identify the tables
-
-Determine which table or tables contain the required data.
-
-### 3. Identify the columns
-
-Determine which columns need to be selected, filtered, grouped, updated, or compared.
-
-### 4. Identify relationships
-
-If multiple tables are involved, determine how they are related before writing the `JOIN`.
-
-### 5. Determine the filtering stage
-
-Ask whether the condition applies to:
-
-* Individual rows → `WHERE`
-* Groups → `HAVING`
-
-### 6. Determine whether aggregation is required
-
-If the problem asks for totals, counts, averages, minimums, or maximums, consider aggregate functions.
-
-### 7. Determine whether grouping is required
-
-If the result needs to be summarized by categories or groups, use `GROUP BY`.
-
-### 8. Determine whether a subquery is appropriate
-
-If one query needs the result of another query, consider a subquery.
-
-### 9. Determine whether reusable logic is required
-
-If the same logic is used repeatedly:
-
-* Consider a UDF when the goal is reusable function logic.
-* Consider a stored procedure when the goal is to perform a reusable database operation.
-
-### 10. Determine whether automatic behavior is required
-
-If something should happen automatically after `INSERT`, `UPDATE`, or `DELETE`, consider a trigger.
-
-### 11. Determine whether transaction control is required
-
-If multiple operations must succeed or fail together, consider a transaction.
-
-### 12. Consider performance
-
-If a query is frequently executed or works with a large amount of data, consider whether an appropriate index could improve performance.
-
-### 13. Check edge cases
-
-Before considering the solution complete, think about:
-
-* `NULL` values
-* Duplicate values
-* Multiple-row operations
-* Missing relationships
-* Empty result sets
-* Invalid input
-* Constraint violations
-* Transaction failures
+1. **What information do I need?**
+2. **Which table contains it?**
+3. **Do I need another table?**
+4. **How are the tables related?**
+5. **Which rows should be included?**
+6. **Do I need grouping?**
+7. **Do I need aggregation?**
+8. **Do I need to filter groups?**
+9. **Do I need to sort the result?**
+10. **Am I combining result sets or joining related data?**
+11. **Could the query return duplicate rows?**
+12. **Is there a simpler SQL feature that solves the problem?**
+13. **Could the query become expensive on a large dataset?**
 
 ---
 
-# Final Checklist
+# General Performance Mindset
 
-Before considering a SQL solution complete:
+A query that works on a small dataset may not perform well on a large database.
 
-* [ ] Did I use the correct table?
-* [ ] Did I select the correct columns?
-* [ ] Are the table relationships correct?
-* [ ] Did I choose the correct `JOIN` type?
-* [ ] Should the condition use `WHERE` or `HAVING`?
-* [ ] Are aggregate functions used correctly?
-* [ ] Does every non-aggregated selected column appear in `GROUP BY`?
-* [ ] Can the query return multiple rows when only one value is expected?
-* [ ] Are `NULL` values handled correctly?
-* [ ] Could the operation affect multiple rows?
-* [ ] If modifying data, should it be inside a transaction?
-* [ ] If an error occurs, what should happen?
-* [ ] Is a trigger actually necessary?
-* [ ] Is the trigger designed to handle multiple affected rows?
-* [ ] Is an index actually necessary?
-* [ ] Is the index designed around the target query?
-* [ ] Is the index redundant with an existing index?
-* [ ] Are composite index columns ordered appropriately?
-* [ ] Are `INCLUDE` columns being used for the correct purpose?
+When thinking about performance, consider:
+
+* How many rows are involved?
+* Which columns are being filtered?
+* Are appropriate indexes available?
+* Is the query reading more data than necessary?
+* Are joins using appropriate keys?
+* Is the database doing unnecessary work?
+* Could an index improve the query?
+* Could an index also make writes more expensive?
+
+The goal is not to make every query complicated.
+
+The goal is to make the database perform the necessary work **efficiently and correctly**.
+
+---
+
+# Final Learning Principle
+
+Do not start by asking:
+
+> "What SQL syntax should I use?"
+
+Start by asking:
+
+> "What result do I need, and what is the most appropriate database operation to produce it?"
+
+SQL syntax is the tool.
+
+Understanding the data, relationships, requirements, and expected result is the actual skill.
