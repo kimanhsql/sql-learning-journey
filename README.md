@@ -59,8 +59,8 @@ Resources
 | Stored Procedures | ✅ |
 | Triggers | ✅ |
 | Transactions | ✅ |
-| Indexes | 🚧 |
-| Database Projects | ⬜ |
+| Indexes | ✅ |
+| Database Projects | 🚧 |
 
 (✅: Completed; 🚧: In Progress; ⬜: Not Started)
 
