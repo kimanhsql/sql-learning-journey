@@ -23,7 +23,8 @@ FROM PLAYER
 
 
 -- Exercise 2
--- Display club names and the number of characters after removing trailing spaces.
+-- Display club names and the number of characters
+-- after removing trailing spaces.
 
 SELECT CLUB_NAME,
         LEN(RTRIM(CLUB_NAME)) AS Club_Name_Length
@@ -47,7 +48,8 @@ FROM PLAYER
 
 
 -- Exercise 5
--- Display the average jersey number for each club rounded to two decimal places.
+-- Display the average jersey number for each club
+-- rounded to two decimal places.
 
 SELECT CLUB_ID,
         ROUND(AVG(JERSEY_NUMBER), 2) AS Average_Jersey_Number
@@ -65,7 +67,8 @@ GROUP BY COUNTRY_ID
 
 
 -- Exercise 7
--- Display player names together with the first three characters of their names.
+-- Display player names together with
+-- the first three characters of their names.
 
 SELECT PLAYER_NAME,
         LEFT(PLAYER_NAME, 3) AS First_Three_Characters
@@ -73,7 +76,8 @@ FROM PLAYER
 
 
 -- Exercise 8
--- Display player names together with the last three characters of their names.
+-- Display player names together with
+-- the last three characters of their names.
 
 SELECT PLAYER_NAME,
         RIGHT(PLAYER_NAME, 3) AS Last_Three_Characters

@@ -1,6 +1,6 @@
 # Syntax
 
-## Aggregate Functions
+## 1. Aggregate Functions
 
 ```sql
 SELECT COUNT(column_name)
@@ -29,7 +29,7 @@ FROM table_name
 
 ---
 
-## String Functions
+## 2. String Functions
 
 ```sql
 SELECT LEN(column_name)
@@ -66,7 +66,7 @@ FROM table_name
 
 ---
 
-## Date and Time Functions
+## 3. Date and Time Functions
 
 ```sql
 SELECT GETDATE()
@@ -97,7 +97,7 @@ SELECT DATEDIFF(datepart, start_date, end_date)
 
 ---
 
-## Mathematical Functions
+## 4. Mathematical Functions
 
 ```sql
 SELECT ABS(number)
@@ -121,7 +121,7 @@ SELECT POWER(number, exponent)
 
 ---
 
-## Conversion Functions
+## 5. Conversion Functions
 
 ```sql
 SELECT CAST(expression AS data_type)

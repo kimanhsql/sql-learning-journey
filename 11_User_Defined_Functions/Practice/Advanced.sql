@@ -28,7 +28,8 @@ GO
 
 
 -- Exercise 2
--- Create a function that returns the total number of players in a given country.
+-- Create a function that returns
+-- the total number of players in a given country.
 
 CREATE FUNCTION dbo.GetPlayerCountByCountry (@CountryID INT)
 RETURNS INT
@@ -101,7 +102,8 @@ GO
 
 
 -- Exercise 6
--- Create a function that returns the average jersey number in a given country.
+-- Create a function that returns
+-- the average jersey number in a given country.
 
 CREATE FUNCTION dbo.GetAverageJerseyByCountry (@CountryID INT)
 RETURNS FLOAT
@@ -120,7 +122,8 @@ GO
 
 
 -- Exercise 7
--- Create a function that returns clubs having more than a given number of players.
+-- Create a function that returns clubs having
+-- more than a given number of players.
 
 CREATE FUNCTION dbo.GetBusyClubs (@PlayerCount INT)
 RETURNS TABLE

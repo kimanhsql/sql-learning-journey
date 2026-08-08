@@ -1,8 +1,8 @@
 # Mistakes
 
-## Forgetting the `AS` keyword
+## 1. Forgetting the `AS` keyword
 
-A view must be created using the `AS` keyword followed by a `SELECT` statement.
+A view must be created using the **AS** keyword followed by a **SELECT** statement.
 
 Wrong
 
@@ -23,9 +23,9 @@ FROM PLAYER
 
 ---
 
-## Using `ORDER BY` inside a view
+## 2. Using `ORDER BY` inside a view
 
-`ORDER BY` is not allowed in a view unless it is used together with `TOP`, `OFFSET`, or `FOR XML`.
+**ORDER BY** is not allowed in a view unless it is used together with **TOP**, **OFFSET**, or **FOR XML**.
 
 Wrong
 
@@ -56,7 +56,7 @@ ORDER BY PLAYER_NAME
 
 ---
 
-## Creating a view without a meaningful name
+## 3. Creating a view without a meaningful name
 
 Choose a descriptive name so that the purpose of the view is easy to understand.
 
@@ -75,15 +75,15 @@ Correct
 CREATE VIEW V_PLAYER
 AS
 SELECT PLAYER_NAME,
-       JERSEY_NUMBER
+        JERSEY_NUMBER
 FROM PLAYER
 ```
 
 ---
 
-## Forgetting to alter a view when the query changes
+## 4. Forgetting to alter a view when the query changes
 
-If the view definition needs to be modified, use `ALTER VIEW` instead of creating another view with the same name.
+If the view definition needs to be modified, use **ALTER VIEW** instead of creating another view with the same name.
 
 Wrong
 
@@ -100,13 +100,13 @@ Correct
 ALTER VIEW V_PLAYER
 AS
 SELECT PLAYER_NAME,
-       POSITION
+        POSITION
 FROM PLAYER
 ```
 
 ---
 
-## Selecting unnecessary columns
+## 5. Selecting unnecessary columns
 
 Only include the columns required by the view.
 
@@ -125,13 +125,13 @@ Correct
 CREATE VIEW V_PLAYER
 AS
 SELECT PLAYER_NAME,
-       JERSEY_NUMBER
+        JERSEY_NUMBER
 FROM PLAYER
 ```
 
 ---
 
-## Forgetting that a view depends on the underlying table
+## 6. Forgetting that a view depends on the underlying table
 
 A view displays data from the underlying table. If the table changes, the view reflects those changes automatically.
 
@@ -145,9 +145,9 @@ Remember that a view only stores the SQL query, not the actual data.
 
 ---
 
-## Trying to insert or update data through a non-updatable view
+## 7. Trying to insert or update data through a non-updatable view
 
-Not every view supports `INSERT`, `UPDATE`, or `DELETE`. Views containing joins, aggregate functions, or `GROUP BY` are often not updatable.
+Not every view supports **INSERT**, **UPDATE**, or **DELETE**. Views containing joins, aggregate functions, or **GROUP BY** are often not updatable.
 
 Wrong
 
@@ -162,9 +162,9 @@ Update the underlying table instead, or use an updatable view.
 
 ---
 
-## Using `SELECT *` inside a view unnecessarily
+## 8. Using `SELECT *` inside a view unnecessarily
 
-Avoid using `SELECT *` because changes to the underlying table may affect the view unexpectedly.
+Avoid using **SELECT *** because changes to the underlying table may affect the view unexpectedly.
 
 Wrong
 
@@ -181,7 +181,7 @@ Correct
 CREATE VIEW V_PLAYER
 AS
 SELECT PLAYER_NAME,
-       POSITION,
-       JERSEY_NUMBER
+        POSITION,
+        JERSEY_NUMBER
 FROM PLAYER
 ```

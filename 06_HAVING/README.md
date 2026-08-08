@@ -11,7 +11,8 @@ It is commonly used with aggregate functions to return only the groups that sati
 ## Characteristics
 
 - Filters grouped data instead of individual rows.
-- Is commonly used with aggregate functions such as `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
+- Is commonly used with aggregate functions such as `COUNT()`, `SUM()`,
+`AVG()`, `MIN()`, and `MAX()`.
 - Is evaluated after the `GROUP BY` clause.
 - Can be combined with `WHERE` and `ORDER BY`.
 - Cannot be used without `GROUP BY` when filtering grouped results.

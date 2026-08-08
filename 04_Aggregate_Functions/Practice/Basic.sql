@@ -71,16 +71,15 @@ WHERE CLUB_ID = 1
 -- Find the minimum and maximum jersey numbers.
 
 SELECT MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number,
-       MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
+        MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
 FROM PLAYER
 
 
 -- Exercise 10
 -- Calculate the total number of players,
--- the minimum jersey number,
--- and the maximum jersey number.
+-- the minimum jersey number, and the maximum jersey number.
 
 SELECT COUNT(*) AS Total_Players,
-       MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number,
-       MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
+        MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number,
+        MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
 FROM PLAYER

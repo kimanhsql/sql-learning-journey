@@ -50,7 +50,7 @@ FROM CLUB
 -- Display the first letter of each player name.
 
 SELECT PLAYER_NAME,
-       LEFT(PLAYER_NAME, 1) AS FirstLetter
+        LEFT(PLAYER_NAME, 1) AS FirstLetter
 FROM PLAYER
 
 

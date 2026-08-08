@@ -14,7 +14,7 @@ Always understand what the subquery returns before writing the main query.
 */
 
 
--- Challenge 1
+-- Exercise 1
 -- Display players who belong to clubs having more than five players.
 
 SELECT PLAYER_NAME,
@@ -29,7 +29,7 @@ WHERE CLUB_ID IN
 )
 
 
--- Challenge 2
+-- Exercise 2
 -- Display clubs whose average jersey number is greater than
 -- the overall average jersey number.
 
@@ -48,9 +48,9 @@ WHERE CLUB_ID IN
 )
 
 
--- Challenge 3
--- Display countries whose average jersey number is greater
--- than the average jersey number of all players.
+-- Exercise 3
+-- Display countries whose average jersey number
+-- is greater than the average jersey number of all players.
 
 SELECT COUNTRY_NAME
 FROM COUNTRY
@@ -67,7 +67,7 @@ WHERE COUNTRY_ID IN
 )
 
 
--- Challenge 4
+-- Exercise 4
 -- Display players whose jersey number is equal to
 -- the highest jersey number in their club.
 
@@ -83,7 +83,7 @@ WHERE JERSEY_NUMBER =
 )
 
 
--- Challenge 5
+-- Exercise 5
 -- Display clubs that have players older than the average player.
 
 SELECT CLUB_NAME
@@ -100,8 +100,9 @@ WHERE CLUB_ID IN
 )
 
 
--- Challenge 6
--- Display countries whose players have an average jersey number greater than 12.
+-- Exercise 6
+-- Display countries whose players have an average jersey number
+-- greater than 12.
 
 SELECT COUNTRY_NAME
 FROM COUNTRY
@@ -114,7 +115,7 @@ WHERE COUNTRY_ID IN
 )
 
 
--- Challenge 7
+-- Exercise 7
 -- Display players whose birth date is the earliest in their club.
 
 SELECT PLAYER_NAME,
@@ -129,7 +130,7 @@ WHERE BIRTH_DATE =
 )
 
 
--- Challenge 8
+-- Exercise 8
 -- Display clubs that do not have any player wearing jersey number 10.
 
 SELECT CLUB_NAME
@@ -142,7 +143,7 @@ WHERE CLUB_ID NOT IN
 )
 
 
--- Challenge 9
+-- Exercise 9
 -- Display countries that have at least one player playing for CLUB_ID = 1.
 
 SELECT COUNTRY_NAME
@@ -155,8 +156,9 @@ WHERE COUNTRY_ID IN
 )
 
 
--- Challenge 10
--- Display players whose jersey number is above their club's average jersey number.
+-- Exercise 10
+-- Display players whose jersey number is above
+-- their club's average jersey number.
 
 SELECT PLAYER_NAME,
         CLUB_ID,

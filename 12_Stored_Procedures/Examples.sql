@@ -82,7 +82,7 @@ ALTER PROCEDURE GetAllPlayers
 AS
 BEGIN
     SELECT PLAYER_NAME,
-           POSITION
+            POSITION
     FROM PLAYER
 END
 

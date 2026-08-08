@@ -1,4 +1,5 @@
--- Example 1 - Basic Transaction
+-- Example 1
+-- Basic Transaction
 
 BEGIN TRANSACTION
 
@@ -9,7 +10,8 @@ WHERE PLAYER_ID = 1
 COMMIT TRANSACTION
 
 
--- Example 2 - Rollback Transaction
+-- Example 2
+-- Rollback Transaction
 
 BEGIN TRANSACTION
 
@@ -20,7 +22,8 @@ WHERE PLAYER_ID = 1
 ROLLBACK TRANSACTION
 
 
--- Example 3 - Multiple Operations
+-- Example 3
+-- Multiple Operations
 
 BEGIN TRANSACTION
 
@@ -35,7 +38,8 @@ WHERE PLAYER_ID = 2
 COMMIT TRANSACTION
 
 
--- Example 4 - Rollback Multiple Operations
+-- Example 4
+-- Rollback Multiple Operations
 
 BEGIN TRANSACTION
 
@@ -49,7 +53,8 @@ WHERE PLAYER_ID = 2
 ROLLBACK TRANSACTION
 
 
--- Example 5 - Savepoint
+-- Example 5
+-- Savepoint
 
 BEGIN TRANSACTION
 
@@ -68,7 +73,8 @@ ROLLBACK TRANSACTION PlayerUpdate
 COMMIT TRANSACTION
 
 
--- Example 6 - Transaction with TRY...CATCH
+-- Example 6
+-- Transaction with TRY...CATCH
 
 BEGIN TRY
 
@@ -82,13 +88,12 @@ BEGIN TRY
 
 END TRY
 BEGIN CATCH
-
     ROLLBACK TRANSACTION
-
 END CATCH
 
 
--- Example 7 - Transaction with INSERT
+-- Example 7
+-- Transaction with INSERT
 
 BEGIN TRANSACTION
 
@@ -106,7 +111,8 @@ VALUES
 COMMIT TRANSACTION
 
 
--- Example 8 - Transaction with DELETE
+-- Example 8
+-- Transaction with DELETE
 
 BEGIN TRANSACTION
 

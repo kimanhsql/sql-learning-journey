@@ -39,7 +39,8 @@ GROUP BY CLUB_NAME
 
 
 -- Exercise 3
--- Display the highest jersey number in each country, ordered by country name.
+-- Display the highest jersey number in each country,
+-- ordered by country name.
 
 SELECT COUNTRY_NAME,
         MAX(JERSEY_NUMBER) AS HIGHEST_JERSEY_NUMBER
@@ -82,7 +83,8 @@ GROUP BY COUNTRY_NAME
 
 
 -- Exercise 7
--- Display the total number of players in each club, sorted alphabetically by club name.
+-- Display the total number of players in each club,
+-- sorted alphabetically by club name.
 
 SELECT CLUB_NAME,
         COUNT(*) AS PLAYER_COUNT
@@ -104,7 +106,8 @@ GROUP BY POSITION, COUNTRY_NAME
 
 
 -- Exercise 9
--- Display the average jersey number for each position, ordered from highest to lowest.
+-- Display the average jersey number for each position,
+-- ordered from highest to lowest.
 
 SELECT POSITION,
         AVG(JERSEY_NUMBER) AS AVERAGE_JERSEY_NUMBER

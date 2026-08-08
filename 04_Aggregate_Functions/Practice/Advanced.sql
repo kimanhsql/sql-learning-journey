@@ -13,7 +13,7 @@ Before writing SQL, ask yourself:
 -- Count the number of players in each club.
 
 SELECT CLUB_ID,
-       COUNT(*) AS NumberOfPlayers
+        COUNT(*) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -22,7 +22,7 @@ GROUP BY CLUB_ID
 -- Calculate the average jersey number for each club.
 
 SELECT CLUB_ID,
-       AVG(JERSEY_NUMBER) AS AverageJerseyNumber
+        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -31,7 +31,7 @@ GROUP BY CLUB_ID
 -- Find the minimum jersey number for each club.
 
 SELECT CLUB_ID,
-       MIN(JERSEY_NUMBER) AS MinimumJerseyNumber
+        MIN(JERSEY_NUMBER) AS MinimumJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -40,7 +40,7 @@ GROUP BY CLUB_ID
 -- Find the maximum jersey number for each club.
 
 SELECT CLUB_ID,
-       MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
+        MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -49,7 +49,7 @@ GROUP BY CLUB_ID
 -- Calculate the total jersey numbers for each club.
 
 SELECT CLUB_ID,
-       SUM(JERSEY_NUMBER) AS TotalJerseyNumbers
+        SUM(JERSEY_NUMBER) AS TotalJerseyNumbers
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -58,7 +58,7 @@ GROUP BY CLUB_ID
 -- Count the players in each position.
 
 SELECT POSITION,
-       COUNT(*) AS NumberOfPlayers
+        COUNT(*) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY POSITION
 
@@ -67,7 +67,7 @@ GROUP BY POSITION
 -- Find clubs that have more than 2 players.
 
 SELECT CLUB_ID,
-       COUNT(*) AS NumberOfPlayers
+        COUNT(*) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY CLUB_ID
 HAVING COUNT(*) > 2
@@ -77,7 +77,7 @@ HAVING COUNT(*) > 2
 -- Find positions that have more than 2 players.
 
 SELECT POSITION,
-       COUNT(*) AS NumberOfPlayers
+        COUNT(*) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY POSITION
 HAVING COUNT(*) > 2
@@ -94,13 +94,12 @@ FROM PLAYER
 -- For each club, display:
 -- the number of players,
 -- the minimum jersey number,
--- the maximum jersey number,
--- and the average jersey number.
+-- the maximum jersey number, and the average jersey number.
 
 SELECT CLUB_ID,
-       COUNT(*) AS NumberOfPlayers,
-       MIN(JERSEY_NUMBER) AS MinimumJerseyNumber,
-       MAX(JERSEY_NUMBER) AS MaximumJerseyNumber,
-       AVG(JERSEY_NUMBER) AS AverageJerseyNumber
+        COUNT(*) AS NumberOfPlayers,
+        MIN(JERSEY_NUMBER) AS MinimumJerseyNumber,
+        MAX(JERSEY_NUMBER) AS MaximumJerseyNumber,
+        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID

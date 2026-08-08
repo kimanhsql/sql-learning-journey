@@ -18,7 +18,8 @@ Remember:
 
 
 -- Exercise 1
--- Display players whose jersey number is greater than the average jersey number.
+-- Display players whose jersey number is greater than
+-- the average jersey number.
 
 SELECT PLAYER_NAME,
         JERSEY_NUMBER
@@ -31,7 +32,8 @@ WHERE JERSEY_NUMBER >
 
 
 -- Exercise 2
--- Display players whose jersey number is less than the average jersey number.
+-- Display players whose jersey number is less than
+-- the average jersey number.
 
 SELECT PLAYER_NAME,
         JERSEY_NUMBER

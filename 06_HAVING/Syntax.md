@@ -1,10 +1,10 @@
 # Syntax
 
-## Basic SYNTAX
+## 1. Basic SYNTAX
 
 ```sql
 SELECT column_name,
-       aggregate_function(column_name)
+        aggregate_function(column_name)
 FROM table_name
 GROUP BY column_name
 HAVING condition
@@ -12,11 +12,11 @@ HAVING condition
 
 ---
 
-## HAVING with COUNT
+## 2. HAVING with COUNT
 
 ```sql
 SELECT column_name,
-       COUNT(*)
+        COUNT(*)
 FROM table_name
 GROUP BY column_name
 HAVING COUNT(*) > value
@@ -24,11 +24,11 @@ HAVING COUNT(*) > value
 
 ---
 
-## HAVING with SUM
+## 3. HAVING with SUM
 
 ```sql
 SELECT column_name,
-       SUM(column_name)
+        SUM(column_name)
 FROM table_name
 GROUP BY column_name
 HAVING SUM(column_name) > value
@@ -36,11 +36,11 @@ HAVING SUM(column_name) > value
 
 ---
 
-## HAVING with AVG
+## 4. HAVING with AVG
 
 ```sql
 SELECT column_name,
-       AVG(column_name)
+        AVG(column_name)
 FROM table_name
 GROUP BY column_name
 HAVING AVG(column_name) >= value
@@ -48,11 +48,11 @@ HAVING AVG(column_name) >= value
 
 ---
 
-## HAVING with MIN
+## 5. HAVING with MIN
 
 ```sql
 SELECT column_name,
-       MIN(column_name)
+        MIN(column_name)
 FROM table_name
 GROUP BY column_name
 HAVING MIN(column_name) >= value
@@ -60,11 +60,11 @@ HAVING MIN(column_name) >= value
 
 ---
 
-## HAVING with MAX
+## 6. HAVING with MAX
 
 ```sql
 SELECT column_name,
-       MAX(column_name)
+        MAX(column_name)
 FROM table_name
 GROUP BY column_name
 HAVING MAX(column_name) <= value

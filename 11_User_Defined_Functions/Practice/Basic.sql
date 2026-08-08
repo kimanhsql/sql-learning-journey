@@ -70,7 +70,7 @@ BEGIN
 
     SELECT @PlayerCount = COUNT(*)
     FROM PLAYER
-    WHERE ClubName = @ClubName
+    WHERE CLUB_NAME = @ClubName
 
     RETURN @PlayerCount
 END
@@ -79,7 +79,8 @@ GO
 
 
 -- Exercise 5
--- Create a function that returns the average jersey number of a given position.
+-- Create a function that returns
+-- the average jersey number of a given position.
 
 CREATE FUNCTION dbo.GetAvgJerseyNumByPosition (@Position NVARCHAR(20))
 RETURNS FLOAT
@@ -87,9 +88,9 @@ AS
 BEGIN
     DECLARE @AverageJerseyNum FLOAT
 
-    SELECT @AVERAGEJerseyNum = AVG(JerseyNumber)
+    SELECT @AVERAGEJerseyNum = AVG(JERSEY_NUMBER)
     FROM PLAYER
-    WHERE Position = @Position
+    WHERE POSITION = @Position
 
     RETURN @AverageJerseyNum
 END
@@ -107,14 +108,15 @@ RETURN
 (
     SELECT *
     FROM PLAYER
-    WHERE Country = @Country
+    WHERE COUNTRY_NAME = @Country
 )
 
 GO
 
 
 -- Exercise 7
--- Create a function that returns the players whose jersey number is greater than 10.
+-- Create a function that returns the players
+-- whose jersey number is greater than 10.
 
 CREATE FUNCTION dbo.GetPlayersWithJerseyNum ()
 RETURNS TABLE
@@ -123,14 +125,15 @@ RETURN
 (
     SELECT *
     FROM PLAYER
-    WHERE JerseyNumber > 10
+    WHERE JERSEY_NUMBER > 10
 )
 
 GO
 
 
 -- Exercise 8
--- Create a function that returns the birth year of a player based on the birth date.
+-- Create a function that returns the birth year of a player
+-- based on the birth date.
 
 CREATE FUNCTION dbo.GetBirthYear (@BirthDate DATE)
 RETURNS INT
@@ -143,7 +146,8 @@ GO
 
 
 -- Exercise 9
--- Create a function that returns the highest jersey number in the PLAYER table.
+-- Create a function that returns the highest jersey number
+-- in the PLAYER table.
 
 CREATE FUNCTION dbo.GetHighestJerseyNum ()
 RETURNS INT
@@ -151,7 +155,7 @@ AS
 BEGIN
     DECLARE @HighestJerseyNum INT
 
-    SELECT @HighestJerseyNum = MAX(JerseyNumber)
+    SELECT @HighestJerseyNum = MAX(JERSEY_NUMBER)
     FROM PLAYER
 
     RETURN @HighestJerseyNum
@@ -169,8 +173,8 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT PlayerName,
-            JerseyNumber
+    SELECT PLAYER_NAME,
+            JERSEY_NUMBER
     FROM PLAYER
 )
 

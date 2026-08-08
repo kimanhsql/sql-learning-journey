@@ -23,8 +23,8 @@ Unlike built-in functions, user-defined functions are designed to solve specific
 
 - Scalar Functions
 - Table-Valued Functions
-  - Inline Table-Valued Functions
-  - Multi-Statement Table-Valued Functions
+  + Inline Table-Valued Functions
+  + Multi-Statement Table-Valued Functions
 
 ---
 

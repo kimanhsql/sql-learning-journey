@@ -26,8 +26,9 @@ Remember:
 */
 
 
--- Challenge 1
--- Create a transaction that updates the jersey numbers of two players and commits both changes.
+-- Exercise 1
+-- Create a transaction that updates the jersey numbers of
+-- two players and commits both changes.
 
 BEGIN TRANSACTION
 
@@ -42,7 +43,7 @@ WHERE PLAYER_ID = 2
 COMMIT TRANSACTION
 
 
--- Challenge 2
+-- Exercise 2
 -- Create a transaction that updates a player's club and jersey number.
 -- Roll back both changes.
 
@@ -59,7 +60,7 @@ WHERE PLAYER_ID = 3
 ROLLBACK TRANSACTION
 
 
--- Challenge 3
+-- Exercise 3
 -- Create a transaction that inserts a new player and updates an existing player.
 -- Use TRY...CATCH to handle errors.
 
@@ -67,7 +68,8 @@ BEGIN TRY
     BEGIN TRANSACTION
 
     INSERT INTO PLAYER
-        (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+        (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+        CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
     VALUES
         (14, 'David Lee', 'Goalkeeper', '1994-11-30', '987 Maple St', 3, 1, 1)
 
@@ -82,7 +84,7 @@ BEGIN CATCH
 END CATCH
 
 
--- Challenge 4
+-- Exercise 4
 -- Create a transaction with three UPDATE operations.
 -- Create a savepoint after the first operation.
 -- Roll back the changes made after the savepoint.
@@ -109,7 +111,7 @@ ROLLBACK TRANSACTION Savepoint4
 COMMIT TRANSACTION
 
 
--- Challenge 5
+-- Exercise 5
 -- Create a transaction that inserts two players.
 -- If an error occurs, roll back both insertions.
 
@@ -117,7 +119,8 @@ BEGIN TRY
     BEGIN TRANSACTION
 
     INSERT INTO PLAYER
-        (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+        (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+        CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
     VALUES
         (15, 'Emma Brown', 'Forward', '1996-02-14', '321 Birch St', 4, 1, 10),
         (16, 'Liam Wilson', 'Midfielder', '1995-08-20', '654 Cedar St', 4, 1, 11)
@@ -129,7 +132,7 @@ BEGIN CATCH
 END CATCH
 
 
--- Challenge 6
+-- Exercise 6
 -- Create a transaction that deletes two players.
 -- Use TRY...CATCH to handle possible errors.
 -- Roll back the transaction if an error occurs.
@@ -150,7 +153,7 @@ BEGIN CATCH
 END CATCH
 
 
--- Challenge 7
+-- Exercise 7
 -- Create a transaction that updates multiple players.
 -- Create a savepoint between the updates.
 -- Roll back only the changes made after the savepoint.
@@ -176,14 +179,15 @@ ROLLBACK TRANSACTION Savepoint7
 COMMIT TRANSACTION
 
 
--- Challenge 8
+-- Exercise 8
 -- Create a transaction that performs an INSERT, an UPDATE, and a DELETE.
 -- Commit all operations if they succeed.
 
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (17, 'Olivia Davis', 'Defender', '1997-05-10', '789 Elm St', 5, 1, 4)
 
@@ -197,7 +201,7 @@ WHERE PLAYER_ID = 14
 COMMIT TRANSACTION
 
 
--- Challenge 9
+-- Exercise 9
 -- Create a transaction that performs multiple operations on PLAYER.
 -- Use TRY...CATCH and roll back the entire transaction if any error occurs.
 
@@ -218,7 +222,7 @@ BEGIN CATCH
 END CATCH
 
 
--- Challenge 10
+-- Exercise 10
 -- Create a transaction that performs several operations.
 -- Use a savepoint to partially roll back the transaction while keeping the earlier changes.
 

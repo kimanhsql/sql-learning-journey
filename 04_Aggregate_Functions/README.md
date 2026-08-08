@@ -12,13 +12,13 @@ They are often used together with `GROUP BY` when a separate result is required 
 
 ## Characteristics
 
-* Aggregate functions process multiple rows.
-* They return a summarized result.
-* They can be used with or without `GROUP BY`.
-* They are commonly used with `GROUP BY` and `HAVING`.
-* Most aggregate functions ignore `NULL` values.
-* `COUNT(*)` counts rows, including rows containing `NULL` values.
-* Aggregate functions can be used with `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`.
+- Aggregate functions process multiple rows.
+- They return a summarized result.
+- They can be used with or without `GROUP BY`.
+- They are commonly used with `GROUP BY` and `HAVING`.
+- Most aggregate functions ignore `NULL` values.
+- `COUNT(*)` counts rows, including rows containing `NULL` values.
+- Aggregate functions can be used with `WHERE`, `GROUP BY`, `HAVING`, and `ORDER BY`.
 
 ---
 
@@ -87,9 +87,9 @@ Example:
 
 ```sql
 SELECT CLUB_ID,
-       COUNT(PLAYER_ID) AS NumberOfPlayers
+        COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
-GROUP BY CLUB_ID;
+GROUP BY CLUB_ID
 ```
 
 ---
@@ -102,10 +102,10 @@ Example:
 
 ```sql
 SELECT CLUB_ID,
-       COUNT(PLAYER_ID) AS NumberOfPlayers
+        COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY CLUB_ID
-HAVING COUNT(PLAYER_ID) > 5;
+HAVING COUNT(PLAYER_ID) > 5
 ```
 
 ---
@@ -119,7 +119,7 @@ Example:
 ```sql
 SELECT COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
-WHERE POSITION = 'Forward';
+WHERE POSITION = 'Forward'
 ```
 
 The order of operations matters:
@@ -135,13 +135,13 @@ The order of operations matters:
 
 Use aggregate functions when you need to:
 
-* Count records
-* Calculate totals
-* Calculate averages
-* Find minimum or maximum values
-* Summarize data by category
-* Analyze grouped data
-* Filter groups based on calculated results
+- Count records
+- Calculate totals
+- Calculate averages
+- Find minimum or maximum values
+- Summarize data by category
+- Analyze grouped data
+- Filter groups based on calculated results
 
 ---
 

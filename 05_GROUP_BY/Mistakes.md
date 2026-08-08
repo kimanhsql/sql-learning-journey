@@ -1,13 +1,14 @@
 # Mistakes
 
-## Missing column in GROUP BY clause
+## 1. Missing column in `GROUP BY` clause
 
-Every selected column that is not part of an aggregate function must be included in the `GROUP BY` clause.
+Every selected column that is not part of an aggregate function must be included in the **GROUP BY** clause.
 
 Wrong
 
 ```sql
-SELECT C.CLUB_ID, CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         MAX(JERSEY_NUMBER)
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
@@ -17,75 +18,82 @@ GROUP BY CLUB_ID
 Correct
 
 ```sql
-SELECT C.CLUB_ID, CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         MAX(JERSEY_NUMBER)
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY CLUB_ID,
-            CLUB_NAME
+        CLUB_NAME
 ```
 
 ---
 
-## Using unqualified column names
+## 2. Using unqualified column names
 
 Wrong
 
 ```sql
-SELECT CLUB_ID, CLUB_NAME,
+SELECT CLUB_ID,
+        CLUB_NAME,
         COUNT(PLAYER_ID) AS NumPlayerInClub
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY CLUB_ID,
-            CLUB_NAME
+        CLUB_NAME
 ```
 
 Correct
 
 ```sql
-SELECT C.CLUB_ID, CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         COUNT(PLAYER_ID) AS NumPlayerInClub
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY CLUB_ID,
-            CLUB_NAME
+        CLUB_NAME
 ```
 
 ---
 
-## Selecting unnecessary columns in grouped queries
+## 3. Selecting unnecessary columns in grouped queries
 
 Wrong
 
 ```sql
-SELECT C.CLUB_ID, CLUB_NAME, PLAYER_ID, PLAYER_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
+        PLAYER_ID,
+        PLAYER_NAME,
         MAX(JERSEY_NUMBER)
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY CLUB_ID,
-            CLUB_NAME
+        CLUB_NAME
 ```
 
 Correct
 
 ```sql
-SELECT C.CLUB_ID, CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         MAX(JERSEY_NUMBER)
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY CLUB_ID,
-            CLUB_NAME
+        CLUB_NAME
 ```
 
 ---
 
-## Using `ORDER BY` before `GROUP BY`
+## 4. Using `ORDER BY` before `GROUP BY`
 
 Wrong
 
 ```sql
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 ORDER BY POSITION
 GROUP BY POSITION
@@ -95,7 +103,7 @@ Correct
 
 ```sql
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 GROUP BY POSITION
 ORDER BY POSITION
@@ -103,7 +111,7 @@ ORDER BY POSITION
 
 ---
 
-## Missing commas in the list of columns
+## 5. Missing commas in the list of columns
 
 Wrong
 
@@ -125,13 +133,13 @@ GROUP BY POSITION
 
 ---
 
-## Using aggregate functions in the `WHERE` clause
+## 6. Using aggregate functions in the `WHERE` clause
 
 Wrong
 
 ```sql
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 WHERE COUNT(*) > 3
 GROUP BY POSITION
@@ -141,7 +149,7 @@ Correct
 
 ```sql
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 GROUP BY POSITION
 HAVING COUNT(*) > 3

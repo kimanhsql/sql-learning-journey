@@ -1,22 +1,27 @@
--- Select all columns
+-- Example 1
+-- Select all columns.
 
 SELECT *
-FROM CAUTHU
+FROM COACH
 
 
--- Select data of attribute HOTEN from CAUTHU table
+-- Example 2
+-- Select data of attribute PLAYER_NAME from PLAYER table.
 
-SELECT HOTEN
-FROM CAUTHU
-
-
--- Select 2 columns: HOTEN, VITRI from CAUTHU table
-
-SELECT HOTEN, VITRI
-FROM CAUTHU
+SELECT PLAYER_NAME
+FROM PLAYER
 
 
--- Select the data in MAQG attribute is unique
+-- Example 3
+-- Select 2 columns: PLAYER_NAME, POSITION from PLAYER table.
 
-SELECT DISTINCT MAQG
-FROM CAUTHU
+SELECT PLAYER_NAME,
+        POSITION
+FROM PLAYER
+
+
+-- Example 4
+-- Select the data in COUNTRY_ID attribute is unique.
+
+SELECT DISTINCT COUNTRY_ID
+FROM PLAYER

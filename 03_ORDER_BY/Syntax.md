@@ -1,6 +1,6 @@
 # Syntax
 
-## Basic ORDER BY
+## 1. Basic ORDER BY
 
 ```sql
 SELECT column_name
@@ -10,7 +10,7 @@ ORDER BY column_name
 
 ---
 
-## Ascending Order
+## 2. Ascending Order
 
 ```sql
 SELECT column_name
@@ -20,7 +20,7 @@ ORDER BY column_name ASC
 
 ---
 
-## Descending Order
+## 3. Descending Order
 
 ```sql
 SELECT column_name
@@ -30,10 +30,11 @@ ORDER BY column_name DESC
 
 ---
 
-## Multiple Columns
+## 4. Multiple Columns
 
 ```sql
-SELECT column1, column2
+SELECT column1,
+        column2
 FROM table_name
 ORDER BY column1 ASC,
         column2 DESC
@@ -41,7 +42,7 @@ ORDER BY column1 ASC,
 
 ---
 
-## Order by Alias
+## 5. Order by Alias
 
 ```sql
 SELECT column_name AS alias_name
@@ -51,10 +52,11 @@ ORDER BY alias_name
 
 ---
 
-## Order by Column Position
+## 6. Order by Column Position
 
 ```sql
-SELECT column1, column2
+SELECT column1,
+        column2
 FROM table_name
 ORDER BY 1
 ```

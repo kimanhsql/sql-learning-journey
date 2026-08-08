@@ -1,17 +1,18 @@
 # Mistakes
 
-## Using columns that do not exist in the selected table
+## 1. Using columns that do not exist in the selected table
 
 Always make sure the columns you reference belong to the table in the `FROM` clause.
 
 ---
 
-## Confusing the `YEAR()` and `GETDATE()` functions
+## 2. Confusing the `YEAR()` and `GETDATE()` functions
 
 Wrong
 
 ```sql
-SELECT PLAYER_ID, PLAYER_NAME
+SELECT PLAYER_ID,
+        PLAYER_NAME
 FROM PLAYER
 WHERE YEAR(GETDATE(BIRTH_DATE)) > 2000
 ```
@@ -19,30 +20,33 @@ WHERE YEAR(GETDATE(BIRTH_DATE)) > 2000
 Correct
 
 ```sql
-SELECT PLAYER_ID, PLAYER_NAME
+SELECT PLAYER_ID,
+        PLAYER_NAME
 FROM PLAYER
 WHERE BIRTH_DATE >= '2001-01-01'
 ```
 
 ---
 
-## Misunderstanding the requirement
+## 3. Misunderstanding the requirement
 
 The question asks to find names that **contain** `"an"`, not only names that start or end with `"an"`.
 
 Wrong
 
 ```sql
-SELECT PLAYER_ID, PLAYER_NAME
+SELECT PLAYER_ID,
+        PLAYER_NAME
 FROM PLAYER
 WHERE PLAYER_NAME LIKE '%an'
-    OR PLAYER_NAME LIKE 'an%'
+        OR PLAYER_NAME LIKE 'an%'
 ```
 
 Correct
 
 ```sql
-SELECT PLAYER_ID, PLAYER_NAME
+SELECT PLAYER_ID,
+        PLAYER_NAME
 FROM PLAYER
 WHERE PLAYER_NAME LIKE '%an%'
 ```

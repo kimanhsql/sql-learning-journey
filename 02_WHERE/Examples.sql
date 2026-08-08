@@ -28,7 +28,7 @@ WHERE COUNTRY = 'Vietnam'
 SELECT *
 FROM PLAYER
 WHERE POSITION = 'Goalkeeper'
-  AND COUNTRY = 'Brazil'
+      AND COUNTRY = 'Brazil'
 
 
 -- Example 5

@@ -70,7 +70,7 @@ GO
 -- Count players for each club.
 
 SELECT CLUB_ID,
-       COUNT(PLAYER_ID) AS NumberOfPlayers
+        COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -81,7 +81,7 @@ GO
 -- Calculate the average jersey number for each club.
 
 SELECT CLUB_ID,
-       AVG(JERSEY_NUMBER) AS AverageJerseyNumber
+        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -92,7 +92,7 @@ GO
 -- Find the highest jersey number for each club.
 
 SELECT CLUB_ID,
-       MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
+        MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -113,7 +113,7 @@ GO
 -- Count players for each position.
 
 SELECT POSITION,
-       COUNT(PLAYER_ID) AS NumberOfPlayers
+        COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY POSITION
 
@@ -124,7 +124,7 @@ GO
 -- Display clubs with more than five players.
 
 SELECT CLUB_ID,
-       COUNT(PLAYER_ID) AS NumberOfPlayers
+        COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER
 GROUP BY CLUB_ID
 HAVING COUNT(PLAYER_ID) > 5

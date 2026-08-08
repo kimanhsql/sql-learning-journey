@@ -1,6 +1,6 @@
 # Syntax
 
-## Scalar Function
+## 1. Scalar Function
 
 ```sql
 CREATE FUNCTION function_name (@parameter data_type)
@@ -13,7 +13,7 @@ END
 
 ---
 
-## Table-Valued Function
+## 2. Table-Valued Function
 
 ```sql
 CREATE FUNCTION function_name (@parameter data_type)
@@ -21,7 +21,8 @@ RETURNS TABLE
 AS
 RETURN
 (
-    SELECT column1, column2, ...
+    SELECT column1,
+            column2, ...
     FROM table_name
     WHERE condition
 )
@@ -29,7 +30,7 @@ RETURN
 
 ---
 
-## Use a Function
+## 3. Use a Function
 
 ```sql
 SELECT dbo.function_name(parameter_value)
@@ -37,7 +38,7 @@ SELECT dbo.function_name(parameter_value)
 
 ---
 
-## Drop a Function
+## 4. Drop a Function
 
 ```sql
 DROP FUNCTION function_name

@@ -31,7 +31,8 @@ FROM PLAYER
 -- Exercise 3
 -- Display player names and their positions.
 
-SELECT PLAYER_NAME, POSITION
+SELECT PLAYER_NAME,
+        POSITION
 FROM PLAYER
 
 
@@ -52,7 +53,9 @@ FROM COACH
 -- Exercise 6
 -- Display player names, jersey numbers, and positions.
 
-SELECT PLAYER_NAME, JERSEY_NUMBER, POSITION
+SELECT PLAYER_NAME,
+        JERSEY_NUMBER,
+        POSITION
 FROM PLAYER
 
 
@@ -73,7 +76,8 @@ FROM CLUB
 -- Exercise 9
 -- Display player names and birth dates.
 
-SELECT PLAYER_NAME, BIRTH_DATE
+SELECT PLAYER_NAME,
+        BIRTH_DATE
 FROM PLAYER
 
 

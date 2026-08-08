@@ -2,7 +2,7 @@
 -- Count the number of players in each position.
 
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 GROUP BY POSITION
 
@@ -11,7 +11,7 @@ GROUP BY POSITION
 -- Count the number of players from each country.
 
 SELECT COUNTRY_ID,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 GROUP BY COUNTRY_ID
 
@@ -20,7 +20,7 @@ GROUP BY COUNTRY_ID
 -- Count the number of players in each club.
 
 SELECT CLUB_ID,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 GROUP BY CLUB_ID
 
@@ -29,7 +29,7 @@ GROUP BY CLUB_ID
 -- Calculate the average jersey number for each position.
 
 SELECT POSITION,
-       AVG(JERSEY_NUMBER)
+        AVG(JERSEY_NUMBER)
 FROM PLAYER
 GROUP BY POSITION
 
@@ -38,16 +38,17 @@ GROUP BY POSITION
 -- Display the most recent birth date in each country.
 
 SELECT COUNTRY_ID,
-       MAX(BIRTH_DATE)
+        MAX(BIRTH_DATE)
 FROM PLAYER
 GROUP BY COUNTRY_ID
 
 
 -- Example 6
--- Count the number of players in each position, excluding Goalkeepers, and sort the result by position.
+-- Count the number of players in each position, excluding Goalkeepers,
+-- and sort the result by position.
 
 SELECT POSITION,
-       COUNT(*)
+        COUNT(*)
 FROM PLAYER
 WHERE POSITION <> 'Goalkeeper'
 GROUP BY POSITION

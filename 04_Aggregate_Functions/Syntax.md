@@ -4,12 +4,12 @@
 
 ```sql
 SELECT COUNT(*)
-FROM table_name;
+FROM table_name
 ```
 
 ```sql
 SELECT COUNT(column_name)
-FROM table_name;
+FROM table_name
 ```
 
 ---
@@ -18,7 +18,7 @@ FROM table_name;
 
 ```sql
 SELECT SUM(column_name)
-FROM table_name;
+FROM table_name
 ```
 
 ---
@@ -27,7 +27,7 @@ FROM table_name;
 
 ```sql
 SELECT AVG(column_name)
-FROM table_name;
+FROM table_name
 ```
 
 ---
@@ -36,7 +36,7 @@ FROM table_name;
 
 ```sql
 SELECT MIN(column_name)
-FROM table_name;
+FROM table_name
 ```
 
 ---
@@ -45,7 +45,7 @@ FROM table_name;
 
 ```sql
 SELECT MAX(column_name)
-FROM table_name;
+FROM table_name
 ```
 
 ---
@@ -55,7 +55,7 @@ FROM table_name;
 ```sql
 SELECT AGGREGATE_FUNCTION(column_name)
 FROM table_name
-WHERE condition;
+WHERE condition
 ```
 
 ---
@@ -64,9 +64,9 @@ WHERE condition;
 
 ```sql
 SELECT group_column,
-       AGGREGATE_FUNCTION(column_name)
+        AGGREGATE_FUNCTION(column_name)
 FROM table_name
-GROUP BY group_column;
+GROUP BY group_column
 ```
 
 ---
@@ -75,10 +75,10 @@ GROUP BY group_column;
 
 ```sql
 SELECT group_column,
-       AGGREGATE_FUNCTION(column_name)
+        AGGREGATE_FUNCTION(column_name)
 FROM table_name
 GROUP BY group_column
-HAVING AGGREGATE_FUNCTION(column_name) condition;
+HAVING AGGREGATE_FUNCTION(column_name) condition
 ```
 
 ---
@@ -87,21 +87,8 @@ HAVING AGGREGATE_FUNCTION(column_name) condition;
 
 ```sql
 SELECT group_column,
-       AGGREGATE_FUNCTION(column_name) AS result
+        AGGREGATE_FUNCTION(column_name) AS result
 FROM table_name
 GROUP BY group_column
-ORDER BY result;
+ORDER BY result
 ```
-
----
-
-## Notes
-
-* `COUNT(*)` counts rows.
-* `COUNT(column_name)` ignores `NULL` values.
-* `SUM()` and `AVG()` work with numeric values.
-* `MIN()` and `MAX()` can be used with numeric, date, and character data.
-* Aggregate functions can be combined with `GROUP BY`.
-* Use `WHERE` to filter rows before aggregation.
-* Use `HAVING` to filter groups after aggregation.
-* Do not place a non-aggregated column in `SELECT` without including it in `GROUP BY`.

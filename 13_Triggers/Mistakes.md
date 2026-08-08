@@ -1,10 +1,10 @@
 # Mistakes
 
-## Using the wrong trigger syntax for SQL Server
+## 1. Using the wrong trigger syntax for SQL Server
 
-SQL Server triggers do not use `FOR EACH ROW`.
+SQL Server triggers do not use **FOR EACH ROW**.
 
-The trigger syntax places the table name before the trigger event and uses `AS` before the trigger body.
+The trigger syntax places the table name before the trigger event and uses **AS** before the trigger body.
 
 Wrong
 
@@ -32,15 +32,15 @@ END
 
 ---
 
-## Using PRINT instead of selecting rows from inserted or deleted
+## 2. Using `PRINT` instead of selecting rows from inserted or deleted
 
-PRINT only displays a message.
+**PRINT** only displays a message.
 
 When the exercise asks you to display the affected rows, use the inserted or deleted virtual table.
 
-For DELETE, use deleted.
+For **DELETE**, use deleted.
 
-For UPDATE, both inserted and deleted can be used.
+For **UPDATE**, both inserted and deleted can be used.
 
 Wrong
 
@@ -69,13 +69,13 @@ END
 
 ---
 
-## Using UPDATE() to check whether a column value actually changed
+## 3. Using `UPDATE()` to check whether a column value actually changed
 
-`UPDATE(column_name)` only checks whether the column was included in the UPDATE statement.
+**UPDATE(column_name)** only checks whether the column was included in the UPDATE statement.
 
 It does not check whether the column value actually changed.
 
-To detect an actual change, compare the values in the `inserted` and `deleted` tables.
+To detect an actual change, compare the values in the **inserted** and **deleted** tables.
 
 Wrong
 
@@ -106,7 +106,7 @@ BEGIN
         SELECT 1
         FROM inserted i
         INNER JOIN deleted d
-        ON d.PLAYER_ID = i.PLAYER_ID
+            ON d.PLAYER_ID = i.PLAYER_ID
         WHERE d.CLUB_ID <> i.CLUB_ID
     )
     BEGIN
@@ -118,7 +118,7 @@ END
 
 ---
 
-## Checking duplicate values without excluding the inserted or updated row
+## 4. Checking duplicate values without excluding the inserted or updated row
 
 When checking for duplicate values after an INSERT or UPDATE, the trigger may compare the row in inserted with the same row already present in the PLAYER table.
 
@@ -130,8 +130,8 @@ Wrong
 SELECT 1
 FROM inserted i
 INNER JOIN PLAYER PL
-ON PL.CLUB_ID = i.CLUB_ID
-    AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
+    ON PL.CLUB_ID = i.CLUB_ID
+        AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
 ```
 
 Correct
@@ -140,14 +140,14 @@ Correct
 SELECT 1
 FROM inserted i
 INNER JOIN PLAYER PL
-ON PL.CLUB_ID = i.CLUB_ID
-AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
-AND PL.PLAYER_ID <> i.PLAYER_ID
+    ON PL.CLUB_ID = i.CLUB_ID
+        AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
+        AND PL.PLAYER_ID <> i.PLAYER_ID
 ```
 
 ---
 
-## Using <> without handling NULL values
+## 5. Using <> without handling NULL values
 
 The <> operator does not return TRUE when one of the compared values is NULL.
 
@@ -161,7 +161,7 @@ IF EXISTS
     SELECT 1
     FROM inserted i
     INNER JOIN deleted d
-    ON d.PLAYER_ID= i.PLAYER_ID
+        ON d.PLAYER_ID= i.PLAYER_ID
     WHERE d.COUNTRY_ID <> i.COUNTRY_ID
 )
 ```
@@ -174,7 +174,7 @@ IF EXISTS
     SELECT 1
     FROM inserted i
     INNER JOIN deleted d
-    ON d.PLAYER_ID = i.PLAYER_ID
+        ON d.PLAYER_ID = i.PLAYER_ID
     WHERE
         (d.COUNTRY_ID <> i.COUNTRY_ID)
         OR (d.COUNTRY_ID IS NULL AND i.COUNTRY_ID IS NOT NULL)
@@ -184,9 +184,9 @@ IF EXISTS
 
 ---
 
-## Checking whether an updated row exists in the same table
+## 6. Checking whether an updated row exists in the same table
 
-The inserted table contains the rows affected by the UPDATE.
+The inserted table contains the rows affected by the **UPDATE**.
 
 Checking whether those rows exist in the target table does not validate whether the player existed before the update.
 
@@ -198,7 +198,7 @@ IF NOT EXISTS
     SELECT 1
     FROM inserted i
     INNER JOIN PLAYER PL
-    ON PL.PLAYER_ID = i.PLAYER_ID
+        ON PL.PLAYER_ID = i.PLAYER_ID
 )
 ```
 
@@ -210,7 +210,7 @@ IF EXISTS
     SELECT 1
     FROM inserted i
     LEFT JOIN CLUB C
-    ON C.CLUB_ID = i.CLUB_ID
+        ON C.CLUB_ID = i.CLUB_ID
     WHERE C.CLUB_ID IS NULL
 )
 ```

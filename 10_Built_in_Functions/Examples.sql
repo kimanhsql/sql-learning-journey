@@ -23,7 +23,7 @@ FROM PLAYER
 -- Display the length of each player name.
 
 SELECT PLAYER_NAME,
-       LEN(PLAYER_NAME) AS NameLength
+        LEN(PLAYER_NAME) AS NameLength
 FROM PLAYER
 
 
@@ -31,7 +31,7 @@ FROM PLAYER
 -- Display the first three characters of each player name.
 
 SELECT PLAYER_NAME,
-       LEFT(PLAYER_NAME, 3) AS FirstThreeCharacters
+        LEFT(PLAYER_NAME, 3) AS FirstThreeCharacters
 FROM PLAYER
 
 
@@ -45,7 +45,7 @@ SELECT GETDATE() AS CurrentDateTime
 -- Display the year of each player's birth date.
 
 SELECT PLAYER_NAME,
-       YEAR(BIRTH_DATE) AS BirthYear
+        YEAR(BIRTH_DATE) AS BirthYear
 FROM PLAYER
 
 
@@ -53,7 +53,7 @@ FROM PLAYER
 -- Display the jersey number as text.
 
 SELECT PLAYER_NAME,
-       CAST(JERSEY_NUMBER AS VARCHAR(10)) AS JerseyText
+        CAST(JERSEY_NUMBER AS VARCHAR(10)) AS JerseyText
 FROM PLAYER
 
 
@@ -61,7 +61,7 @@ FROM PLAYER
 -- Round the average jersey number for each position.
 
 SELECT POSITION,
-       ROUND(AVG(JERSEY_NUMBER), 0) AS RoundedAverageJersey
+        ROUND(AVG(JERSEY_NUMBER), 0) AS RoundedAverageJersey
 FROM PLAYER
 GROUP BY POSITION
 

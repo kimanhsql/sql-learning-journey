@@ -1,5 +1,7 @@
 # Syntax
 
+## 1. TRIGGER BASIC
+
 ```sql
 CREATE TRIGGER trigger_name
 ON table_name
@@ -15,7 +17,7 @@ GO
 
 ---
 
-## AFTER INSERT
+## 2. AFTER INSERT
 
 ```sql
 CREATE TRIGGER trg_AfterInsert
@@ -31,7 +33,7 @@ GO
 
 ---
 
-## AFTER UPDATE
+## 3. AFTER UPDATE
 
 ```sql
 CREATE TRIGGER trg_AfterUpdate
@@ -47,7 +49,7 @@ GO
 
 ---
 
-## AFTER DELETE
+## 4. AFTER DELETE
 
 ```sql
 CREATE TRIGGER trg_AfterDelete
@@ -63,7 +65,7 @@ GO
 
 ---
 
-## INSTEAD OF Trigger
+## 5. INSTEAD OF Trigger
 
 ```sql
 CREATE TRIGGER trg_InsteadOfDelete
@@ -79,7 +81,7 @@ GO
 
 ---
 
-## ALTER Trigger
+## 6. ALTER Trigger
 
 ```sql
 ALTER TRIGGER trg_AfterInsert
@@ -95,7 +97,7 @@ GO
 
 ---
 
-## DROP Trigger
+## 7. DROP Trigger
 
 ```sql
 DROP TRIGGER trg_AfterInsert

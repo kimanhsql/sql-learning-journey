@@ -1,18 +1,18 @@
 # Syntax
 
-## Create a Stored Procedure
+## 1. Create a Stored Procedure
 
 ```sql
 CREATE PROCEDURE procedure_name
 AS
 BEGIN
-    SQL statements
+    -- SQL statements
 END
 ```
 
 ---
 
-## Create a Stored Procedure with Parameters
+## 2. Create a Stored Procedure with Parameters
 
 ```sql
 CREATE PROCEDURE procedure_name
@@ -20,13 +20,13 @@ CREATE PROCEDURE procedure_name
     @parameter2 data_type
 AS
 BEGIN
-    SQL statements
+    -- SQL statements
 END
 ```
 
 ---
 
-## Execute a Stored Procedure
+## 3. Execute a Stored Procedure
 
 ```sql
 EXEC procedure_name
@@ -40,7 +40,7 @@ EXECUTE procedure_name
 
 ---
 
-## Execute a Stored Procedure with Parameters
+## 4. Execute a Stored Procedure with Parameters
 
 ```sql
 EXEC procedure_name value1, value2
@@ -48,19 +48,19 @@ EXEC procedure_name value1, value2
 
 ---
 
-## Alter a Stored Procedure
+## 5. Alter a Stored Procedure
 
 ```sql
 ALTER PROCEDURE procedure_name
 AS
 BEGIN
-    SQL statements
+    -- SQL statements
 END
 ```
 
 ---
 
-## Drop a Stored Procedure
+## 6. Drop a Stored Procedure
 
 ```sql
 DROP PROCEDURE procedure_name

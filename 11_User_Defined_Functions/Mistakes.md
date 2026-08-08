@@ -1,8 +1,8 @@
 # Mistakes
 
-## Misunderstanding the `RETURNS` keyword
+## 1. Misunderstanding the `RETURNS` keyword
 
-The `RETURNS` clause defines the output of the function, not the data type of its parameters.
+The **RETURNS** clause defines the output of the function, not the data type of its parameters.
 
 Wrong
 
@@ -28,11 +28,11 @@ END
 
 ---
 
-## Confusing RETURN with BEGIN ... END
+## 2. Confusing `RETURN` with `BEGIN ... END`
 
-A scalar function usually uses BEGIN ... END and RETURN to return a single value.
+A scalar function usually uses **BEGIN ... END** and **RETURN** to return a single value.
 
-An inline table-valued function uses RETURN (...) without BEGIN ... END.
+An inline table-valued function uses **RETURN (...)** without BEGIN ... END.
 
 Wrong
 

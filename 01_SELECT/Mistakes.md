@@ -1,6 +1,6 @@
 # Mistakes
 
-## Forgetting `FROM`
+## 1. Forgetting `FROM`
 
 Wrong
 
@@ -17,7 +17,7 @@ FROM CAUTHU
 
 ---
 
-## Misspelling Column Names
+## 2. Misspelling Column Names
 
 Wrong
 
@@ -28,6 +28,6 @@ FROM CAUTHU
 
 ---
 
-## Using SELECT * Unnecessarily
+## 3. Using SELECT * Unnecessarily
 
 Avoid using `SELECT *` when only a few columns are required.

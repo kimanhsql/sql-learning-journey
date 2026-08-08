@@ -6,9 +6,7 @@ ON PLAYER
 AFTER INSERT
 AS
 BEGIN
-
     PRINT 'Player inserted.'
-
 END
 
 GO
@@ -22,9 +20,7 @@ ON PLAYER
 AFTER UPDATE
 AS
 BEGIN
-
     PRINT 'Player updated.'
-
 END
 
 GO
@@ -38,9 +34,7 @@ ON PLAYER
 AFTER DELETE
 AS
 BEGIN
-
     PRINT 'Player deleted.'
-
 END
 
 GO
@@ -54,9 +48,7 @@ ON PLAYER
 INSTEAD OF DELETE
 AS
 BEGIN
-
     PRINT 'Delete operation is not allowed.'
-
 END
 
 GO
@@ -70,10 +62,8 @@ ON PLAYER
 AFTER INSERT
 AS
 BEGIN
-
     SELECT *
     FROM inserted
-
 END
 
 GO
@@ -87,10 +77,8 @@ ON PLAYER
 AFTER DELETE
 AS
 BEGIN
-
     SELECT *
     FROM deleted
-
 END
 
 GO
@@ -104,13 +92,11 @@ ON PLAYER
 AFTER UPDATE
 AS
 BEGIN
-
     SELECT *
     FROM inserted
 
     SELECT *
     FROM deleted
-
 END
 
 GO

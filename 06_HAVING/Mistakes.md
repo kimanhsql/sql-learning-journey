@@ -1,12 +1,12 @@
 # Mistakes
 
-## Using aliases in the HAVING clause
+## 1. Using aliases in the `HAVING` clause
 
 Wrong
 
 ```sql
 SELECT POSITION,
-       COUNT(*) AS NumOfPlayers
+        COUNT(*) AS NumOfPlayers
 FROM PLAYER
 GROUP BY POSITION
 HAVING NumOfPlayers > 2
@@ -16,7 +16,7 @@ Correct
 
 ```sql
 SELECT POSITION,
-       COUNT(*) AS NumOfPlayers
+        COUNT(*) AS NumOfPlayers
 FROM PLAYER
 GROUP BY POSITION
 HAVING COUNT(*) > 2
@@ -24,7 +24,7 @@ HAVING COUNT(*) > 2
 
 ---
 
-## Comparing a DATE value with an integer
+## 2. Comparing a `DATE` value with an integer
 
 Data type Date is a string, we aggregate by a string, not numeric.
 
@@ -32,7 +32,7 @@ Wrong
 
 ```sql
 SELECT POSITION,
-       MIN(BIRTH_DATE) AS Birthday
+        MIN(BIRTH_DATE) AS Birthday
 FROM PLAYER
 GROUP BY POSITION
 HAVING MIN(BIRTH_DATE) < 1995
@@ -42,7 +42,7 @@ Correct
 
 ```sql
 SELECT POSITION,
-       MIN(BIRTH_DATE) AS Birthday
+        MIN(BIRTH_DATE) AS Birthday
 FROM PLAYER
 GROUP BY POSITION
 HAVING MIN(BIRTH_DATE) < '1995-01-01'
@@ -50,7 +50,7 @@ HAVING MIN(BIRTH_DATE) < '1995-01-01'
 
 ---
 
-## Forgetting ORDER BY after HAVING
+## 3. Forgetting `ORDER BY` after `HAVING`
 
 The problem sorted by club name, not filtered record.
 
@@ -58,7 +58,7 @@ Wrong
 
 ```sql
 SELECT C.CLUB_NAME,
-       COUNT(*) AS NumInClubs
+        COUNT(*) AS NumInClubs
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY C.CLUB_NAME
@@ -69,7 +69,7 @@ Correct
 
 ```sql
 SELECT C.CLUB_NAME,
-       COUNT(*) AS NumInClubs
+        COUNT(*) AS NumInClubs
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
 GROUP BY C.CLUB_NAME
@@ -79,18 +79,18 @@ ORDER BY CLUB_NAME
 
 ---
 
-## Forgetting the relationship between tables
+## 4. Forgetting the relationship between tables
 
 Wrong
 
 ```sql
 SELECT C.CLUB_ID,
-       CLUB_NAME,
-       COUNT(*) AS Position_Num
+        CLUB_NAME,
+        COUNT(*) AS Position_Num
 FROM CLUB C, PLAYER P
 WHERE POSITION = 'Forward'
 GROUP BY C.CLUB_ID,
-         CLUB_NAME
+        CLUB_NAME
 HAVING COUNT(*) > 1
 ```
 
@@ -98,19 +98,19 @@ Correct
 
 ```sql
 SELECT C.CLUB_ID,
-       CLUB_NAME,
-       COUNT(*) AS Position_Num
+        CLUB_NAME,
+        COUNT(*) AS Position_Num
 FROM CLUB C, PLAYER P
 WHERE C.CLUB_ID = P.CLUB_ID
-  AND POSITION = 'Forward'
+        AND POSITION = 'Forward'
 GROUP BY C.CLUB_ID,
-         CLUB_NAME
+        CLUB_NAME
 HAVING COUNT(*) > 1
 ```
 
 ---
 
-## Using a non-grouped column in the HAVING clause
+## 5. Using a non-grouped column in the HAVING clause
 
 Only grouped columns or aggregate functions can be used in the HAVING clause.
 
@@ -133,16 +133,16 @@ SELECT COUNTRY_NAME,
         COUNT(*) AS PlayerPosition
 FROM COUNTRY CT, PLAYER PL
 WHERE CT.COUNTRY_ID = PL.COUNTRY_ID
-      AND POSITION = 'Goalkeeper'
+        AND POSITION = 'Goalkeeper'
 GROUP BY COUNTRY_NAME
 HAVING COUNT(*) > 1
 ```
 
 ---
 
-## Comparing a non-aggregate column after GROUP BY
+## 6. Comparing a non-aggregate column after `GROUP BY`
 
-After GROUP BY, individual row values no longer exist. You must compare aggregate values instead.
+After **GROUP BY**, individual row values no longer exist. You must compare aggregate values instead.
 
 Wrong
 
@@ -158,7 +158,7 @@ Correct
 
 ```sql
 SELECT POSITION,
-       AVG(JERSEY_NUMBER) AS AverageJerseyNum
+        AVG(JERSEY_NUMBER) AS AverageJerseyNum
 FROM PLAYER
 GROUP BY POSITION
 HAVING AVG(JERSEY_NUMBER) >

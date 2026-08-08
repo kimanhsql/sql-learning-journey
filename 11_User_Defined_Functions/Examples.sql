@@ -1,5 +1,6 @@
 -- Example 1
--- Create a function that returns the age of a player based on the birth date.
+-- Create a function that returns the age of a player
+-- based on the birth date.
 
 GO
 
@@ -17,7 +18,7 @@ GO
 -- Use the function to display player names and ages.
 
 SELECT PLAYER_NAME,
-       dbo.GetAge(BIRTH_DATE) AS Age
+        dbo.GetAge(BIRTH_DATE) AS Age
 FROM PLAYER
 
 GO
@@ -30,7 +31,7 @@ CREATE FUNCTION dbo.GetPlayerCountByClub (@ClubID INT)
 RETURNS INT
 AS
 BEGIN
-    DECLARE @TotalPlayers INT;
+    DECLARE @TotalPlayers INT
 
     SELECT @TotalPlayers = COUNT(*)
     FROM PLAYER
@@ -43,17 +44,19 @@ GO
 
 
 -- Example 4
--- Use the function to display club IDs and the number of players in each club.
+-- Use the function to display club IDs and
+-- the number of players in each club.
 
 SELECT CLUB_ID,
-       dbo.GetPlayerCountByClub(CLUB_ID) AS TotalPlayers
+        dbo.GetPlayerCountByClub(CLUB_ID) AS TotalPlayers
 FROM CLUB
 
 GO
 
 
 -- Example 5
--- Create a table-valued function that returns players from a specific country.
+-- Create a table-valued function that returns players
+-- from a specific country.
 
 CREATE FUNCTION dbo.GetPlayersByCountry (@CountryID INT)
 RETURNS TABLE
@@ -61,8 +64,8 @@ AS
 RETURN
 (
     SELECT PLAYER_NAME,
-           BIRTH_DATE,
-           POSITION
+            BIRTH_DATE,
+            POSITION
     FROM PLAYER
     WHERE COUNTRY_ID = @CountryID
 )
@@ -96,7 +99,7 @@ GO
 -- Use the function to display player names in uppercase.
 
 SELECT PLAYER_NAME,
-       dbo.GetUpperPlayerName(PLAYER_NAME) AS UpperPlayerName
+        dbo.GetUpperPlayerName(PLAYER_NAME) AS UpperPlayerName
 FROM PLAYER
 
 GO

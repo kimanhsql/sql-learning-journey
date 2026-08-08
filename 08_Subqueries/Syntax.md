@@ -1,6 +1,6 @@
 # Syntax
 
-## Subquery in WHERE clause (Single-row Subquery)
+## 1. Subquery in WHERE clause (Single-row Subquery)
 
 ```sql
 SELECT column_name
@@ -14,7 +14,7 @@ WHERE column_name operator
 
 ---
 
-## Subquery in WHERE clause (Multiple-row Subquery)
+## 2. Subquery in WHERE clause (Multiple-row Subquery)
 
 ```sql
 SELECT column_name
@@ -28,7 +28,7 @@ WHERE column_name IN
 
 ---
 
-## Subquery in FROM clause
+## 3. Subquery in FROM clause
 
 ```sql
 SELECT column_name
@@ -41,7 +41,7 @@ FROM
 
 ---
 
-## Subquery in SELECT clause
+## 4. Subquery in SELECT clause
 
 ```sql
 SELECT column_name,

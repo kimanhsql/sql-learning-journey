@@ -110,7 +110,7 @@ BEGIN
         SELECT 1
         FROM inserted i
         INNER JOIN deleted d
-        ON d.PLAYER_ID = i.PLAYER_ID
+            ON d.PLAYER_ID = i.PLAYER_ID
         WHERE d.CLUB_ID <> i.CLUB_ID
     )
     BEGIN
@@ -135,9 +135,9 @@ BEGIN
         SELECT 1
         FROM inserted i
         INNER JOIN PLAYER PL
-        ON PL.CLUB_ID = i.CLUB_ID
-            AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
-            AND PL.PLAYER_ID <> i.PLAYER_ID
+            ON PL.CLUB_ID = i.CLUB_ID
+                AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
+                AND PL.PLAYER_ID <> i.PLAYER_ID
     )
     BEGIN
         RAISERROR('Duplicate jersey numbers are not allowed within the same club.', 16, 1)
@@ -179,7 +179,7 @@ BEGIN
         SELECT 1
         FROM deleted d
         INNER JOIN PLAYER PL
-        ON PL.CLUB_ID = d.CLUB_ID
+            ON PL.CLUB_ID = d.CLUB_ID
     )
     BEGIN
         RAISERROR('Cannot delete clubs that still have players.', 16, 1)
@@ -203,10 +203,10 @@ BEGIN
         SELECT d.PLAYER_ID,
                 d.PLAYER_NAME,
                 d.POSITION AS Old_Position,
-                I.POSITION AS New_Position
+                i.POSITION AS New_Position
         FROM deleted d
         INNER JOIN inserted i
-        ON i.PLAYER_ID = d.PLAYER_ID
+            ON i.PLAYER_ID = d.PLAYER_ID
     END
 END
 

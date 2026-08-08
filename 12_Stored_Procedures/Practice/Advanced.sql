@@ -20,7 +20,8 @@ Remember:
 
 
 -- Exercise 1
--- Create a stored procedure that displays player names together with their club names.
+-- Create a stored procedure that displays player names together
+-- with their club names.
 
 GO
 
@@ -31,14 +32,15 @@ BEGIN
             CLUB_NAME
     FROM PLAYER PL
     INNER JOIN CLUB C
-    ON C.CLUB_ID = PL.CLUB_ID
+        ON C.CLUB_ID = PL.CLUB_ID
 END
 
 GO
 
 
 -- Exercise 2
--- Create a stored procedure that displays players from a given country name.
+-- Create a stored procedure that displays players
+-- from a given country name.
 
 CREATE PROCEDURE prd_display_players_by_country
     @CountryName NVARCHAR(60)
@@ -48,7 +50,7 @@ BEGIN
             COUNTRY_NAME
     FROM PLAYER PL
     INNER JOIN COUNTRY CT
-    ON CT.COUNTRY_ID = PL.COUNTRY_ID
+        ON CT.COUNTRY_ID = PL.COUNTRY_ID
     WHERE COUNTRY_NAME = @CountryName
 END
 
@@ -56,7 +58,8 @@ GO
 
 
 -- Exercise 3
--- Create a stored procedure that displays the total number of players in each club.
+-- Create a stored procedure that displays
+-- the total number of players in each club.
 
 CREATE PROCEDURE prd_display_total_players_per_club
 AS
@@ -65,7 +68,7 @@ BEGIN
             COUNT(PLAYER_ID) AS TOTAL_PLAYERS
     FROM PLAYER PL
     INNER JOIN CLUB C
-    ON C.CLUB_ID = PL.CLUB_ID
+        ON C.CLUB_ID = PL.CLUB_ID
     GROUP BY CLUB_NAME
 END
 
@@ -73,7 +76,8 @@ GO
 
 
 -- Exercise 4
--- Create a stored procedure that displays the average jersey number for each position.
+-- Create a stored procedure that displays
+-- the average jersey number for each position.
 
 CREATE PROCEDURE prd_display_avg_jersey_num_per_position
 AS
@@ -108,7 +112,8 @@ GO
 
 
 -- Exercise 6
--- Create a stored procedure that displays all players born after a given year.
+-- Create a stored procedure that displays all players
+-- born after a given year.
 
 CREATE PROCEDURE prd_display_players_born_after_year
     @Year INT
@@ -135,7 +140,7 @@ BEGIN
             COUNT(PLAYER_ID) AS TOTAL_PLAYERS
     FROM PLAYER PL
     INNER JOIN CLUB C
-    ON C.CLUB_ID = PL.CLUB_ID
+        ON C.CLUB_ID = PL.CLUB_ID
     GROUP BY CLUB_NAME
     HAVING COUNT(PLAYER_ID) > @NumPlayers
 END
@@ -155,16 +160,17 @@ BEGIN
             COUNTRY_NAME
     FROM PLAYER PL
     INNER JOIN CLUB C
-    ON C.CLUB_ID = PL.CLUB_ID
+        ON C.CLUB_ID = PL.CLUB_ID
     INNER JOIN COUNTRY CT
-    ON CT.COUNTRY_ID = PL.COUNTRY_ID
+        ON CT.COUNTRY_ID = PL.COUNTRY_ID
 END
 
 GO
 
 
 -- Exercise 9
--- Create a stored procedure that displays the oldest player in each position.
+-- Create a stored procedure that displays
+-- the oldest player in each position.
 
 CREATE PROCEDURE prd_display_oldest_player_per_position
 AS
@@ -195,7 +201,7 @@ BEGIN
             PLAYER_NAME
     FROM CLUB C
     LEFT JOIN PLAYER PL
-    ON PL.CLUB_ID = C.CLUB_ID
+        ON PL.CLUB_ID = C.CLUB_ID
 END
 
 GO

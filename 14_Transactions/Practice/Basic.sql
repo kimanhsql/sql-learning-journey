@@ -17,7 +17,8 @@ Remember:
 - A transaction can contain one or more SQL statements.
 - COMMIT should be used when all operations complete successfully.
 - ROLLBACK should be used when the changes should be undone.
-- Multiple INSERT, UPDATE, or DELETE statements can belong to the same transaction.
+- Multiple INSERT, UPDATE, or DELETE statements can belong to
+the same transaction.
 */
 
 
@@ -54,7 +55,8 @@ ROLLBACK TRANSACTION
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (11, 'John Doe', 'Forward', '1995-05-15', '123 Main St', 1, 1, 9)
 
@@ -125,7 +127,8 @@ ROLLBACK TRANSACTION
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (12, 'Alice Smith', 'Defender', '1998-03-22', '456 Oak St', 2, 1, 5),
     (13, 'Bob Johnson', 'Midfielder', '1997-07-10', '789 Pine St', 2, 1, 8)

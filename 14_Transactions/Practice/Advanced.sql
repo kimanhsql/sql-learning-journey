@@ -3,28 +3,32 @@ Think before writing SQL.
 
 Ask yourself:
 
-Should multiple operations be treated as one unit of work?
-Should I use a savepoint?
-Where should the savepoint be created?
-What should be committed?
-What should be rolled back?
-Should I use TRY...CATCH?
-What should happen if an error occurs?
+- Should multiple operations be treated as one unit of work?
+- Should I use a savepoint?
+- Where should the savepoint be created?
+- What should be committed?
+- What should be rolled back?
+- Should I use TRY...CATCH?
+- What should happen if an error occurs?
 
 Remember:
 
 - SAVE TRANSACTION creates a savepoint inside an active transaction.
 - A savepoint does not end the transaction.
-- ROLLBACK TRANSACTION savepoint_name rolls back only the changes made after the savepoint.
+- ROLLBACK TRANSACTION savepoint_name rolls back only the changes
+made after the savepoint.
 - Changes made before the savepoint remain part of the transaction.
 - COMMIT TRANSACTION commits all remaining changes in the transaction.
 - A transaction can contain multiple savepoints.
 - TRY...CATCH can be used to handle errors inside a transaction.
 - If an error occurs, ROLLBACK TRANSACTION can undo the entire transaction.
 - @@TRANCOUNT returns the number of active transactions.
-- XACT_STATE() indicates whether the current transaction is committable, uncommittable, or has no active transaction.
-- Savepoints are useful when only part of a transaction should be rolled back.
-- TRY...CATCH is useful when a transaction requires controlled error handling.
+- XACT_STATE() indicates whether the current transaction is committable,
+uncommittable, or has no active transaction.
+- Savepoints are useful when only part of a transaction should be
+rolled back.
+- TRY...CATCH is useful when a transaction requires controlled
+error handling.
 */
 
 
@@ -64,7 +68,8 @@ COMMIT TRANSACTION
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-(PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
 (19, 'Charlie Brown', 'Forward', '1996-08-12', '321 Elm St', 3, 1, 7)
 
@@ -121,8 +126,8 @@ COMMIT TRANSACTION
 END TRY
 
 BEGIN CATCH
-IF XACT_STATE() <> 0
-ROLLBACK TRANSACTION
+    IF XACT_STATE() <> 0
+        ROLLBACK TRANSACTION
 END CATCH
 
 
@@ -136,7 +141,8 @@ BEGIN TRY
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (20, 'David Green', 'Midfielder', '1994-11-05', '654 Maple St', 4, 1, 6)
 
@@ -149,8 +155,8 @@ COMMIT TRANSACTION
 END TRY
 
 BEGIN CATCH
-IF XACT_STATE() <> 0
-ROLLBACK TRANSACTION
+    IF XACT_STATE() <> 0
+        ROLLBACK TRANSACTION
 END CATCH
 
 
@@ -185,7 +191,8 @@ BEGIN TRY
 BEGIN TRANSACTION
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (21, 'Eve White', 'Defender', '1993-02-20', '987 Cedar St', 5, 1, 5)
 
@@ -197,8 +204,8 @@ COMMIT TRANSACTION
 END TRY
 
 BEGIN CATCH
-IF XACT_STATE() <> 0
-ROLLBACK TRANSACTION
+    IF XACT_STATE() <> 0
+        ROLLBACK TRANSACTION
 END CATCH
 
 
@@ -243,7 +250,8 @@ SET JERSEY_NUMBER = 23
 WHERE PLAYER_ID = 15
 
 INSERT INTO PLAYER
-    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (22, 'Frank Black', 'Goalkeeper', '1992-07-15', '123 Birch St', 6, 1, 1)
 
@@ -255,8 +263,8 @@ COMMIT TRANSACTION
 END TRY
 
 BEGIN CATCH
-IF XACT_STATE() <> 0
-ROLLBACK TRANSACTION
+    IF XACT_STATE() <> 0
+        ROLLBACK TRANSACTION
 END CATCH
 
 
@@ -272,7 +280,8 @@ SET JERSEY_NUMBER = 24
 WHERE PLAYER_ID = 17
 
 INSERT INTO PLAYER
-(PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS, CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
+    (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
+    CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
 (23, 'Grace Blue', 'Midfielder', '1995-03-10', '456 Pine St', 7, 1, 8)
 

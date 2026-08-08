@@ -1,6 +1,6 @@
 # Mistakes
 
-## Using the wrong data type for parameters
+## 1. Using the wrong data type for parameters
 
 The parameter data type should match the corresponding column in the table whenever possible.
 
@@ -34,7 +34,7 @@ RETURN
 
 ---
 
-## Using COUNT(*) instead of COUNT(column)
+## 2. Using COUNT(*) instead of COUNT(column)
 
 COUNT(*) counts all rows.
 
@@ -47,7 +47,7 @@ SELECT COUNTRY_NAME,
         COUNT(*) AS NumberOfPlayers
 FROM PLAYER PL
 INNER JOIN COUNTRY CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 GROUP BY COUNTRY_NAME
 ```
 
@@ -58,13 +58,13 @@ SELECT COUNTRY_NAME,
         COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER PL
 INNER JOIN COUNTRY CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 GROUP BY COUNTRY_NAME
 ```
 
 ---
 
-## Forgetting to GROUP BY every non-aggregated column
+## 3. Forgetting to GROUP BY every non-aggregated column
 
 Every selected column that is not inside an aggregate function must appear in the GROUP BY clause.
 
@@ -76,7 +76,7 @@ SELECT POSITION,
         COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER PL
 INNER JOIN COUNTRY CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 GROUP BY POSITION
 ```
 
@@ -88,7 +88,7 @@ SELECT POSITION,
         COUNT(PLAYER_ID) AS NumberOfPlayers
 FROM PLAYER PL
 INNER JOIN COUNTRY CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 GROUP BY POSITION,
-            COUNTRY_NAME
+        COUNTRY_NAME
 ```

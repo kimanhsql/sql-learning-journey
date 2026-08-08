@@ -18,7 +18,8 @@ Then build the WHERE clause step by step.
 
 
 -- Exercise 1
--- Display players whose jersey number is greater than 10 and whose position is Forward.
+-- Display players whose jersey number is greater than 10
+-- and whose position is Forward.
 
 SELECT PLAYER_ID,
         PLAYER_NAME,
@@ -90,7 +91,8 @@ WHERE BIRTHDATE BETWEEN '1995-01-01'
 
 
 -- Exercise 8
--- Display players whose birth date is not NULL and whose jersey number is greater than 20.
+-- Display players whose birth date is not NULL
+-- and whose jersey number is greater than 20.
 
 SELECT PLAYER_ID,
         PLAYER_NAME,
@@ -102,7 +104,8 @@ WHERE BIRTH_DATE IS NOT NULL
 
 
 -- Exercise 9
--- Display players who are not Forward and whose jersey number is less than 10.
+-- Display players who are not Forward and
+-- whose jersey number is less than 10.
 
 SELECT PLAYER_ID,
         PLAYER_NAME,
