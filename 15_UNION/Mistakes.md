@@ -1,20 +1,20 @@
 # Mistakes
 
-## Confusing UNION with JOIN
+## 1. Confusing `UNION` with `JOIN`
 
-`UNION` combines result sets vertically.
+**UNION** combines result sets vertically.
 
-`JOIN` combines related rows from different tables horizontally.
+**JOIN** combines related rows from different tables horizontally.
 
-Use `UNION` when the goal is to put similar results into one result set.
+Use **UNION** when the goal is to put similar results into one result set.
 
 ---
 
-## Using UNION when duplicates should be preserved
+## 2. Using `UNION` when duplicates should be preserved
 
-`UNION` removes duplicate rows.
+**UNION** removes duplicate rows.
 
-If duplicates should remain, use `UNION ALL`.
+If duplicates should remain, use **UNION ALL**.
 
 Wrong
 
@@ -42,11 +42,11 @@ FROM COACH
 
 ---
 
-## Using UNION ALL when duplicates should be removed
+## 3. Using `UNION ALL` when duplicates should be removed
 
-`UNION ALL` preserves duplicate rows.
+**UNION ALL** preserves duplicate rows.
 
-Use `UNION` when duplicate rows should appear only once.
+Use **UNION** when duplicate rows should appear only once.
 
 Wrong
 
@@ -74,7 +74,7 @@ FROM COACH
 
 ---
 
-## Different numbers of columns
+## 4. Different numbers of columns
 
 All `SELECT` statements in a `UNION` must return the same number of columns.
 
@@ -87,7 +87,7 @@ FROM PLAYER
 UNION
 
 SELECT COACH_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM COACH
 ```
 
@@ -95,19 +95,19 @@ Correct
 
 ```sql
 SELECT PLAYER_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 
 UNION
 
 SELECT COACH_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM COACH
 ```
 
 ---
 
-## Incompatible data types
+## 5. Incompatible data types
 
 Corresponding columns should have compatible data types.
 
@@ -115,13 +115,13 @@ Wrong
 
 ```sql
 SELECT PLAYER_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 
 UNION
 
 SELECT COACH_NAME,
-       COACH_NAME
+        COACH_NAME
 FROM COACH
 ```
 
@@ -129,21 +129,21 @@ Correct
 
 ```sql
 SELECT PLAYER_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 
 UNION
 
 SELECT COACH_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM COACH
 ```
 
 ---
 
-## Applying ORDER BY to an individual SELECT
+## 6. Applying `ORDER BY` to an individual `SELECT`
 
-When using `UNION`, the final `ORDER BY` should normally be applied to the combined result.
+When using **UNION**, the final **ORDER BY** should normally be applied to the combined result.
 
 Wrong
 
@@ -174,11 +174,11 @@ ORDER BY PERSON_NAME
 
 ---
 
-## Forgetting that the column names come from the first SELECT
+## 7. Forgetting that the column names come from the first `SELECT`
 
-The output column names of a `UNION` are normally determined by the first `SELECT`.
+The output column names of a **UNION** are normally determined by the first **SELECT**.
 
-Use an alias in the first `SELECT` when a meaningful final column name is needed.
+Use an alias in the first **SELECT** when a meaningful final column name is needed.
 
 Correct
 
@@ -192,14 +192,14 @@ SELECT COACH_NAME
 FROM COACH
 ```
 
-The final column is named `PERSON_NAME`.
+The final column is named **PERSON_NAME**.
 
 ---
 
-## Using UNION when the tables should actually be joined
+## 8. Using `UNION` when the tables should actually be joined
 
-Do not use `UNION` simply because data comes from two tables.
+Do not use **UNION** simply because data comes from two tables.
 
-If the task requires combining related information from the same row or relationship, a `JOIN` may be more appropriate.
+If the task requires combining related information from the same row or relationship, a **JOIN** may be more appropriate.
 
-Use `UNION` when the result sets have a compatible structure and should be stacked together.
+Use **UNION** when the result sets have a compatible structure and should be stacked together.

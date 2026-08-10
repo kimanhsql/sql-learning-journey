@@ -12,14 +12,14 @@
 
 ## Characteristics
 
-* `UNION` combines the results of multiple `SELECT` statements.
-* Each `SELECT` statement must return the same number of columns.
-* Corresponding columns must have compatible data types.
-* The order of columns must match between the `SELECT` statements.
-* `UNION` removes duplicate rows.
-* `UNION ALL` keeps duplicate rows.
-* `ORDER BY` is normally placed at the end of the complete UNION query.
-* `UNION` does not combine columns horizontally. It combines result sets vertically.
+- `UNION` combines the results of multiple `SELECT` statements.
+- Each `SELECT` statement must return the same number of columns.
+- Corresponding columns must have compatible data types.
+- The order of columns must match between the `SELECT` statements.
+- `UNION` removes duplicate rows.
+- `UNION ALL` keeps duplicate rows.
+- `ORDER BY` is normally placed at the end of the complete UNION query.
+- `UNION` does not combine columns horizontally. It combines result sets vertically.
 
 ---
 
@@ -36,7 +36,7 @@ FROM table_a
 UNION
 
 SELECT column_name
-FROM table_b;
+FROM table_b
 ```
 
 ### UNION ALL
@@ -50,7 +50,7 @@ FROM table_a
 UNION ALL
 
 SELECT column_name
-FROM table_b;
+FROM table_b
 ```
 
 `UNION ALL` is usually preferable when duplicate removal is not required because the database does not need to perform duplicate elimination.
@@ -68,13 +68,15 @@ The queries must have:
 Example:
 
 ```sql
-SELECT PLAYER_NAME, POSITION
+SELECT PLAYER_NAME,
+         POSITION
 FROM PLAYER
 
 UNION
 
-SELECT COACH_NAME, POSITION
-FROM COACH;
+SELECT COACH_NAME,
+         POSITION
+FROM COACH
 ```
 
 The first column represents a name in both result sets, and the second column represents a position.
@@ -111,16 +113,16 @@ One combined result
 
 Use `UNION` when:
 
-* Different queries return the same type of information.
-* Data comes from different tables but has a compatible structure.
-* You need to combine multiple result sets.
-* Duplicate rows should be removed.
+- Different queries return the same type of information.
+- Data comes from different tables but has a compatible structure.
+- You need to combine multiple result sets.
+- Duplicate rows should be removed.
 
 Use `UNION ALL` when:
 
-* Duplicate rows are meaningful.
-* You want to keep every returned row.
-* Duplicate removal is unnecessary.
+- Duplicate rows are meaningful.
+- You want to keep every returned row.
+- Duplicate removal is unnecessary.
 
 ---
 

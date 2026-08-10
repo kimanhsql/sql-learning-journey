@@ -9,5 +9,4 @@ The resources are references only and are not part of the main learning modules.
 ## Contents
 
 - Books
-
 - Websites

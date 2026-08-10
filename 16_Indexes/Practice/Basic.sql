@@ -55,7 +55,8 @@ GO
 
 
 -- Exercise 6
--- Create a unique index on a column that should not contain duplicate values.
+-- Create a unique index on a column that
+-- should not contain duplicate values.
 
 CREATE UNIQUE INDEX UX_PLAYER_ADDRESS
 ON PLAYER (ADDRESS)
@@ -73,7 +74,8 @@ GO
 
 
 -- Exercise 8
--- Create a nonclustered index on CLUB_ID with PLAYER_NAME as an included column.
+-- Create a nonclustered index on CLUB_ID
+-- with PLAYER_NAME as an included column.
 
 CREATE NONCLUSTERED INDEX IX_PLAYER_CLUB_ID
 ON PLAYER (CLUB_ID)

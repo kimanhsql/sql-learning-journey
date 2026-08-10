@@ -4,11 +4,11 @@ This folder contains useful websites that support my SQL learning journey.
 
 The resources listed here are used for learning, practicing, and expanding my knowledge beyond the main modules.
 
-## SQL Server Tutorial
+## roadmap.sh
 
-A comprehensive website for learning SQL Server, including tutorials, examples, and advanced SQL topics.
+A community-driven roadmap that helps learners understand the skills and technologies required for database-related careers.
 
-https://www.sqlservertutorial.net/
+https://roadmap.sh/
 
 ---
 
@@ -20,16 +20,16 @@ https://www.w3schools.com/sql/
 
 ---
 
+## SQL Server Tutorial
+
+A comprehensive website for learning SQL Server, including tutorials, examples, and advanced SQL topics.
+
+https://www.sqlservertutorial.net/
+
+---
+
 ## Quest
 
 Learning resources covering SQL Server, database administration, and performance tuning.
 
 https://www.quest.com/learn/
-
----
-
-## roadmap.sh
-
-A community-driven roadmap that helps learners understand the skills and technologies required for database-related careers.
-
-https://roadmap.sh/

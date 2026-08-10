@@ -11,7 +11,8 @@ Before writing SQL, ask yourself:
 
 
 -- Exercise 1
--- Create a composite index for queries that filter players by CLUB_ID and JERSEY_NUMBER.
+-- Create a composite index for queries that filter players
+-- by CLUB_ID and JERSEY_NUMBER.
 
 CREATE INDEX IX_PLAYER_CLUB_JERSEY
 ON PLAYER (CLUB_ID, JERSEY_NUMBER)
@@ -29,7 +30,8 @@ GO
 
 
 -- Exercise 3
--- Create a nonclustered index on CLUB_ID and include PLAYER_NAME, POSITION, and JERSEY_NUMBER.
+-- Create a nonclustered index on CLUB_ID
+-- and include PLAYER_NAME, POSITION, and JERSEY_NUMBER.
 
 CREATE NONCLUSTERED INDEX IX_PLAYER_CLUB
 ON PLAYER (CLUB_ID)
@@ -39,7 +41,8 @@ GO
 
 
 -- Exercise 4
--- Create a nonclustered index on POSITION and include PLAYER_NAME and JERSEY_NUMBER.
+-- Create a nonclustered index on POSITION
+-- and include PLAYER_NAME and JERSEY_NUMBER.
 
 CREATE NONCLUSTERED INDEX IX_PLAYER_POSITION
 ON PLAYER (POSITION)
@@ -81,7 +84,8 @@ GO
 
 -- Exercise 8
 -- Create a clustered index on a suitable column.
--- Consider the characteristics of a clustered index before choosing the column.
+-- Consider the characteristics of a clustered index
+-- before choosing the column.
 
 CREATE CLUSTERED INDEX IX_COACH_COACH_ID
 ON COACH (COACH_ID)

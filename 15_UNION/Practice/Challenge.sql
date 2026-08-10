@@ -1,8 +1,4 @@
 /*
-Challenge Practice
-
-Solve the following problems without referring to previous examples.
-
 Before writing SQL, ask yourself:
 
 - Am I combining result sets or joining related rows?
@@ -40,8 +36,7 @@ FROM COACH
 
 
 -- Challenge 3
--- Return one list containing players and coaches
--- from CLUB_ID 1.
+-- Return one list containing players and coaches from CLUB_ID 1.
 
 SELECT PLAYER_NAME AS PERSON_NAME
 FROM PLAYER
@@ -92,13 +87,13 @@ WHERE COUNTRY_ID = 2
 -- containing name and CLUB_ID.
 
 SELECT PLAYER_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 
 UNION
 
 SELECT COACH_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM COACH
 
 
@@ -118,35 +113,33 @@ ORDER BY PERSON_NAME
 
 
 -- Challenge 8
--- Combine two result sets where duplicate rows
--- should be removed.
+-- Combine two result sets where duplicate rows should be removed.
 
 SELECT PLAYER_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 WHERE CLUB_ID = 1
 
 UNION
 
 SELECT PLAYER_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 WHERE CLUB_ID = 2
 
 
 -- Challenge 9
--- Combine two result sets where duplicate rows
--- should be preserved.
+-- Combine two result sets where duplicate rows should be preserved.
 
 SELECT PLAYER_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 WHERE CLUB_ID = 1
 
 UNION ALL
 
 SELECT PLAYER_NAME AS PERSON_NAME,
-       CLUB_ID
+        CLUB_ID
 FROM PLAYER
 WHERE CLUB_ID = 2
 

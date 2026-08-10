@@ -1,6 +1,6 @@
 # Syntax
 
-## BEGIN TRANSACTION
+## 1. BEGIN TRANSACTION
 
 Starts a new transaction.
 
@@ -16,7 +16,7 @@ BEGIN TRAN
 
 ---
 
-## COMMIT
+## 2. COMMIT
 
 Permanently saves all changes made within the current transaction.
 
@@ -26,7 +26,7 @@ COMMIT TRANSACTION
 
 ---
 
-## ROLLBACK
+## 3. ROLLBACK
 
 Undoes all changes made within the current transaction since the transaction began.
 
@@ -36,7 +36,7 @@ ROLLBACK TRANSACTION
 
 ---
 
-## SAVE TRANSACTION
+## 4. SAVE TRANSACTION
 
 Creates a savepoint inside the current transaction.
 
@@ -52,9 +52,9 @@ ROLLBACK TRANSACTION SavepointName
 
 ---
 
-## TRY...CATCH with Transactions
+## 5. TRY...CATCH with Transactions
 
-Transactions can be combined with TRY...CATCH to handle errors.
+Transactions can be combined with `TRY...CATCH ` to handle errors.
 
 ```sql
 BEGIN TRY
@@ -67,15 +67,13 @@ BEGIN TRY
 
 END TRY
 BEGIN CATCH
-
     ROLLBACK TRANSACTION
-
 END CATCH
 ```
 
 ---
 
-## Transaction Structure
+## 6. Transaction Structure
 
 A basic transaction follows this structure:
 
@@ -99,7 +97,7 @@ ROLLBACK TRANSACTION
 
 ---
 
-## Transaction with Savepoint
+## 7. Transaction with Savepoint
 
 ```sql
 BEGIN TRANSACTION

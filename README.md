@@ -8,12 +8,12 @@ The goal is not only to learn SQL syntax but also to understand database design,
 
 ## Learning Objectives
 
-* Build a strong SQL foundation
-* Master SQL Server and T-SQL
-* Understand relational database design
-* Write clean and efficient SQL queries
-* Develop practical database projects
-* Prepare for SQL Developer and Database Administrator (DBA) roles
+- Build a strong SQL foundation
+- Master SQL Server and T-SQL
+- Understand relational database design
+- Write clean and efficient SQL queries
+- Develop practical database projects
+- Prepare for SQL Developer and Database Administrator (DBA) roles
 
 ---
 

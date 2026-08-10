@@ -26,7 +26,8 @@ GO
 
 
 -- Example 4
--- Create a composite index for queries that filter by club and jersey number.
+-- Create a composite index for queries that
+-- filter by club and jersey number.
 
 CREATE INDEX IX_PLAYER_CLUB_JERSEY
 ON PLAYER (CLUB_ID, JERSEY_NUMBER)
