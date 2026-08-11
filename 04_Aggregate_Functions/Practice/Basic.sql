@@ -12,49 +12,49 @@ Before writing SQL, ask yourself:
 -- Count the total number of players.
 
 SELECT COUNT(*) AS Total_Players
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 2
 -- Count the number of PLAYER_NAME values.
 
 SELECT COUNT(PLAYER_NAME) AS Number_Of_Player_Names
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 3
 -- Calculate the total of all jersey numbers.
 
 SELECT SUM(JERSEY_NUMBER) AS Total_Jersey_Numbers
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 4
 -- Calculate the average jersey number.
 
 SELECT AVG(JERSEY_NUMBER) AS Average_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 5
 -- Find the smallest jersey number.
 
 SELECT MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 6
 -- Find the largest jersey number.
 
 SELECT MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 7
 -- Count the players who belong to CLUB_ID 1.
 
 SELECT COUNT(*) AS Number_Of_Players
-FROM PLAYER
+FROM PLAYERS
 WHERE CLUB_ID = 1
 
 
@@ -63,7 +63,7 @@ WHERE CLUB_ID = 1
 -- who belong to CLUB_ID 1.
 
 SELECT AVG(JERSEY_NUMBER) AS Average_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 WHERE CLUB_ID = 1
 
 
@@ -72,7 +72,7 @@ WHERE CLUB_ID = 1
 
 SELECT MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number,
         MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 10
@@ -82,4 +82,4 @@ FROM PLAYER
 SELECT COUNT(*) AS Total_Players,
         MIN(JERSEY_NUMBER) AS Minimum_Jersey_Number,
         MAX(JERSEY_NUMBER) AS Maximum_Jersey_Number
-FROM PLAYER
+FROM PLAYERS

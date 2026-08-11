@@ -2,7 +2,7 @@
 -- Display all players whose position is Forward.
 
 SELECT *
-FROM PLAYER
+FROM PLAYERS
 WHERE POSITION = 'Forward'
 
 
@@ -10,7 +10,7 @@ WHERE POSITION = 'Forward'
 -- Display player names whose jersey number is greater than 10.
 
 SELECT PLAYER_NAME
-FROM PLAYER
+FROM PLAYERS
 WHERE JERSEY_NUMBER > 10
 
 
@@ -18,7 +18,7 @@ WHERE JERSEY_NUMBER > 10
 -- Display all Vietnamese players.
 
 SELECT *
-FROM PLAYER
+FROM PLAYERS
 WHERE COUNTRY = 'Vietnam'
 
 
@@ -26,7 +26,7 @@ WHERE COUNTRY = 'Vietnam'
 -- Display all Brazilian goalkeepers.
 
 SELECT *
-FROM PLAYER
+FROM PLAYERS
 WHERE POSITION = 'Goalkeeper'
       AND COUNTRY = 'Brazil'
 
@@ -35,5 +35,5 @@ WHERE POSITION = 'Goalkeeper'
 -- Display players whose names start with the letter 'N'.
 
 SELECT *
-FROM PLAYER
+FROM PLAYERS
 WHERE PLAYER_NAME LIKE 'N%'

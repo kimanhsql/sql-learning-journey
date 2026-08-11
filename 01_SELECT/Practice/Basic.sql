@@ -15,17 +15,17 @@ Then write the SQL statement.
 
 
 -- Exercise 1
--- Display all columns from the PLAYER table.
+-- Display all columns from the PLAYERS table.
 
 SELECT *
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 2
 -- Display only player names.
 
 SELECT PLAYER_NAME
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 3
@@ -33,7 +33,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         POSITION
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 4
@@ -56,7 +56,7 @@ FROM COACH
 SELECT PLAYER_NAME,
         JERSEY_NUMBER,
         POSITION
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 7
@@ -78,7 +78,7 @@ FROM CLUB
 
 SELECT PLAYER_NAME,
         BIRTH_DATE
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 10

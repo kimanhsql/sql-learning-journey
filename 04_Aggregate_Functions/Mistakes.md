@@ -8,14 +8,14 @@ Wrong
 
 ```sql
 SELECT COUNT(PLAYER_NAME)
-FROM PLAYER
+FROM PLAYERS
 ```
 
 Correct
 
 ```sql
 SELECT COUNT(*)
-FROM PLAYER
+FROM PLAYERS
 ```
 
 ---
@@ -31,7 +31,7 @@ Wrong
 ```sql
 SELECT CLUB_ID,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 WHERE COUNT(*) > 2
 GROUP BY CLUB_ID
 ```
@@ -41,7 +41,7 @@ Correct
 ```sql
 SELECT CLUB_ID,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 HAVING COUNT(*) > 2
 ```
@@ -57,7 +57,7 @@ Wrong
 ```sql
 SELECT CLUB_ID,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 ```
 
 Correct
@@ -65,7 +65,7 @@ Correct
 ```sql
 SELECT CLUB_ID,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ```
 
@@ -79,7 +79,7 @@ Wrong
 
 ```sql
 SELECT AVG(JERSEY_NUMBER)
-FROM PLAYER
+FROM PLAYERS
 ```
 
 It returns one average for all players.
@@ -91,7 +91,7 @@ Correct
 ```sql
 SELECT CLUB_ID,
        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ```
 
@@ -116,7 +116,7 @@ Wrong
 ```sql
 SELECT DISTINCT CLUB_ID,
        COUNT(*)
-FROM PLAYER
+FROM PLAYERS
 ```
 
 Correct
@@ -124,6 +124,6 @@ Correct
 ```sql
 SELECT CLUB_ID,
        COUNT(*)
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ```

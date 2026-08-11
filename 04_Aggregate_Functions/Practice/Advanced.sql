@@ -14,7 +14,7 @@ Before writing SQL, ask yourself:
 
 SELECT CLUB_ID,
         COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -23,7 +23,7 @@ GROUP BY CLUB_ID
 
 SELECT CLUB_ID,
         AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -32,7 +32,7 @@ GROUP BY CLUB_ID
 
 SELECT CLUB_ID,
         MIN(JERSEY_NUMBER) AS MinimumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -41,7 +41,7 @@ GROUP BY CLUB_ID
 
 SELECT CLUB_ID,
         MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -50,7 +50,7 @@ GROUP BY CLUB_ID
 
 SELECT CLUB_ID,
         SUM(JERSEY_NUMBER) AS TotalJerseyNumbers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -59,7 +59,7 @@ GROUP BY CLUB_ID
 
 SELECT POSITION,
         COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
 
 
@@ -68,7 +68,7 @@ GROUP BY POSITION
 
 SELECT CLUB_ID,
         COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 HAVING COUNT(*) > 2
 
@@ -78,16 +78,16 @@ HAVING COUNT(*) > 2
 
 SELECT POSITION,
         COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
 HAVING COUNT(*) > 2
 
 
 -- Exercise 9
--- Count the number of different clubs represented in PLAYER.
+-- Count the number of different clubs represented in PLAYERS.
 
 SELECT COUNT(DISTINCT CLUB_ID) AS NumberOfClubs
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 10
@@ -101,5 +101,5 @@ SELECT CLUB_ID,
         MIN(JERSEY_NUMBER) AS MinimumJerseyNumber,
         MAX(JERSEY_NUMBER) AS MaximumJerseyNumber,
         AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID

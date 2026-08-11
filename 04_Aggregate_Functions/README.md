@@ -88,7 +88,7 @@ Example:
 ```sql
 SELECT CLUB_ID,
         COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ```
 
@@ -103,7 +103,7 @@ Example:
 ```sql
 SELECT CLUB_ID,
         COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 HAVING COUNT(PLAYER_ID) > 5
 ```
@@ -118,7 +118,7 @@ Example:
 
 ```sql
 SELECT COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 WHERE POSITION = 'Forward'
 ```
 

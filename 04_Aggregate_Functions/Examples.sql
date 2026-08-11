@@ -16,7 +16,7 @@ Ask yourself:
 -- Count all players.
 
 SELECT COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -25,7 +25,7 @@ GO
 -- Count players with a PLAYER_ID.
 
 SELECT COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -34,7 +34,7 @@ GO
 -- Calculate the average jersey number.
 
 SELECT AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -43,7 +43,7 @@ GO
 -- Find the smallest jersey number.
 
 SELECT MIN(JERSEY_NUMBER) AS MinimumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -52,7 +52,7 @@ GO
 -- Find the largest jersey number.
 
 SELECT MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -61,7 +61,7 @@ GO
 -- Calculate the total of all jersey numbers.
 
 SELECT SUM(JERSEY_NUMBER) AS TotalJerseyNumbers
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -71,7 +71,7 @@ GO
 
 SELECT CLUB_ID,
         COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 GO
@@ -82,7 +82,7 @@ GO
 
 SELECT CLUB_ID,
         AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 GO
@@ -93,7 +93,7 @@ GO
 
 SELECT CLUB_ID,
         MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 GO
@@ -103,7 +103,7 @@ GO
 -- Count forwards.
 
 SELECT COUNT(PLAYER_ID) AS NumberOfForwards
-FROM PLAYER
+FROM PLAYERS
 WHERE POSITION = 'Forward'
 
 GO
@@ -114,7 +114,7 @@ GO
 
 SELECT POSITION,
         COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
 
 GO
@@ -125,7 +125,7 @@ GO
 
 SELECT CLUB_ID,
         COUNT(PLAYER_ID) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 HAVING COUNT(PLAYER_ID) > 5
 

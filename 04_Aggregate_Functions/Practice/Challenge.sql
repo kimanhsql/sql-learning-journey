@@ -14,14 +14,14 @@ Before writing SQL, ask yourself:
 -- Find the total number of players.
 
 SELECT COUNT(*) AS TotalPlayers
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 2
 -- Find the average jersey number of all players.
 
 SELECT AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 3
@@ -30,7 +30,7 @@ FROM PLAYER
 SELECT TOP 1
        CLUB_ID,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ORDER BY COUNT(*) DESC
 
@@ -41,7 +41,7 @@ ORDER BY COUNT(*) DESC
 SELECT TOP 1
        CLUB_ID,
        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ORDER BY AVG(JERSEY_NUMBER)
 
@@ -51,7 +51,7 @@ ORDER BY AVG(JERSEY_NUMBER)
 
 SELECT POSITION,
        COUNT(*) AS NumberOfPlayers
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
 HAVING COUNT(*) > 2
 
@@ -63,15 +63,15 @@ HAVING COUNT(*) > 2
 SELECT CLUB_ID,
        COUNT(*) AS NumberOfPlayers,
        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
 -- Exercise 7
--- Find the number of different positions in PLAYER.
+-- Find the number of different positions in PLAYERS.
 
 SELECT COUNT(DISTINCT POSITION) AS NumberOfPositions
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 8
@@ -80,7 +80,7 @@ FROM PLAYER
 SELECT TOP 1
        CLUB_ID,
        MAX(JERSEY_NUMBER) AS HighestJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 ORDER BY MAX(JERSEY_NUMBER) DESC
 
@@ -90,7 +90,7 @@ ORDER BY MAX(JERSEY_NUMBER) DESC
 
 SELECT CLUB_ID,
        MAX(JERSEY_NUMBER) AS MaximumJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 HAVING MAX(JERSEY_NUMBER) > 20
 
@@ -106,5 +106,5 @@ SELECT POSITION,
        MIN(JERSEY_NUMBER) AS MinimumJerseyNumber,
        MAX(JERSEY_NUMBER) AS MaximumJerseyNumber,
        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
