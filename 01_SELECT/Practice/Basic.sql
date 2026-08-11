@@ -40,14 +40,14 @@ FROM PLAYERS
 -- Display all distinct countries.
 
 SELECT DISTINCT COUNTRY_NAME
-FROM COUNTRY
+FROM COUNTRIES
 
 
 -- Exercise 5
 -- Display all coaches.
 
 SELECT *
-FROM COACH
+FROM COACHES
 
 
 -- Exercise 6
@@ -63,14 +63,14 @@ FROM PLAYERS
 -- Display all stadium names.
 
 SELECT STADIUM_NAME
-FROM STADIUM
+FROM STADIUMS
 
 
 -- Exercise 8
 -- Display all club names.
 
 SELECT CLUB_NAME
-FROM CLUB
+FROM CLUBS
 
 
 -- Exercise 9
@@ -85,4 +85,4 @@ FROM PLAYERS
 -- Display all countries.
 
 SELECT *
-FROM COUNTRY
+FROM COUNTRIES
