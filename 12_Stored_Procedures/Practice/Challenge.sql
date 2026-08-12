@@ -30,7 +30,7 @@ BEGIN
     SELECT TOP (@top_n)
             PLAYER_NAME,
             JERSEY_NUMBER
-    FROM PLAYER
+    FROM PLAYERS
     ORDER BY JERSEY_NUMBER DESC
 END
 
@@ -49,7 +49,7 @@ BEGIN
             PLAYER_NAME,
             POSITION,
             JERSEY_NUMBER
-    FROM PLAYER
+    FROM PLAYERS
     WHERE PLAYER_NAME LIKE '%' + @keyword + '%'
 END
 
@@ -65,7 +65,7 @@ AS
 BEGIN
     SELECT COUNTRY_ID,
             COUNT(*) AS NumberOfPlayers
-    FROM PLAYER
+    FROM PLAYERS
     GROUP BY COUNTRY_ID
     ORDER BY NumberOfPlayers DESC
 END
@@ -104,10 +104,10 @@ BEGIN
             POSITION,
             JERSEY_NUMBER,
             PL.CLUB_ID
-    FROM PLAYER PL
-    INNER JOIN CLUB C
+    FROM PLAYERS PL
+    INNER JOIN CLUBS C
         ON PL.CLUB_ID = C.CLUB_ID
-    INNER JOIN STADIUM ST
+    INNER JOIN STADIUMS ST
         ON C.STADIUM_ID = ST.STADIUM_ID
     WHERE ST.STADIUM_NAME = @stadium_name
 END
@@ -126,11 +126,11 @@ BEGIN
             PLAYER_NAME,
             POSITION,
             JERSEY_NUMBER
-    FROM PLAYER
+    FROM PLAYERS
     WHERE JERSEY_NUMBER >
     (
         SELECT AVG(JERSEY_NUMBER)
-        FROM PLAYER
+        FROM PLAYERS
     )
 END
 
@@ -148,11 +148,11 @@ BEGIN
             PL.PLAYER_ID,
             PLAYER_NAME,
             BIRTH_DATE
-    FROM PLAYER PL
+    FROM PLAYERS PL
     WHERE BIRTH_DATE =
     (
         SELECT MIN(P2.BIRTH_DATE)
-        FROM PLAYER P2
+        FROM PLAYERS P2
         WHERE P2.CLUB_ID = PL.CLUB_ID
     )
 END
@@ -171,7 +171,7 @@ AS
 BEGIN
     SELECT POSITION,
             COUNT(*) AS NumberOfPlayers
-    FROM PLAYER
+    FROM PLAYERS
     GROUP BY POSITION
     HAVING COUNT(*) > @minimum_players
 END
@@ -211,10 +211,10 @@ BEGIN
         CLUB_NAME,
         STADIUM_NAME,
         AVG(PL.JERSEY_NUMBER) AS AverageJerseyNumber
-    FROM CLUB C
-    INNER JOIN PLAYER PL
+    FROM CLUBS C
+    INNER JOIN PLAYERS PL
         ON C.CLUB_ID = PL.CLUB_ID
-    INNER JOIN STADIUM ST
+    INNER JOIN STADIUMS ST
         ON C.STADIUM_ID = ST.STADIUM_ID
     GROUP BY
         C.CLUB_ID,

@@ -19,7 +19,7 @@ GO
 
 SELECT PLAYER_NAME,
         dbo.GetAge(BIRTH_DATE) AS Age
-FROM PLAYER
+FROM PLAYERS
 
 GO
 
@@ -34,7 +34,7 @@ BEGIN
     DECLARE @TotalPlayers INT
 
     SELECT @TotalPlayers = COUNT(*)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_ID = @ClubID
 
     RETURN @TotalPlayers
@@ -66,7 +66,7 @@ RETURN
     SELECT PLAYER_NAME,
             BIRTH_DATE,
             POSITION
-    FROM PLAYER
+    FROM PLAYERS
     WHERE COUNTRY_ID = @CountryID
 )
 
@@ -100,6 +100,6 @@ GO
 
 SELECT PLAYER_NAME,
         dbo.GetUpperPlayerName(PLAYER_NAME) AS UpperPlayerName
-FROM PLAYER
+FROM PLAYERS
 
 GO

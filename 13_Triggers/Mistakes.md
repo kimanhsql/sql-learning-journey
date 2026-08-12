@@ -11,7 +11,7 @@ Wrong
 ```sql
 CREATE TRIGGER trg_after_insert_player
 AFTER INSERT
-ON PLAYER
+ON PLAYERS
 FOR EACH ROW
 BEGIN
     PRINT 'A new player has been inserted.'
@@ -22,7 +22,7 @@ Correct
 
 ```sql
 CREATE TRIGGER trg_after_insert_player
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -46,7 +46,7 @@ Wrong
 
 ```sql
 CREATE TRIGGER trg_after_insert_player_display
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -58,7 +58,7 @@ Correct
 
 ```sql
 CREATE TRIGGER trg_after_insert_player_display
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -81,7 +81,7 @@ Wrong
 
 ```sql
 CREATE TRIGGER trg_prevent_update_club_id
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -97,7 +97,7 @@ Correct
 
 ```sql
 CREATE TRIGGER trg_prevent_update_club_id
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -120,7 +120,7 @@ END
 
 ## 4. Checking duplicate values without excluding the inserted or updated row
 
-When checking for duplicate values after an INSERT or UPDATE, the trigger may compare the row in inserted with the same row already present in the PLAYER table.
+When checking for duplicate values after an INSERT or UPDATE, the trigger may compare the row in inserted with the same row already present in the PLAYERS table.
 
 The current row should be excluded from the comparison.
 
@@ -129,7 +129,7 @@ Wrong
 ```sql
 SELECT 1
 FROM inserted i
-INNER JOIN PLAYER PL
+INNER JOIN PLAYERS PL
     ON PL.CLUB_ID = i.CLUB_ID
         AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
 ```
@@ -139,7 +139,7 @@ Correct
 ```sql
 SELECT 1
 FROM inserted i
-INNER JOIN PLAYER PL
+INNER JOIN PLAYERS PL
     ON PL.CLUB_ID = i.CLUB_ID
         AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
         AND PL.PLAYER_ID <> i.PLAYER_ID
@@ -197,7 +197,7 @@ IF NOT EXISTS
 (
     SELECT 1
     FROM inserted i
-    INNER JOIN PLAYER PL
+    INNER JOIN PLAYERS PL
         ON PL.PLAYER_ID = i.PLAYER_ID
 )
 ```

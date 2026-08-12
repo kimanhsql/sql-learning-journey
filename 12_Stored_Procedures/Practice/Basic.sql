@@ -25,7 +25,7 @@ CREATE PROCEDURE prd_display_all_players
 AS
 BEGIN
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
 END
 
 GO
@@ -60,7 +60,7 @@ CREATE PROCEDURE prd_display_players_by_club
 AS
 BEGIN
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_ID = @ClubID
 END
 
@@ -83,7 +83,7 @@ CREATE PROCEDURE prd_display_players_by_position
 AS
 BEGIN
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE POSITION = @Position
 END
 
@@ -99,7 +99,7 @@ CREATE PROCEDURE prd_display_players_by_jerey_number
 AS
 BEGIN
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE JERSEY_NUMBER > @JerseyNumber
 END
 
@@ -115,7 +115,7 @@ AS
 BEGIN
     SELECT PLAYER_NAME,
             POSITION
-    FROM PLAYER
+    FROM PLAYERS
 END
 
 GO
@@ -137,7 +137,7 @@ CREATE PROCEDURE prd_display_players_by_country
 AS
 BEGIN
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE COUNTRY = @Country
 END
 

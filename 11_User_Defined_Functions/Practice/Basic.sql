@@ -69,7 +69,7 @@ BEGIN
     DECLARE @PlayerCount INT
 
     SELECT @PlayerCount = COUNT(*)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_NAME = @ClubName
 
     RETURN @PlayerCount
@@ -89,7 +89,7 @@ BEGIN
     DECLARE @AverageJerseyNum FLOAT
 
     SELECT @AVERAGEJerseyNum = AVG(JERSEY_NUMBER)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE POSITION = @Position
 
     RETURN @AverageJerseyNum
@@ -107,7 +107,7 @@ AS
 RETURN
 (
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE COUNTRY_NAME = @Country
 )
 
@@ -124,7 +124,7 @@ AS
 RETURN
 (
     SELECT *
-    FROM PLAYER
+    FROM PLAYERS
     WHERE JERSEY_NUMBER > 10
 )
 
@@ -156,7 +156,7 @@ BEGIN
     DECLARE @HighestJerseyNum INT
 
     SELECT @HighestJerseyNum = MAX(JERSEY_NUMBER)
-    FROM PLAYER
+    FROM PLAYERS
 
     RETURN @HighestJerseyNum
 END
@@ -175,7 +175,7 @@ RETURN
 (
     SELECT PLAYER_NAME,
             JERSEY_NUMBER
-    FROM PLAYER
+    FROM PLAYERS
 )
 
 GO

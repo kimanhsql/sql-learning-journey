@@ -19,7 +19,7 @@ Build the query step by step and verify each function before combining them.
 
 SELECT UPPER(PLAYER_NAME) AS PlayerName,
         LEN(PLAYER_NAME) AS NameLength
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 2
@@ -36,7 +36,7 @@ FROM CLUB
 
 SELECT PLAYER_NAME,
         MONTH(BIRTH_DATE) AS BirthMonth
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 4
@@ -44,7 +44,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         DAY(BIRTH_DATE) AS BirthDay
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 5
@@ -53,7 +53,7 @@ FROM PLAYER
 
 SELECT CLUB_ID,
         ROUND(AVG(JERSEY_NUMBER), 2) AS Average_Jersey_Number
-FROM PLAYER
+FROM PLAYERS
 GROUP BY CLUB_ID
 
 
@@ -62,7 +62,7 @@ GROUP BY CLUB_ID
 
 SELECT COUNTRY_ID,
         COUNT(*) AS Total_Players
-FROM PLAYER
+FROM PLAYERS
 GROUP BY COUNTRY_ID
 
 
@@ -72,7 +72,7 @@ GROUP BY COUNTRY_ID
 
 SELECT PLAYER_NAME,
         LEFT(PLAYER_NAME, 3) AS First_Three_Characters
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 8
@@ -81,7 +81,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         RIGHT(PLAYER_NAME, 3) AS Last_Three_Characters
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 9
@@ -89,7 +89,7 @@ FROM PLAYER
 
 SELECT UPPER(PLAYER_NAME) AS PlayerName,
         CAST(JERSEY_NUMBER AS VARCHAR(10)) AS JerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 10
@@ -99,5 +99,5 @@ SELECT POSITION,
         MAX(JERSEY_NUMBER) AS MaximumJerseyNumber,
         MIN(JERSEY_NUMBER) AS MinimumJerseyNumber,
         AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION

@@ -17,7 +17,7 @@ Analyze the trigger logic before writing SQL.
 -- Prevent inserting players whose jersey number is less than 1.
 
 CREATE TRIGGER trg_prevent_invalid_jersey_number
-ON PLAYER
+ON PLAYERS
 FOR INSERT
 AS
 BEGIN
@@ -35,7 +35,7 @@ GO
 -- Prevent updating PLAYER_NAME to NULL.
 
 CREATE TRIGGER trg_prevent_null_player_name
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -53,7 +53,7 @@ GO
 -- Prevent deleting Goalkeepers.
 
 CREATE TRIGGER trg_prevent_delete_goalkeepers
-ON PLAYER
+ON PLAYERS
 FOR DELETE
 AS
 BEGIN
@@ -71,7 +71,7 @@ GO
 -- Display all inserted rows after inserting multiple players.
 
 CREATE TRIGGER trg_after_insert_player_display
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -86,7 +86,7 @@ GO
 -- Display all deleted rows after deleting multiple players.
 
 CREATE TRIGGER trg_after_delete_player_display
-ON PLAYER
+ON PLAYERS
 AFTER DELETE
 AS
 BEGIN
@@ -101,7 +101,7 @@ GO
 -- Prevent changing CLUB_ID after a player is created.
 
 CREATE TRIGGER trg_prevent_update_club_id
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -126,7 +126,7 @@ GO
 -- Prevent duplicate jersey numbers within the same club.
 
 CREATE TRIGGER trg_prevent_duplicate_jersey_numbers
-ON PLAYER
+ON PLAYERS
 FOR INSERT, UPDATE
 AS
 BEGIN
@@ -134,7 +134,7 @@ BEGIN
     (
         SELECT 1
         FROM inserted i
-        INNER JOIN PLAYER PL
+        INNER JOIN PLAYERS PL
             ON PL.CLUB_ID = i.CLUB_ID
                 AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
                 AND PL.PLAYER_ID <> i.PLAYER_ID
@@ -152,11 +152,16 @@ GO
 -- Prevent updating a player's birth date to a future date.
 
 CREATE TRIGGER trg_prevent_future_birth_date
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
-    IF EXISTS (SELECT 1 FROM inserted WHERE BIRTH_DATE > CAST(GETDATE() AS DATE))
+    IF EXISTS
+    (
+        SELECT 1
+        FROM inserted
+        WHERE BIRTH_DATE > CAST(GETDATE() AS DATE)
+    )
     BEGIN
         RAISERROR('Birth date cannot be in the future.', 16, 1)
         ROLLBACK TRANSACTION
@@ -170,7 +175,7 @@ GO
 -- Prevent deleting clubs that still have players.
 
 CREATE TRIGGER trg_prevent_delete_club_with_players
-ON CLUB
+ON CLUBS
 FOR DELETE
 AS
 BEGIN
@@ -178,7 +183,7 @@ BEGIN
     (
         SELECT 1
         FROM deleted d
-        INNER JOIN PLAYER PL
+        INNER JOIN PLAYERS PL
             ON PL.CLUB_ID = d.CLUB_ID
     )
     BEGIN
@@ -194,7 +199,7 @@ GO
 -- Display the old and new values whenever a player's position changes.
 
 CREATE TRIGGER trg_after_update_player_position
-ON PLAYER
+ON PLAYERS
 AFTER UPDATE
 AS
 BEGIN

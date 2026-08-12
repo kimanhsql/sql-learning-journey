@@ -2,7 +2,7 @@
 -- Print a message after inserting a player.
 
 CREATE TRIGGER trg_InsertPlayer
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -16,7 +16,7 @@ GO
 -- Print a message after updating player information.
 
 CREATE TRIGGER trg_UpdatePlayer
-ON PLAYER
+ON PLAYERS
 AFTER UPDATE
 AS
 BEGIN
@@ -30,7 +30,7 @@ GO
 -- Print a message after deleting a player.
 
 CREATE TRIGGER trg_DeletePlayer
-ON PLAYER
+ON PLAYERS
 AFTER DELETE
 AS
 BEGIN
@@ -44,7 +44,7 @@ GO
 -- Prevent deleting players.
 
 CREATE TRIGGER trg_PreventDelete
-ON PLAYER
+ON PLAYERS
 INSTEAD OF DELETE
 AS
 BEGIN
@@ -58,7 +58,7 @@ GO
 -- Display inserted rows.
 
 CREATE TRIGGER trg_ShowInserted
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -73,7 +73,7 @@ GO
 -- Display deleted rows.
 
 CREATE TRIGGER trg_ShowDeleted
-ON PLAYER
+ON PLAYERS
 AFTER DELETE
 AS
 BEGIN
@@ -88,7 +88,7 @@ GO
 -- Display updated rows.
 
 CREATE TRIGGER trg_ShowUpdated
-ON PLAYER
+ON PLAYERS
 AFTER UPDATE
 AS
 BEGIN

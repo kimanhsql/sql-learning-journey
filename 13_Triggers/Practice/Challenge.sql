@@ -15,7 +15,7 @@ easy to maintain.
 -- Prevent inserting players whose birth date is greater than today.
 
 CREATE TRIGGER trg_prevent_future_birthdate
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -38,7 +38,7 @@ GO
 -- Prevent deleting a club that still has players.
 
 CREATE TRIGGER trg_prevent_delete_club_with_players
-ON CLUB
+ON CLUBS
 FOR DELETE
 AS
 BEGIN
@@ -46,7 +46,7 @@ BEGIN
     (
         SELECT 1
         FROM deleted d
-        INNER JOIN PLAYER PL
+        INNER JOIN PLAYERS PL
         ON PL.CLUB_ID = d.CLUB_ID
     )
     BEGIN
@@ -62,7 +62,7 @@ GO
 -- Prevent assigning duplicate jersey numbers within the same club.
 
 CREATE TRIGGER trg_prevent_duplicate_jersey_numbers
-ON PLAYER
+ON PLAYERS
 FOR INSERT, UPDATE
 AS
 BEGIN
@@ -70,7 +70,7 @@ BEGIN
     (
         SELECT 1
         FROM inserted i
-        INNER JOIN PLAYER PL
+        INNER JOIN PLAYERS PL
             ON PL.CLUB_ID = i.CLUB_ID
                 AND PL.JERSEY_NUMBER = i.JERSEY_NUMBER
                 AND PL.PLAYER_ID <> i.PLAYER_ID
@@ -88,7 +88,7 @@ GO
 -- Automatically display the inserted rows after every INSERT.
 
 CREATE TRIGGER trg_display_inserted_rows
-ON PLAYER
+ON PLAYERS
 AFTER INSERT
 AS
 BEGIN
@@ -103,7 +103,7 @@ GO
 -- Automatically display the deleted rows after every DELETE.
 
 CREATE TRIGGER trg_display_deleted_rows
-ON PLAYER
+ON PLAYERS
 AFTER DELETE
 AS
 BEGIN
@@ -118,7 +118,7 @@ GO
 -- Prevent updating a player's country after the player is created.
 
 CREATE TRIGGER trg_prevent_update_country
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -149,7 +149,7 @@ GO
 -- Prevent changing a player's primary key.
 
 CREATE TRIGGER trg_prevent_update_player_id
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -167,7 +167,7 @@ GO
 -- Prevent changing the club if the player does not have a valid club.
 
 CREATE TRIGGER trg_prevent_invalid_club_update
-ON PLAYER
+ON PLAYERS
 FOR UPDATE
 AS
 BEGIN
@@ -177,7 +177,7 @@ BEGIN
         (
             SELECT 1
             FROM inserted i
-            LEFT JOIN CLUB C
+            LEFT JOIN CLUBS C
                 ON C.CLUB_ID = i.CLUB_ID
             WHERE C.CLUB_ID IS NULL
         )
@@ -195,7 +195,7 @@ GO
 -- Prevent deleting players whose position is Captain.
 
 CREATE TRIGGER trg_prevent_delete_captain
-ON PLAYER
+ON PLAYERS
 FOR DELETE
 AS
 BEGIN
@@ -220,13 +220,13 @@ GO
 -- a player's jersey number changes.
 
 CREATE TRIGGER trg_display_jersey_number_change
-ON PLAYER
+ON PLAYERS
 AFTER UPDATE
 AS
 BEGIN
     IF UPDATE(JERSEY_NUMBER)
     BEGIN
-        SELECT d.PLAYER_ID,
+        SELECT d.PLAYERS_ID,
                d.JERSEY_NUMBER AS Old_Jersey_Number,
                i.JERSEY_NUMBER AS New_Jersey_Number
         FROM deleted d

@@ -38,7 +38,7 @@ BEGIN
     DECLARE @PlayerCount INT
 
     SELECT @PlayerCount = COUNT(*)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE COUNTRY_ID = @CountryID
 
     RETURN @PlayerCount
@@ -57,7 +57,7 @@ BEGIN
     DECLARE @HighestJersey INT
 
     SELECT @HighestJersey = MAX(JERSEY_NUMBER)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_ID = @ClubID
 
     RETURN @HighestJersey
@@ -77,7 +77,7 @@ RETURN
     SELECT PLAYER_ID,
             PLAYER_NAME,
             POSITION
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_ID = @ClubID
 )
 
@@ -94,7 +94,7 @@ RETURN
 (
     SELECT PLAYER_NAME,
             BIRTH_DATE
-    FROM PLAYER
+    FROM PLAYERS
     WHERE YEAR(BIRTH_DATE) > @Year
 )
 
@@ -112,7 +112,7 @@ BEGIN
     DECLARE @Average FLOAT
 
     SELECT @Average = AVG(JERSEY_NUMBER)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE COUNTRY_ID = @CountryID
 
     RETURN @Average
@@ -132,7 +132,7 @@ RETURN
 (
     SELECT CLUB_ID,
             COUNT(*) AS NumberOfPlayers
-    FROM PLAYER
+    FROM PLAYERS
     GROUP BY CLUB_ID
     HAVING COUNT(*) > @PlayerCount
 )
@@ -163,7 +163,7 @@ BEGIN
     DECLARE @Oldest DATE
 
     SELECT @Oldest = MIN(BIRTH_DATE)
-    FROM PLAYER
+    FROM PLAYERS
     WHERE CLUB_ID = @ClubID
 
     RETURN @Oldest
@@ -182,8 +182,8 @@ RETURN
 (
     SELECT PL.PLAYER_NAME,
             COUNTRY_NAME
-    FROM PLAYER PL
-    INNER JOIN COUNTRY CT
+    FROM PLAYERS PL
+    INNER JOIN COUNTRIES CT
         ON PL.COUNTRY_ID = CT.COUNTRY_ID
 )
 

@@ -2,21 +2,21 @@
 -- Count the number of players.
 
 SELECT COUNT(*)
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 2
 -- Find the average jersey number.
 
 SELECT AVG(JERSEY_NUMBER)
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 3
 -- Display player names in uppercase.
 
 SELECT UPPER(PLAYER_NAME)
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 4
@@ -24,7 +24,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         LEN(PLAYER_NAME) AS NameLength
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 5
@@ -32,7 +32,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         LEFT(PLAYER_NAME, 3) AS FirstThreeCharacters
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 6
@@ -46,7 +46,7 @@ SELECT GETDATE() AS CurrentDateTime
 
 SELECT PLAYER_NAME,
         YEAR(BIRTH_DATE) AS BirthYear
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 8
@@ -54,7 +54,7 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         CAST(JERSEY_NUMBER AS VARCHAR(10)) AS JerseyText
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Example 9
@@ -62,7 +62,7 @@ FROM PLAYER
 
 SELECT POSITION,
         ROUND(AVG(JERSEY_NUMBER), 0) AS RoundedAverageJersey
-FROM PLAYER
+FROM PLAYERS
 GROUP BY POSITION
 
 
@@ -70,4 +70,4 @@ GROUP BY POSITION
 -- Combine player name and position into one string.
 
 SELECT CONCAT(PLAYER_NAME, ' - ', POSITION) AS PlayerInfo
-FROM PLAYER
+FROM PLAYERS

@@ -21,21 +21,21 @@ Remember:
 -- Display the total number of players.
 
 SELECT COUNT(*) AS TotalPlayers
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 2
--- Display the highest jersey number in the PLAYER table.
+-- Display the highest jersey number in the PLAYERS table.
 
 SELECT MAX(JERSEY_NUMBER) AS HighestJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 3
 -- Display player names in lowercase.
 
 SELECT LOWER(PLAYER_NAME) AS LowercaseNames
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 4
@@ -51,7 +51,7 @@ FROM CLUB
 
 SELECT PLAYER_NAME,
         LEFT(PLAYER_NAME, 1) AS FirstLetter
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 6
@@ -65,7 +65,7 @@ SELECT GETDATE() AS CurrentDate
 
 SELECT PLAYER_NAME,
         YEAR(BIRTH_DATE) AS BirthYear
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 8
@@ -73,15 +73,16 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         CAST(JERSEY_NUMBER AS VARCHAR(10)) AS JerseyText
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 9
--- Display the average jersey number for each position, rounded to 1 decimal place.
+-- Display the average jersey number for each position,
+-- rounded to 1 decimal place.
 
 SELECT POSITION,
         ROUND(AVG(JERSEY_NUMBER), 1) AS AverageJerseyNumber
-FROM PLAYER
+FROM PLAYERS
 
 
 -- Exercise 10
@@ -89,4 +90,4 @@ FROM PLAYER
 
 SELECT PLAYER_NAME,
         YEAR(BIRTH_DATE) AS PlayerBirthYear
-FROM PLAYER
+FROM PLAYERS
