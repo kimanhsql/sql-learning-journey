@@ -7,7 +7,7 @@ A view must be created using the **AS** keyword followed by a **SELECT** stateme
 Wrong
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 SELECT PLAYER_NAME
 FROM PLAYERS
 ```
@@ -15,7 +15,7 @@ FROM PLAYERS
 Correct
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME
 FROM PLAYERS
@@ -30,7 +30,7 @@ FROM PLAYERS
 Wrong
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME
 FROM PLAYERS
@@ -40,7 +40,7 @@ ORDER BY PLAYER_NAME
 Correct
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME
 FROM PLAYERS
@@ -50,7 +50,7 @@ Sort the result when querying the view.
 
 ```sql
 SELECT *
-FROM V_PLAYER
+FROM V_PLAYERS
 ORDER BY PLAYER_NAME
 ```
 
@@ -72,7 +72,7 @@ FROM PLAYERS
 Correct
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         JERSEY_NUMBER
@@ -88,7 +88,7 @@ If the view definition needs to be modified, use **ALTER VIEW** instead of creat
 Wrong
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME
 FROM PLAYERS
@@ -97,7 +97,7 @@ FROM PLAYERS
 Correct
 
 ```sql
-ALTER VIEW V_PLAYER
+ALTER VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         POSITION
@@ -113,7 +113,7 @@ Only include the columns required by the view.
 Wrong
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT *
 FROM PLAYERS
@@ -122,7 +122,7 @@ FROM PLAYERS
 Correct
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         JERSEY_NUMBER
@@ -152,7 +152,7 @@ Not every view supports **INSERT**, **UPDATE**, or **DELETE**. Views containing 
 Wrong
 
 ```sql
-UPDATE V_PLAYER_SUMMARY
+UPDATE V_PLAYERS_SUMMARY
 SET TOTAL_PLAYER = 20
 ```
 
@@ -169,7 +169,7 @@ Avoid using **SELECT *** because changes to the underlying table may affect the 
 Wrong
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT *
 FROM PLAYERS
@@ -178,7 +178,7 @@ FROM PLAYERS
 Correct
 
 ```sql
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         POSITION,

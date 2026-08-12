@@ -43,7 +43,7 @@ FROM PLAYERS
 
 SELECT CLUB_NAME,
         LEN(CLUB_NAME) AS CLubNameLength
-FROM CLUB
+FROM CLUBS
 
 
 -- Exercise 5

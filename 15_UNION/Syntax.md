@@ -77,7 +77,7 @@ SELECT column1,
         column2
 FROM table1
 INNER JOIN table2
-ON table1.id = table2.id
+        ON table1.id = table2.id
 
 UNION
 
@@ -85,5 +85,5 @@ SELECT column1,
         column2
 FROM table3
 INNER JOIN table4
-ON table3.id = table4.id
+        ON table3.id = table4.id
 ```

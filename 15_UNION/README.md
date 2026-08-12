@@ -70,13 +70,13 @@ Example:
 ```sql
 SELECT PLAYER_NAME,
          POSITION
-FROM PLAYER
+FROM PLAYERS
 
 UNION
 
 SELECT COACH_NAME,
          POSITION
-FROM COACH
+FROM COACHES
 ```
 
 The first column represents a name in both result sets, and the second column represents a position.

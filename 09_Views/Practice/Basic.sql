@@ -14,7 +14,7 @@ Ask yourself:
 -- Exercise 1
 -- Create a view that displays player names and birth dates.
 
-CREATE VIEW V_PL_BIRTH
+CREATE VIEW V_PLAYERS_BIRTH
 AS
 SELECT PLAYER_NAME,
         BIRTH_DATE
@@ -26,12 +26,12 @@ GO
 -- Exercise 2
 -- Create a view that displays all clubs and their stadium names.
 
-CREATE VIEW V_CL_STADIUM
+CREATE VIEW V_CLUBS_STADIUM_NAME
 AS
 SELECT CLUB_NAME,
         STADIUM_NAME
-FROM CLUB
-INNER JOIN STADIUM
+FROM CLUBS
+INNER JOIN STADIUMS
         ON CLUB.STADIUM_ID = STADIUM.STADIUM_ID
 
 GO
@@ -40,7 +40,7 @@ GO
 -- Exercise 3
 -- Create a view that displays players from Brazil.
 
-CREATE VIEW V_PL_BRAZIL
+CREATE VIEW V_PLAYERS_BRAZIL
 AS
 SELECT *
 FROM PLAYERS PL
@@ -57,7 +57,7 @@ GO
 CREATE VIEW V_RECORDS_BRAZIL
 AS
 SELECT *
-FROM V_PL_BRAZIL
+FROM V_PLAYERS_BRAZIL
 
 GO
 
@@ -65,7 +65,7 @@ GO
 -- Exercise 5
 -- Create a view that displays player names together with their club names.
 
-CREATE VIEW V_PL_CLUB
+CREATE VIEW V_PLAYERS_CLUBS
 AS
 SELECT PLAYER_NAME,
         CLUB_NAME
@@ -113,7 +113,7 @@ GO
 -- Create a view that displays country names and
 -- the number of players in each country.
 
-CREATE VIEW V_COUNTRY_PLAYER_COUNT
+CREATE VIEW V_COUNTRIES_PLAYERS_COUNT
 AS
 SELECT COUNTRY_NAME,
         COUNT(PLAYER_ID) AS NUMBER_OF_PLAYERS

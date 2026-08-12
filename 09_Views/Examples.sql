@@ -1,7 +1,7 @@
 -- Example  1
 -- Create a view that displays player names and jersey numbers.
 
-CREATE VIEW V_PLAYER
+CREATE VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         JERSEY_NUMBER
@@ -14,7 +14,7 @@ GO
 -- Display all records from the view.
 
 SELECT *
-FROM V_PLAYER
+FROM V_PLAYERS
 
 GO
 
@@ -35,7 +35,7 @@ GO
 -- Example 4
 -- Create a view that displays players with jersey numbers greater than 10.
 
-CREATE VIEW V_PLAYER_NUMBER
+CREATE VIEW V_PLAYERS_NUMBER
 AS
 SELECT PLAYER_NAME,
         JERSEY_NUMBER
@@ -48,7 +48,7 @@ GO
 -- Example 5
 -- Update data through a view.
 
-UPDATE V_PLAYER
+UPDATE V_PLAYERS
 SET JERSEY_NUMBER = 30
 WHERE PLAYER_NAME = 'Messi'
 
@@ -58,7 +58,7 @@ GO
 -- Example 6
 -- Modify an existing view.
 
-ALTER VIEW V_PLAYER
+ALTER VIEW V_PLAYERS
 AS
 SELECT PLAYER_NAME,
         POSITION,
@@ -71,6 +71,6 @@ GO
 -- Example 7
 -- Delete a view.
 
-DROP VIEW V_PLAYER
+DROP VIEW V_PLAYERS
 
 GO

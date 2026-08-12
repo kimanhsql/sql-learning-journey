@@ -49,7 +49,7 @@ GO
 
 SELECT CLUB_ID,
         dbo.GetPlayerCountByClub(CLUB_ID) AS TotalPlayers
-FROM CLUB
+FROM CLUBS
 
 GO
 

@@ -70,7 +70,7 @@ GO
 -- Exercise 4
 -- Display all inserted rows after inserting multiple players.
 
-CREATE TRIGGER trg_after_insert_player_display
+CREATE TRIGGER trg_after_insert_players_display
 ON PLAYERS
 AFTER INSERT
 AS
@@ -85,7 +85,7 @@ GO
 -- Exercise 5
 -- Display all deleted rows after deleting multiple players.
 
-CREATE TRIGGER trg_after_delete_player_display
+CREATE TRIGGER trg_after_delete_players_display
 ON PLAYERS
 AFTER DELETE
 AS

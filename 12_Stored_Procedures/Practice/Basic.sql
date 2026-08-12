@@ -46,7 +46,7 @@ CREATE PROCEDURE prd_display_all_clubs
 AS
 BEGIN
     SELECT *
-    FROM CLUB
+    FROM CLUBS
 END
 
 GO

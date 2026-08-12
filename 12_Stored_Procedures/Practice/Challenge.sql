@@ -83,7 +83,7 @@ AS
 BEGIN
     SELECT CLUB_ID,
             AVG(JERSEY_NUMBER) AS AverageJerseyNumber
-    FROM PLAYER
+    FROM PLAYERS
     GROUP BY CLUB_ID
     HAVING AVG(JERSEY_NUMBER) > @average_jersey
 END
@@ -190,8 +190,8 @@ BEGIN
             CH.COACH_NAME,
             C.CLUB_ID,
             C.CLUB_NAME
-    FROM COACH CH
-    INNER JOIN CLUB C
+    FROM COACHES CH
+    INNER JOIN CLUBS C
         ON CH.CLUB_ID = C.CLUB_ID
 END
 

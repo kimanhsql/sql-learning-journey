@@ -28,7 +28,7 @@ FROM PLAYERS
 
 SELECT CLUB_NAME,
         LEN(RTRIM(CLUB_NAME)) AS Club_Name_Length
-FROM CLUB
+FROM CLUBS
 
 
 -- Exercise 3
