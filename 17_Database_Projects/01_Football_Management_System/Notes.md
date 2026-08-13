@@ -1,102 +1,412 @@
-Bài 1. Cơ sở dữ liệu về Quản lý giải bóng đá (QLBongDa) 
-1. MÔ TẢ CƠ SỞ DỮ LIỆU 
- CAUTHU(MACT, HOTEN, VITRI, NGAYSINH, DIACHI, MACLB, MAQG, SO)  
-Mỗi cầu thủ có một mã số duy nhất (MACT), một họ tên (HOTEN), một ngày sinh 
-(NGAYSINH), địa chỉ (DIACHI), thuộc một câu lạc bộ (MACLB), thuộc một quốc gia 
-(MAQG), giữ một vị trí trên sân (VITRI), vị trí trên sân của cần thủ chỉ thuộc một 
-trong các vị trí sau: Thủ môn, Tiền đạo, Tiền vệ, Trung vệ, Hậu vệ; số áo (SO), cầu 
-thủ thuộc cùng một câu lạc bộ phải có số áo khác nhau.  
- QUOCGIA(MAQG, TENQG)  
-Mỗi quốc gia có một mã số duy nhất (MAQG) để phân biệt với các quốc gia khác, 
-một tên duy nhất (TENQG).  
- CAULACBO(MACLB, TENCLB, MASAN, MATINH) 
-Mỗi câu lạc bộ có một mã duy nhất (MACLB), một tên (TENCLB), quản lý một sân 
-bóng (MASAN), thuộc một tỉnh thành (MATINH). Mỗi câu lạc bộ chỉ được phép đăng 
-ký tối đa 8 cầu thủ nước ngoài.  
- TINH(MATINH, TENTINH) 
-Mỗi tỉnh/thành có một duy nhất (MATINH), tên tỉnh/thành (TENTINH) duy nhất. 
- SANVD(MASAN, TENSAN, DIACHI)  
-Mỗi sân bóng có một mã số duy nhất (MASAN), một tên sân duy nhất (TENSAN), một 
-địa chỉ (DIACHI).  
- HUANLV(MAHLV, TENHLV, NGAYSINH, DIACHI, DIENTHOAI, MAQG)  
-Mỗi huấn luyện viên có một mã số duy nhất (MAHLV), một họ tên (TENHLV), một 
-ngày sinh (NGAYSINH), một ðịa chỉ (DIACHI), một ðiện thoại, thuộc một quốc gia 
-(MAQG).  
- HLV_CLB(MAHLV, MACLB, VAITRO)
-Một câu lạc bộ có thể có nhiều huấn luyên viên (MAHLV), một huấn luyện viên có 
-thể tham gia huấn luyện cho nhiều câu lạc bộ (MACLB) với một vai trò (VAITRO) cụ 
-thể, vai trò của huấn luyện viên trong một câu lạc bộ thuộc một trong các vai trò sau: 
-HLV chính, HLV phụ, HLV thể lực, HLV thủ môn. Mỗi câu lạc bộ chỉ có tối đa 2 HLV 
-chísnh.  
- TRANDAU(MATRAN, NAM, VONG, NGAYTD, MACLB1, MACLB2, MASAN, 
-KETQUA)  
-Mỗi trận đấu của một vòng đấu (VONG) trong mùa giải (NAM) có một mã số duy 
-nhất (MATRAN), được tổ chức thi đấu trên sân (MASAN) vào một ngày (NGAYTD) 
-với sự tham gia của 2 câu lạc bộ có mã MACLB1, MACLB2, có kết quả (KETQUA).  
- BANGXH(MACLB, NAM, VONG, SOTRAN, THANG, HOA, THUA, HIEUSO, 
-DIEM, HANG)  
-Bảng xếp hạng cho biết kết quả xếp hạng vòng đấu (VONG) trong mùa giải (NAM) 
-của đội bóng (MACLB) với số trận đã đấu (SOTRAN), trong đó số trận thắng 
-(THANG), số trận hòa (HOA), số trận thua (THUA), có hiệu số bàn thắng - thua 
-(HIEUSO), tổng điểm (DIEM), xếp hạng (HANG). 
- CAUTHU(MACT, HOTEN, VITRI, NGAYSINH, DIACHI, MACLB, MAQG, SO)  
-Images/HInh
-Tăng tự động: Ở phần Column Properties, ở thuộc tính Identity Specification: - (Is Identity): Yes - Identity Increment: (mức tăng, mặc định là 1) - Identity Seed: (giá trị đầu, mặc định là 1) 
- QUOCGIA(MAQG, TENQG)
-images/hinh
-CAULACBO(MACLB, TENCLB, MASAN, MATINH)
-images/hinh
-TINH(MATINH, TENTINH)
-img
-SANVD(MASAN, TENSAN, DIACHI) 
-img
-HUANLV(MAHLV, TENHLV, NGAYSINH, DIACHI, DIENTHOAI, MAQG)
-img
-HLV_CLB(MAHLV, MACLB, VAITRO)
-img
-TRANDAU(MATRAN, NAM, VONG, NGAYTD, MACLB1, MACLB2, MASAN, 
-KETQUA)
-img
-BANGXH(MACLB, NAM, VONG, SOTRAN, THANG, HOA, THUA, HIEUSO, 
-DIEM, HANG) 
-img
-2. YÊU CẦU 
-1. Tạo CSDL có tên QLBongDa.  
-2. Tạo các Table CAUTHU, QUOCGIA, CAULACBO, TINH, HUANLV, SANVD, 
-HLV_CLB, TRANDAU, BANGXH.  
-3. Tạo liên kết cho các Table trong CSDL trên. 
+# QLBongDa - Giáo trình
+
+- Ghi chú và đề bài tiếng Việt từ giáo trình *Database Fundamentals*.
+
+- Database: `QLBongDa`  
+- Source: `TH1207_GT.pdf`
 
 ---
 
-Bài 1: Sử dụng CSDL QLBongDa (ở phần I) thực hiện các yêu cầu sau: 
-1. Nhập dữ liệu vào các table như sau: 
-CAUTHU(MACT, HOTEN, VITRI, NGAYSINH, DIACHI, MACLB, MAQG, 
-img
- QUOCGIA(MAQG, TENQG) 
-img
-CAULACBO(MACLB, TENCLB, MASAN, MATINH)
-img
-TINH(MATINH, TENTINH)
-img
-SANVD(MASAN, TENSAN, DIACHI)
-img
-HUANLV(MAHLV, TENHLV, NGAYSINH, DIACHI, DIENTHOAI, MAQG) 
-img
-HLV_CLB(MAHLV, MACLB, VAITRO)
-img
-TRANDAU(MATRAN, NAM, VONG, NGAYTD, MACLB1, MACLB2, MASAN, 
-KETQUA)
-img
-BANGXH(MACLB, NAM, VONG, SOTRAN, THANG, HOA, THUA, HIEUSO, 
-DIEM, HANG) 
-img
-2. Xóa cầu thủ ‘Nguyễn Vũ Phong’. 
-3. Xóa các cầu thủ có tuổi trên 40. 
-4. Xóa các cầu thủ có tuổi trên 35 ở câu lạc bộ ‘BBD’. 
-5. Xóa các cầu thủ có tuổi trên 35 ở câu lạc bộ ‘BECAMEX BÌNH DƯƠNG’. 
-6. Đổi vị trí thi đấu của cầu thủ ‘Nguyễn Trường Sơn’ thành ‘Tiền đạo’. 
-7. Ghi nhận địa chỉ của huấn luyện viên ‘Lê Huỳnh Đức’ là ‘TP.HCM’ 
-8. Đổi vị trí của cầu thủ ‘Nguyễn Công Vinh’ với cầu thủ ‘Trần Tấn Tài’. 
-9. Thay huấn luyện viên mới của ‘GẠCH ĐỒNG TÂM LONG AN’ là ‘Nguyễn Đức 
-Thắng’. 
-10. Đổi tên câu lạc bộ ‘BECAMEX BÌNH DƯƠNG’ thành ‘BÌNH DƯƠNG’. 
+# Phần I - Xây dựng cơ sở dữ liệu QLBongDa
+
+## 1. Mô tả cơ sở dữ liệu
+
+Cơ sở dữ liệu **QLBongDa** dùng để quản lý thông tin về một giải bóng đá, bao gồm quốc gia, sân vận động, tỉnh/thành phố, câu lạc bộ, cầu thủ, huấn luyện viên, trận đấu và bảng xếp hạng.
+
+---
+
+### 1.1. Bảng CAUTHU
+
+```sql
+CAUTHU(
+    MACT,
+    HOTEN,
+    VITRI,
+    NGAYSINH,
+    DIACHI,
+    MACLB,
+    MAQG,
+    SO
+)
+```
+
+Mỗi cầu thủ có:
+
+- Mã số duy nhất: MACT
+- Họ tên: HOTEN
+- Ngày sinh: NGAYSINH
+- Địa chỉ: DIACHI
+- Câu lạc bộ đang thi đấu: MACLB
+- Quốc gia: MAQG
+- Vị trí thi đấu: VITRI
+- Số áo: SO
+
+Các vị trí thi đấu được phép:
+
+- Thủ môn
+- Tiền đạo
+- Tiền vệ
+- Trung vệ
+- Hậu vệ
+
+Ràng buộc:
+
+Cầu thủ thuộc cùng một câu lạc bộ phải có số áo khác nhau.
+
+---
+
+### 1.2. Bảng QUOCGIA
+
+```sql
+QUOCGIA(
+    MAQG,
+    TENQG
+)
+```
+
+Mỗi quốc gia có:
+
+- Mã quốc gia duy nhất: MAQG
+- Tên quốc gia duy nhất: TENQG
+
+---
+
+### 1.3. Bảng CAULACBO
+
+```sql
+CAULACBO(
+    MACLB,
+    TENCLB,
+    MASAN,
+    MATINH
+)
+```
+
+Mỗi câu lạc bộ có:
+
+- Mã câu lạc bộ duy nhất: MACLB
+- Tên câu lạc bộ: TENCLB
+- Sân bóng quản lý: MASAN
+- Tỉnh/thành phố: MATINH
+
+Ràng buộc:
+
+Mỗi câu lạc bộ chỉ được phép đăng ký tối đa 8 cầu thủ nước ngoài.
+
+---
+
+### 1.4. Bảng TINH
+
+```sql
+TINH(
+    MATINH,
+    TENTINH
+)
+```
+
+Mỗi tỉnh/thành có:
+
+- Mã tỉnh/thành duy nhất: MATINH
+- Tên tỉnh/thành duy nhất: TENTINH
+
+---
+
+### 1.5. Bảng SANVD
+
+```sql
+SANVD(
+    MASAN,
+    TENSAN,
+    DIACHI
+)
+```
+
+Mỗi sân bóng có:
+
+- Mã sân duy nhất: MASAN
+- Tên sân duy nhất: TENSAN
+- Địa chỉ: DIACHI
+
+---
+
+### 1.6. Bảng HUANLV
+
+```sql
+HUANLV(
+    MAHLV,
+    TENHLV,
+    NGAYSINH,
+    DIACHI,
+    DIENTHOAI,
+    MAQG
+)
+```
+
+Mỗi huấn luyện viên có:
+
+- Mã số duy nhất: MAHLV
+- Họ tên: TENHLV
+- Ngày sinh: NGAYSINH
+- Địa chỉ: DIACHI
+- Điện thoại: DIENTHOAI
+- Quốc gia: MAQG
+
+---
+
+### 1.7. Bảng HLV_CLB
+
+```sql
+HLV_CLB(
+    MAHLV,
+    MACLB,
+    VAITRO
+)
+```
+
+Bảng này thể hiện mối quan hệ giữa huấn luyện viên và câu lạc bộ.
+
+- Một câu lạc bộ có thể có nhiều huấn luyện viên.
+- Một huấn luyện viên có thể tham gia huấn luyện cho nhiều câu lạc bộ.
+- VAITRO xác định vai trò của huấn luyện viên tại câu lạc bộ.
+
+Các vai trò được phép:
+
+- HLV chính
+- HLV phụ
+- HLV thể lực
+- HLV thủ môn
+
+Ràng buộc:
+
+Mỗi câu lạc bộ chỉ có tối đa 2 HLV chính.
+
+---
+
+### 1.8. Bảng TRANDAU
+
+```sql
+TRANDAU(
+    MATRAN,
+    NAM,
+    VONG,
+    NGAYTD,
+    MACLB1,
+    MACLB2,
+    MASAN,
+    KETQUA
+)
+```
+
+Mỗi trận đấu có:
+
+- Mã trận duy nhất: MATRAN
+- Mùa giải: NAM
+- Vòng đấu: VONG
+- Ngày thi đấu: NGAYTD
+- Câu lạc bộ thứ nhất: MACLB1
+- Câu lạc bộ thứ hai: MACLB2
+- Sân thi đấu: MASAN
+- Kết quả: KETQUA
+
+---
+
+### 1.9. Bảng BANGXH
+
+```sql
+BANGXH(
+    MACLB,
+    NAM,
+    VONG,
+    SOTRAN,
+    THANG,
+    HOA,
+    THUA,
+    HIEUSO,
+    DIEM,
+    HANG
+)
+```
+
+Bảng xếp hạng cho biết kết quả xếp hạng của một câu lạc bộ trong một vòng đấu của một mùa giải.
+
+Thông tin gồm:
+
+- SOTRAN: Số trận đã đấu
+- THANG: Số trận thắng
+- HOA: Số trận hòa
+- THUA: Số trận thua
+- HIEUSO: Hiệu số bàn thắng - thua
+- DIEM: Tổng điểm
+- HANG: Thứ hạng
+
+---
+
+## 2. Hình minh họa cấu trúc bảng
+
+Phần giáo trình có các hình minh họa cấu trúc bảng:
+
+- CAUTHU
+- QUOCGIA
+- CAULACBO
+- TINH
+- SANVD
+- HUANLV
+- HLV_CLB
+- TRANDAU
+- BANGXH
+
+Hình ảnh gốc được giữ trong:
+
+17_Database_Projects\01_Football_Management_System\Images.
+
+---
+
+## 3. Một số thiết lập bảng
+
+* CAUTHU - Tăng tự động MACT
+
+Trong SQL Server, cột MACT được thiết lập tăng tự động thông qua:
+
+Column Properties → Identity Specification
+
+- (Is Identity): Yes
+- Identity Increment: 1
+- Identity Seed: 1
+
+---
+
+## 4. Yêu cầu
+
+* Yêu cầu 1
+
+Tạo cơ sở dữ liệu có tên:
+
+QLBongDa
+
+* Yêu cầu 2
+
+Tạo các bảng:
+
+- CAUTHU
+- QUOCGIA
+- CAULACBO
+- TINH
+- HUANLV
+- SANVD
+- HLV_CLB
+- TRANDAU
+- BANGXH
+
+* Yêu cầu 3
+
+Tạo liên kết giữa các bảng trong cơ sở dữ liệu.
+
+# Phần II - Nhập dữ liệu và thao tác DML
+
+## 1. Nhập dữ liệu
+
+Sử dụng cơ sở dữ liệu QLBongDa ở Phần I và nhập dữ liệu vào các bảng:
+
+- CAUTHU
+- QUOCGIA
+- CAULACBO
+- TINH
+- SANVD
+- HUANLV
+- HLV_CLB
+- TRANDAU
+- BANGXH
+
+Dữ liệu chi tiết được trình bày trong giáo trình dưới dạng hình minh họa.
+
+---
+
+## 2. Xóa cầu thủ Nguyễn Vũ Phong
+
+Xóa cầu thủ có họ tên:
+
+Nguyễn Vũ Phong
+
+---
+
+## 3. Xóa cầu thủ có tuổi trên 40
+
+Xóa tất cả các cầu thủ có tuổi trên 40.
+
+---
+
+## 4. Xóa cầu thủ có tuổi trên 35 ở câu lạc bộ BBD
+
+Xóa các cầu thủ:
+
+- Có tuổi trên 35
+- Thuộc câu lạc bộ BBD
+
+---
+
+## 5. Xóa cầu thủ có tuổi trên 35 ở câu lạc bộ BECAMEX BÌNH DƯƠNG
+
+Xóa các cầu thủ:
+
+- Có tuổi trên 35
+- Thuộc câu lạc bộ có tên:
+BECAMEX BÌNH DƯƠNG
+
+---
+
+## 6. Thay đổi vị trí của Nguyễn Trường Sơn
+
+Đổi vị trí thi đấu của cầu thủ:
+
+Nguyễn Trường Sơn
+
+thành:
+
+Tiền đạo
+
+---
+
+## 7. Cập nhật địa chỉ của Lê Huỳnh Đức
+
+Ghi nhận địa chỉ của huấn luyện viên:
+
+Lê Huỳnh Đức
+
+là:
+
+TP.HCM
+
+---
+
+## 8. Đổi vị trí của hai cầu thủ
+
+Đổi vị trí thi đấu của:
+
+Nguyễn Công Vinh
+Trần Tấn Tài
+
+theo yêu cầu của đề bài.
+
+---
+
+## 9. Thay huấn luyện viên của GẠCH ĐỒNG TÂM LONG AN
+
+Thay huấn luyện viên mới của câu lạc bộ:
+
+GẠCH ĐỒNG TÂM LONG AN
+
+bằng:
+
+Nguyễn Đức Thắng
+
+---
+
+## 10. Đổi tên câu lạc bộ
+
+Đổi tên câu lạc bộ:
+
+BECAMEX BÌNH DƯƠNG
+
+thành:
+
+BÌNH DƯƠNG

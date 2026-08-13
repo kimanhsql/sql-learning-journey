@@ -59,7 +59,7 @@ The original exercises are from the Vietnamese textbook and are translated into 
 Football Management System/
 ├── Images/
 |
-├── SQL
+├── SQL/
 |
 ├── Notes.md
 ├── QLBongDa.sql
@@ -104,8 +104,8 @@ The project is developed from the original textbook exercises and organized grad
 - Primary keys and foreign keys: ✅
 - Sample data: ✅
 - DML exercises: ✅
-- SQL organization: 🟨 In Progress
-- Project documentation: 🟨 In Progress
+- SQL organization: ✅
+- Project documentation: ✅
 
 ---
 
