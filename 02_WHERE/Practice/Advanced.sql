@@ -11,9 +11,6 @@ Ask yourself:
 - Can I simplify the WHERE clause without changing the result?
 - Is there another operator that makes the query easier to read?
 - Will every row returned satisfy all the required conditions?
-
-Analyze the filtering logic first.
-Then build the WHERE clause step by step.
 */
 
 
@@ -87,7 +84,7 @@ SELECT PLAYER_ID,
         BIRTH_DATE
 FROM PLAYERS
 WHERE BIRTHDATE BETWEEN '1995-01-01'
-                AND '2005-12-31'
+        AND '2005-12-31'
 
 
 -- Exercise 8

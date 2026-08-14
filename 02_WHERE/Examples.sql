@@ -19,7 +19,7 @@ WHERE JERSEY_NUMBER > 10
 
 SELECT *
 FROM PLAYERS
-WHERE COUNTRY = 'Vietnam'
+WHERE COUNTRY_NAME = 'Vietnam'
 
 
 -- Example 4
@@ -28,7 +28,7 @@ WHERE COUNTRY = 'Vietnam'
 SELECT *
 FROM PLAYERS
 WHERE POSITION = 'Goalkeeper'
-      AND COUNTRY = 'Brazil'
+      AND COUNTRY_NAME = 'Brazil'
 
 
 -- Example 5

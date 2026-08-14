@@ -2,7 +2,7 @@
 
 ## 1. Including columns which appear in `ORDER BY` clause
 
-Columns used in the **ORDER BY** clause should also appear in the **SELECT** statement so as to easily to see results.
+Columns used in the ORDER BY clause should also appear in the SELECT statement so as to easily to see results.
 
 Wrong
 
@@ -53,7 +53,7 @@ ORDER BY BIRTH_DATE DESC
 
 ## 3. Ordering by an unavailable column
 
-**COUNTRY_ID** appears in **COUNTRY** table, we use **WHERE** clause to connect two tables: **PLAYER** and **COUNTRY**.
+COUNTRY_ID appears in COUNTRY table, we use WHERE clause to connect two tables: PLAYER and COUNTRY.
 
 Wrong
 

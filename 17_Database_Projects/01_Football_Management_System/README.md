@@ -99,13 +99,13 @@ The project is developed from the original textbook exercises and organized grad
 
 ## 5. Current Progress
 
-- Database creation: ✅
-- Table creation: ✅
-- Primary keys and foreign keys: ✅
-- Sample data: ✅
-- DML exercises: ✅
-- SQL organization: ✅
-- Project documentation: ✅
+- Database creation: ✅ Completed
+- Table creation: ✅ Completed
+- Primary keys and foreign keys: ✅ Completed
+- Sample data: ✅ Completed
+- DML exercises: ✅ Completed
+- SQL organization: ✅ Completed
+- Project documentation: ✅ Completed
 
 ---
 

@@ -2,11 +2,11 @@
 
 ## 1. Using columns that do not exist in the selected table
 
-Always make sure the columns you reference belong to the table in the `FROM` clause.
+Always make sure the columns you reference belong to the table in the FROM clause.
 
 ---
 
-## 2. Confusing the `YEAR()` and `GETDATE()` functions
+## 2. Confusing the YEAR() and GETDATE() functions
 
 Wrong
 

@@ -8,8 +8,6 @@ Ask yourself:
 - Which comparison operator should I use?
 - Should I use =, >, <, >=, <=, or <>?
 - Does the condition match exactly what the question asks?
-
-Focus on identifying the correct condition before writing the WHERE clause.
 */
 
 

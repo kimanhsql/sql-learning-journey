@@ -1,9 +1,6 @@
-# QLBongDa - Giáo trình
+# QLBongDa - Football Management System
 
-- Ghi chú và đề bài tiếng Việt từ giáo trình *Database Fundamentals*.
-
-- Database: `QLBongDa`  
-- Source: `TH1207_GT.pdf`
+## Bài 1. Cơ sở dữ liệu về Quản lý giải bóng đá (QLBongDa) 
 
 ---
 
