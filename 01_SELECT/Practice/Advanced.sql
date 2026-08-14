@@ -9,7 +9,8 @@ Ask yourself:
 - Do I need to use a built-in function?
 - Is the result easy to read and understand?
 
-Think about how to improve the output, not just how to retrieve the data.
+Think about how to improve the output,
+not just how to retrieve the data.
 */
 
 

@@ -1,6 +1,6 @@
 # Mistakes
 
-## 1. Forgetting `FROM`
+## 1. Forgetting FROM
 
 Wrong
 

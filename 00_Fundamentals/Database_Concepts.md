@@ -77,7 +77,7 @@ For example:
 
 | StudentID | FullName | Age |
 |-----------|----------|-----|
-| 1 | John Smith | 20 |
+| 1 | Conan Edogawa | 17 |
 
 - StudentID
 - FullName

@@ -8,9 +8,6 @@ Ask yourself:
 - Do I need all columns or only specific ones?
 - Should I use SELECT * or list the columns explicitly?
 - Is the output exactly what the question asks for?
-
-Focus on understanding the requirement first.
-Then write the SQL statement.
 */
 
 
