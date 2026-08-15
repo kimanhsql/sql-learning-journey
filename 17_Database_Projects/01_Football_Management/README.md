@@ -46,9 +46,10 @@ Document: TH1207_GT.pdf
 
 Relevant pages:
 
-Pages	Content
-96–99	Database structure and QLBongDa exercises
-105–108	Data manipulation exercises
+ Pages | Content |
+|---|---|
+| 96–99 | Database structure and QLBongDa exercises |
+| 105–108 | Data manipulation exercises |
 
 The original exercises are from the Vietnamese textbook and are translated into English when organized into separate SQL files.
 

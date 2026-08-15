@@ -45,10 +45,11 @@ Main Relationships:
 
 Document: `TH1207_GT.pdf`
 
-Relevant Page
+Relevant Page:
+
  Pages | Content |
 |---|---|
-|100 | QLGiangDay database and exercises|
+| 100 | QLGiangDay database and exercises |
 
 The original exercise is written in Vietnamese.
 
