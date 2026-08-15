@@ -28,11 +28,11 @@ INNER JOIN CLUBS C
 
 ---
 
-## 2. Using the wrong `JOIN` type
+## 2. Using the wrong JOIN type
 
-Exercise 6 requires displaying all clubs, including clubs that have no players.
+Exercise 6 (Basic) requires displaying all clubs, including clubs that have no players.
 
-This means the query must return rows even when there is no matching record in the **PLAYER** table.
+This means the query must return rows even when there is no matching record in the PLAYERS table.
 
 Wrong
 
@@ -60,9 +60,9 @@ LEFT OUTER JOIN PLAYERS PL
 
 ## 3. Joining a table with itself unnecessarily
 
-Exercise 7 requires displaying all countries, including countries that have no players.
+Exercise 7 (Basic) requires displaying all countries, including countries that have no players.
 
-There is no need to join the **COUNTRY** table with itself.
+There is no need to join the COUNTRY table with itself.
 
 Wrong
 
@@ -88,11 +88,11 @@ LEFT OUTER JOIN PLAYERS PL
 
 ---
 
-## 4. Using `CROSS JOIN` incorrectly
+## 4. Using CROSS JOIN incorrectly
 
-Exercise 8 requires displaying all coaches and the clubs they manage, including coaches who are not assigned to any club.
+Exercise 8 (Basic) requires displaying all coaches and the clubs they manage, including coaches who are not assigned to any club.
 
-A **CROSS JOIN** returns every possible combination of rows, which is not the expected result.
+A CROSS JOIN returns every possible combination of rows, which is not the expected result.
 
 Wrong
 
@@ -120,7 +120,7 @@ LEFT OUTER JOIN CLUBS C
 
 ---
 
-## 5. Using `FULL OUTER JOIN` instead of `SELF JOIN`
+## 5. Using FULL OUTER JOIN instead of SELF JOIN
 
 Wrong
 
@@ -174,7 +174,7 @@ LEFT JOIN PLAYERS PL
 
 ## 7. Assuming foreign keys without checking the database schema
 
-Exercise 1 requires before writing a **JOIN**, verify that the two tables are directly related.
+Exercise 1 (Advanced) requires before writing a JOIN, verify that the two tables are directly related.
 
 Wrong
 
@@ -206,12 +206,13 @@ INNER JOIN STADIUMS ST
 
 ## 8. Forgetting GROUP BY when using aggregate functions
 
-Excercise 5 requires aggregate functions and normal columns cannot be selected together without GROUP BY.
+Excercise 5 (Advanced) requires aggregate functions and normal columns cannot be selected together without GROUP BY.
 
 Wrong
 
 ```sql
-SELECT CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         COUNT(*) AS NumberOfCoaches
 FROM CLUBS C
 INNER JOIN CLUB_COACHES CC
@@ -221,19 +222,21 @@ INNER JOIN CLUB_COACHES CC
 Correct
 
 ```sql
-SELECT CLUB_NAME,
+SELECT C.CLUB_ID,
+        CLUB_NAME,
         COUNT(*) AS NumberOfCoaches
 FROM CLUBS C
 INNER JOIN CLUB_COACHES CC
         ON CC.CLUB_ID = C.CLUB_ID
-GROUP BY CLUB_NAME
+GROUP BY C.CLUB_ID,
+        CLUB_NAME
 ```
 
 ---
 
 ## 9. Selecting a column from a table that was never joined
 
-Exercise 9 requires every selected column must come from a table included in the query.
+Exercise 9 (Advanced) requires every selected column must come from a table included in the query.
 
 Wrong
 
@@ -273,7 +276,7 @@ INNER JOIN COACHES CH
 
 ## 10. Grouping by too many columns
 
-Challenge 4 requires when counting related records, group by the main entity instead of every joined table.
+Exercise 4 (Challenge) requires when counting related records, group by the main entity instead of every joined table.
 
 Wrong
 

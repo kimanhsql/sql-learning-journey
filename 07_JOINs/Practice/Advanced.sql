@@ -1,14 +1,43 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a JOIN query, ask yourself:
 
-- Do I need to join more than two tables?
-- Which table should I start with?
-- Should I use INNER JOIN or OUTER JOIN?
-- Will every table have matching records?
-- Can I simplify the JOIN order?
-- Should I use table aliases to improve readability?
+1. Do I need to join more than two tables?
+2. Which table should I start with?
+3. Should I use INNER JOIN or OUTER JOIN?
+4. Will every table have matching records?
+5. Can I simplify the JOIN order?
+6. Should I use table aliases to improve readability?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Choose the starting table based on the main information
+  required by the question.
+- INNER JOIN returns only rows with matching records in
+  the joined tables.
+- LEFT JOIN keeps all rows from the left table, even when
+  no matching record exists in the right table.
+- RIGHT JOIN keeps all rows from the right table, even when
+  no matching record exists in the left table.
+- FULL OUTER JOIN keeps matching and non-matching rows
+  from both tables.
+- When joining multiple tables, make sure each JOIN uses
+  the correct relationship between the tables.
+- Check whether a JOIN can create duplicate rows because
+  of one-to-many or many-to-many relationships.
+- Use table aliases when queries involve multiple tables
+  or when table names are long.
+- Build the query one JOIN at a time and check the result
+  after adding each JOIN.
+- The JOIN order should make the relationships and purpose
+  of the query easy to understand.
+- Do not add a JOIN unless the required data or condition
+  actually depends on another table.
 
 Build the query one JOIN at a time.
 */
@@ -37,7 +66,7 @@ FROM COACHES CH
 INNER JOIN CLUB_COACHES CC
         ON CC.COACH_ID = CH.COACH_ID
 INNER JOIN CLUBS C
-        ON C.CLUB_ID = COACH_CLUB.CLUB_ID
+        ON C.CLUB_ID = CC.CLUB_ID
 INNER JOIN STADIUMS ST
         ON ST.STADIUM_ID = C.STADIUM_ID
 
@@ -86,7 +115,8 @@ GROUP BY C.CLUB_ID,
 
 
 -- Exercise 6
--- Display all stadiums, including stadiums that do not belong to any club.
+-- Display all stadiums, including stadiums that
+-- do not belong to any club.
 
 SELECT STADIUM_NAME,
         CLUB_NAME

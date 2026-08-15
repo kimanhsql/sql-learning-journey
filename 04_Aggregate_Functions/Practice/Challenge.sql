@@ -1,12 +1,41 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- What exactly needs to be measured?
-- Should I count, total, average, or compare values?
-- Do I need GROUP BY?
-- Should I filter rows with WHERE?
-- Should I filter groups with HAVING?
-- Do I need DISTINCT?
+Before writing an aggregate query, ask yourself:
+
+1. What exactly needs to be measured?
+2. Should I count, total, average, or compare values?
+3. Do I need GROUP BY?
+4. Should I filter rows with WHERE?
+5. Should I filter groups with HAVING?
+6. Do I need DISTINCT?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- COUNT, SUM, AVG, MIN, and MAX can be combined with
+  GROUP BY to calculate values for each group.
+- Use WHERE to filter individual rows before aggregation.
+- Use HAVING to filter groups after aggregation.
+- Do not use HAVING when WHERE can perform the required
+  row-level filtering.
+- Every non-aggregated column in SELECT must be included
+  in GROUP BY.
+- Use DISTINCT when the question requires unique values
+  to be counted or aggregated.
+- Be careful when combining multiple aggregate functions
+  because each function may handle NULL values differently.
+- Check whether the question asks for a result for the
+  entire table or a separate result for each group.
+- When comparing groups, make sure the grouping column
+  represents the correct category.
+- Read the result carefully to make sure the aggregation
+  matches the meaning of the question.
+
+============================================================
 */
 
 

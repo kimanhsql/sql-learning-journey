@@ -1,5 +1,5 @@
 -- Example 1
--- Return only matching rows from PLAYER and CLUB.
+-- Return only matching rows from PLAYERS and CLUBS.
 
 SELECT PLAYER_NAME,
         CLUB_NAME

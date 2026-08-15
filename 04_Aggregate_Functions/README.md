@@ -30,6 +30,7 @@ Counts rows or non-NULL values in a column.
 
 ```sql
 COUNT(*)
+
 COUNT(column_name)
 ```
 

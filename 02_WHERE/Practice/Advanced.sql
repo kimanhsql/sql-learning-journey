@@ -1,16 +1,37 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a WHERE clause, ask yourself:
 
-- Do I need one condition or multiple conditions?
-- Which logical operator should I use (AND, OR, or NOT)?
-- Should I use LIKE, BETWEEN, IN, or IS NULL?
-- Does the condition require exact matching or pattern matching?
-- Should I combine conditions from different tables?
-- Can I simplify the WHERE clause without changing the result?
-- Is there another operator that makes the query easier to read?
-- Will every row returned satisfy all the required conditions?
+1. Do I need one condition or multiple conditions?
+2. Which logical operator should I use (AND, OR, or NOT)?
+3. Should I use LIKE, BETWEEN, IN, or IS NULL?
+4. Does the condition require exact matching or pattern matching?
+5. Should I combine conditions from different columns or tables?
+6. Can I simplify the WHERE clause without changing the result?
+7. Is there another operator that makes the condition easier to read?
+8. Will every row returned satisfy all the required conditions?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- WHERE filters rows based on a condition.
+- Use AND when all conditions must be satisfied.
+- Use OR when at least one condition must be satisfied.
+- Use NOT to exclude rows that satisfy a condition.
+- Use LIKE for pattern matching.
+- Use BETWEEN for values within a range.
+- Use IN when comparing a value with multiple possible values.
+- Use IS NULL or IS NOT NULL when checking for NULL values.
+- Use parentheses when combining AND and OR to make the logic explicit.
+- Be careful with NULL because it does not behave like an ordinary value.
+- Keep conditions clear and avoid unnecessary complexity.
+- Make sure the WHERE clause matches the exact requirements of the question.
+
+============================================================
 */
 
 

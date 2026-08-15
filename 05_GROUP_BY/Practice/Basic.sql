@@ -1,16 +1,36 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a GROUP BY query, ask yourself:
 
-- Which column should I group by?
-- Which aggregate function should I use?
-- Should every selected column be grouped or aggregated?
-- Do I need one grouping column or multiple grouping columns?
-- Does the output answer the question correctly?
+1. Which column should I group by?
+2. Which aggregate function should I use?
+3. Should every selected column be grouped or aggregated?
+4. Do I need one grouping column or multiple grouping columns?
+5. Does the output answer the question correctly?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- GROUP BY combines rows with the same value into groups.
+- Aggregate functions such as COUNT, SUM, AVG, MIN, and MAX
+  can be used to calculate a result for each group.
+- Every selected column must either be included in GROUP BY
+  or used inside an aggregate function.
+- Use multiple columns in GROUP BY when the question requires
+  grouping at more than one level.
+- GROUP BY does not modify the data stored in the table.
+- The result contains one row for each group.
+- Read the question carefully to determine the correct
+  grouping column.
 
 Group the data first.
 Then calculate the required result.
+
+============================================================
 */
 
 
@@ -81,7 +101,8 @@ GROUP BY CT.COUNTRY_ID,
 
 
 -- Exercise 7
--- Display the number of players in each position, excluding Goalkeepers.
+-- Display the number of players in each position,
+-- excluding Goalkeepers.
 
 SELECT POSITION,
         COUNT(*)

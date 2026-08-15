@@ -1,13 +1,31 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a JOIN query, ask yourself:
 
-- Which tables are required?
-- What is the relationship between them?
-- Which columns should be joined?
-- Which key connects the tables?
-- Which JOIN type should I use?
+1. Which tables are required?
+2. What is the relationship between them?
+3. Which columns should be joined?
+4. Which key connects the tables?
+5. Which JOIN type should I use?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Identify the tables that contain the information required
+  by the question.
+- Understand how the tables are related before writing the JOIN.
+- Usually, the JOIN condition connects a foreign key to the
+  corresponding primary key.
+- Make sure the columns used in the JOIN represent the correct
+  relationship between the tables.
+- Use INNER JOIN when only matching records are required.
+- Check the result to make sure the JOIN does not produce
+  unexpected duplicate rows.
+- Use table aliases when they make the query easier to read.
 
 Focus on understanding the relationship before writing the JOIN.
 */
@@ -91,7 +109,8 @@ LEFT OUTER JOIN PLAYERS PL
 
 
 -- Exercise 8
--- Display all coaches and the clubs they manage, including coaches who are not assigned to any club.
+-- Display all coaches and the clubs they manage,
+-- including coaches who are not assigned to any club.
 
 SELECT CH.COACH_ID,
         COACH_NAME,

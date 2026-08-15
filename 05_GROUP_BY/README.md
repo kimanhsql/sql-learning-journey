@@ -11,8 +11,7 @@ It is commonly used with aggregate functions to summarize data and generate mean
 ## Characteristics
 
 - Groups rows based on one or more columns.
-- Is commonly used with aggregate functions such as `COUNT()`, `SUM()`,
-`AVG()`, `MIN()`, and `MAX()`.
+- Is commonly used with aggregate functions such as `COUNT()`, `SUM()`, `AVG()`, `MIN()`, and `MAX()`.
 - Can group numeric values, text values, dates, or calculated expressions.
 - Can be combined with `WHERE`, `HAVING`, and `ORDER BY`.
 - Returns one row for each group.

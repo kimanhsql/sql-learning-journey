@@ -1,11 +1,43 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- Do I need one result or one result per group?
-- Which column should I GROUP BY?
-- Should I filter rows with WHERE or groups with HAVING?
-- Do I need DISTINCT?
-- Which aggregate function answers the question?
+Before writing an aggregate query, ask yourself:
+
+1. Do I need one result or one result per group?
+2. Which column should I GROUP BY?
+3. Should I filter rows with WHERE or groups with HAVING?
+4. Do I need DISTINCT?
+5. Which aggregate function answers the question?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Aggregate functions perform calculations on multiple rows
+  and return a single result for each group.
+- Common aggregate functions include COUNT, SUM, AVG, MIN,
+  and MAX.
+- Use GROUP BY when the result needs to be calculated
+  separately for each group.
+- Without GROUP BY, aggregate functions normally return
+  one result for the entire filtered result set.
+- WHERE filters rows before grouping and aggregation.
+- HAVING filters groups after GROUP BY and aggregation.
+- Use COUNT when the question asks for the number of rows
+  or values.
+- Use SUM to calculate a total.
+- Use AVG to calculate an average.
+- Use MIN and MAX to find the smallest and largest values.
+- Be careful with NULL values because aggregate functions
+  may handle NULL differently from ordinary values.
+- Use DISTINCT inside an aggregate function when the question
+  requires unique values.
+- Make sure every non-aggregated column in the SELECT list
+  is properly included in GROUP BY.
+
+============================================================
 */
 
 

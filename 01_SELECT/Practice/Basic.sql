@@ -1,13 +1,35 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a SELECT query, ask yourself:
 
-- Which table contains the required data?
-- Which columns should I display?
-- Do I need all columns or only specific ones?
-- Should I use SELECT * or list the columns explicitly?
-- Is the output exactly what the question asks for?
+1. Which table contains the required data?
+2. Which columns contain the information I need?
+3. Do I need all columns or only specific columns?
+4. Should I use SELECT * or list the columns explicitly?
+5. Do I need to rename any column using AS?
+6. Is the output exactly what the question asks for?
+7. Is the order of the selected columns clear and meaningful?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- SELECT retrieves data from a table.
+- Use SELECT * when you need to see all columns.
+- List columns explicitly when the question asks for
+  specific information.
+- The order of columns in SELECT determines the order
+  in the result.
+- Use AS to give a column a clearer or more meaningful name
+  when necessary.
+- Do not select unnecessary columns.
+- Make sure the selected columns directly answer the question.
+- SELECT does not modify the data in the database.
+
+============================================================
 */
 
 

@@ -1,10 +1,34 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- What value do I need to calculate?
-- Do I need COUNT, SUM, AVG, MIN, or MAX?
-- Am I calculating one value for the whole table?
-- Should NULL values be considered?
+Before writing an aggregate query, ask yourself:
+
+1. What value do I need to calculate?
+2. Do I need COUNT, SUM, AVG, MIN, or MAX?
+3. Am I calculating one value for the whole table?
+4. Should NULL values be considered?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Aggregate functions calculate a value from multiple rows.
+- COUNT counts rows or non-NULL values depending on the
+  expression being counted.
+- SUM calculates the total of numeric values.
+- AVG calculates the average of numeric values.
+- MIN returns the smallest value.
+- MAX returns the largest value.
+- Without GROUP BY, an aggregate function normally returns
+  one result for the selected rows.
+- Be aware of NULL values when using aggregate functions.
+- Use the aggregate function that directly matches
+  the requirement of the question.
+- Aggregate functions do not modify the data in the table.
+
+============================================================
 */
 
 

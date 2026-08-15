@@ -6,7 +6,8 @@ Ask yourself:
 - What do I need to calculate?
 - Should I count rows or a specific column?
 - Do I need the total, average, minimum, or maximum?
-- Do I need to calculate the result for the entire table or for each group?
+- Do I need to calculate the result for the entire table or
+for each group?
 - Should I filter rows before aggregation?
 - Should I filter groups after aggregation?
 */

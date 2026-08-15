@@ -1,16 +1,43 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a JOIN query, ask yourself:
 
-- Which tables are required to answer the question?
-- What is the shortest path between the tables?
-- Do I need JOIN together with WHERE, GROUP BY, or HAVING?
-- Will some tables require multiple JOINs?
-- Should I combine different JOIN types?
-- Is every selected column coming from the correct table?
+1. Which tables are required to answer the question?
+2. What is the shortest path between the tables?
+3. Do I need JOIN together with WHERE, GROUP BY, or HAVING?
+4. Will some tables require multiple JOINs?
+5. Should I combine different JOIN types?
+6. Is every selected column coming from the correct table?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Start by identifying the information required by the question
+  and determine which tables contain that information.
+- Trace the relationships between tables before writing the query.
+- Use primary key and foreign key relationships to determine
+  the correct JOIN conditions.
+- When multiple tables are required, build the query step by step
+  instead of writing all JOINs at once.
+- Use WHERE to filter rows after combining the required tables.
+- Use GROUP BY and aggregate functions when the question requires
+  calculations for groups.
+- Use HAVING when the condition depends on an aggregate result.
+- Different JOIN types can be combined when the question requires
+  different matching behaviors.
+- Check whether one-to-many or many-to-many relationships can
+  produce multiple rows for the same entity.
+- Make sure every selected column comes from the correct table.
+- Use table aliases to make complex JOIN queries easier to read.
+- Always inspect the result to verify that the JOIN relationships
+  produce the expected rows.
 
 Analyze the database relationships before writing SQL.
+Build the query step by step.
 */
 
 
@@ -101,7 +128,8 @@ GROUP BY CT.COUNTRY_ID,
 
 
 -- Exercise 7
--- Display stadiums that are used by clubs having more than five players.
+-- Display stadiums that are used by clubs
+-- having more than five players.
 
 SELECT ST.STADIUM_ID,
         STADIUM_NAME,
@@ -119,7 +147,8 @@ HAVING COUNT(*) > 5
 
 
 -- Exercise 8
--- Display coaches together with the total number of players they manage.
+-- Display coaches together with
+-- the total number of players they manage.
 
 SELECT CH.COACH_ID,
         COACH_NAME,

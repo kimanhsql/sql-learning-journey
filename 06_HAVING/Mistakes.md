@@ -1,6 +1,6 @@
 # Mistakes
 
-## 1. Using aliases in the `HAVING` clause
+## 1. Using aliases in the HAVING clause
 
 Wrong
 
@@ -24,7 +24,7 @@ HAVING COUNT(*) > 2
 
 ---
 
-## 2. Comparing a `DATE` value with an integer
+## 2. Comparing a DATE value with an integer
 
 Data type Date is a string, we aggregate by a string, not numeric.
 
@@ -50,7 +50,7 @@ HAVING MIN(BIRTH_DATE) < '1995-01-01'
 
 ---
 
-## 3. Forgetting `ORDER BY` after `HAVING`
+## 3. Forgetting ORDER BY after HAVING
 
 The problem sorted by club name, not filtered record.
 
@@ -87,7 +87,7 @@ Wrong
 SELECT C.CLUB_ID,
         CLUB_NAME,
         COUNT(*) AS Position_Num
-FROM CLUBS C, PLAYERS P
+FROM CLUBS C, PLAYERS PL
 WHERE POSITION = 'Forward'
 GROUP BY C.CLUB_ID,
         CLUB_NAME
@@ -140,9 +140,9 @@ HAVING COUNT(*) > 1
 
 ---
 
-## 6. Comparing a non-aggregate column after `GROUP BY`
+## 6. Comparing a non-aggregate column after GROUP BY
 
-After **GROUP BY**, individual row values no longer exist. You must compare aggregate values instead.
+After GROUP BY, individual row values no longer exist. You must compare aggregate values instead.
 
 Wrong
 

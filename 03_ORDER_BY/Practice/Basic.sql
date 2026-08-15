@@ -1,16 +1,30 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing an ORDER BY clause, ask yourself:
 
-- Which column should be used for sorting?
-- Should the result be sorted in ascending or descending order?
-- Do I need to sort by one column or multiple columns?
-- Does the sorting improve the readability of the result?
-- Should ORDER BY be combined with WHERE, GROUP BY, or DISTINCT?
+1. Which column should be used for sorting?
+2. Should the result be sorted in ascending or descending order?
+3. Do I need to sort by one column or multiple columns?
+4. Does the sorting improve the readability of the result?
+5. Should ORDER BY be combined with WHERE, GROUP BY, or DISTINCT?
 
-Sorting the result does not change the data in the table.
-It only changes the order in which the rows are displayed.
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- ORDER BY is used to sort the result set.
+- ASC sorts values in ascending order and is the default.
+- DESC sorts values in descending order.
+- Multiple columns can be used to define multiple sorting levels.
+- The order of columns in ORDER BY determines the sorting priority.
+- ORDER BY changes only the order in which rows are displayed.
+- ORDER BY does not change the data stored in the table.
+- Use ORDER BY when the question requires a specific order.
+
+============================================================
 */
 
 

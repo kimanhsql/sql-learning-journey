@@ -1,17 +1,39 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a HAVING query, ask yourself:
 
-- Should I use WHERE before GROUP BY?
-- Should I use HAVING after GROUP BY?
-- Should I join multiple tables before grouping?
-- Which aggregate function should I use?
-- Am I filtering rows or filtering groups?
-- Should I sort the grouped result?
-- Can I combine WHERE, GROUP BY, HAVING, and ORDER BY correctly?
+1. Should I use WHERE before GROUP BY?
+2. Should I use HAVING after GROUP BY?
+3. Should I join multiple tables before grouping?
+4. Which aggregate function should I use?
+5. Am I filtering rows or filtering groups?
+6. Should I sort the grouped result?
+7. Can I combine WHERE, GROUP BY, HAVING, and ORDER BY correctly?
 
-Analyze the SQL execution order before writing the query.
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- WHERE filters individual rows before GROUP BY.
+- GROUP BY creates groups from the filtered rows.
+- HAVING filters groups after GROUP BY and aggregation.
+- HAVING is commonly used with aggregate functions such as
+  COUNT, SUM, AVG, MIN, and MAX.
+- Use WHERE for conditions on individual rows whenever possible.
+- Use HAVING when the condition depends on an aggregate result.
+- A query can use both WHERE and HAVING when row-level and
+  group-level filtering are both required.
+- If multiple tables are required, JOIN them before grouping
+  and applying HAVING.
+- ORDER BY sorts the final result after HAVING.
+- Make sure every non-aggregated column in SELECT is included
+  in GROUP BY.
+- Analyze the SQL execution order before writing the query.
+
+============================================================
 */
 
 -- Exercise 1
@@ -51,7 +73,8 @@ HAVING COUNT(*) >= 4
 
 
 -- Exercise 4
--- Display clubs whose earliest player birth date is before '1995-01-01'.
+-- Display clubs whose earliest player birth date
+-- is before '1995-01-01'.
 
 SELECT C.CLUB_ID,
         CLUB_NAME,
@@ -128,8 +151,8 @@ HAVING MAX(JERSEY_NUMBER) BETWEEN 20 AND 30
 
 
 -- Exercise 10
--- Display positions whose average jersey number is
--- greater than the average jersey number of all players.
+-- Display positions whose average jersey number
+-- is greater than the average jersey number of all players.
 
 SELECT POSITION,
         AVG(JERSEY_NUMBER) AverageJerseyNum

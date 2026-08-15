@@ -1,20 +1,33 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a HAVING query, ask yourself:
 
-- Which column should I group by?
-- Which aggregate function should I use?
-- Do I need HAVING?
-- Does the condition use an aggregate function?
-- Which groups should be displayed?
+1. Which column should I group by?
+2. Which aggregate function should I use?
+3. Do I need HAVING?
+4. Does the condition use an aggregate function?
+5. Which groups should be displayed?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
 - GROUP BY creates groups.
 - HAVING filters groups after grouping.
-- HAVING is used with aggregate functions such as COUNT(), SUM(), AVG(),
-MIN(), and MAX().
+- HAVING is used with aggregate functions such as COUNT(),
+  SUM(), AVG(), MIN(), and MAX().
+- Use HAVING when the condition depends on the result of
+  an aggregate function.
+- Make sure the grouping column represents the groups
+  required by the question.
+- The condition in HAVING determines which groups are
+  included in the final result.
+- HAVING does not modify the data stored in the table.
+
+============================================================
 */
 
 
@@ -113,7 +126,8 @@ ORDER BY CLUB_NAME
 
 
 -- Exercise 9
--- Display countries whose average jersey number is between 10 and 20.
+-- Display countries whose average jersey number
+-- is between 10 and 20.
 
 SELECT CT.COUNTRY_ID,
         COUNTRY_NAME,

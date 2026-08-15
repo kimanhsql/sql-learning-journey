@@ -1,24 +1,47 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a GROUP BY query, ask yourself:
 
-- Do I need to join multiple tables before grouping?
-- Should I group by one column or multiple columns?
-- Should I filter rows before grouping using WHERE?
-- Which aggregate function should I use?
-- Should I sort the grouped result?
+1. Do I need to join multiple tables before grouping?
+2. Should I group by one column or multiple columns?
+3. Should I filter rows before grouping using WHERE?
+4. Which aggregate function should I use?
+5. Should I sort the grouped result?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- WHERE filters rows before GROUP BY.
-- GROUP BY creates groups.
-- ORDER BY sorts the final result.
+- GROUP BY divides rows into groups based on one or more
+  columns.
+- Aggregate functions such as COUNT, SUM, AVG, MIN, and MAX
+  are commonly used with GROUP BY.
+- WHERE filters individual rows before GROUP BY.
+- GROUP BY creates groups from the filtered rows.
+- HAVING filters groups after GROUP BY and aggregation.
+- ORDER BY sorts the final result after grouping.
+- When grouping by multiple columns, the combination of those
+  columns determines each group.
+- Every non-aggregated column in SELECT should be included
+  in GROUP BY.
+- If data from multiple tables is required, JOIN the tables
+  before applying GROUP BY.
+- Choose grouping columns carefully so that each group
+  represents the meaning required by the question.
+- Use ORDER BY when the grouped result needs a specific order.
+- Make sure the grouping and aggregation produce exactly
+  the level of detail requested by the question.
+
+============================================================
 */
 
 
 -- Exercise 1
--- Display the number of players in each club, ordered from highest to lowest.
+-- Display the number of players in each club,
+-- ordered from highest to lowest.
 
 SELECT CLUB_NAME,
         COUNT(*) AS PLAYER_COUNT

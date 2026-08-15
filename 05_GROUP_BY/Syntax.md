@@ -14,7 +14,7 @@ GROUP BY column_name
 
 ```sql
 SELECT column_name,
-       COUNT(*)
+        COUNT(*)
 FROM table_name
 GROUP BY column_name
 ```
