@@ -33,7 +33,8 @@ GO
 
 
 -- Example 4
--- Create a view that displays players with jersey numbers greater than 10.
+-- Create a view that displays players with jersey numbers
+-- greater than 10.
 
 CREATE VIEW V_PLAYERS_NUMBER
 AS

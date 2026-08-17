@@ -1,9 +1,15 @@
 -- ============================================================
--- Create Tables
+-- CONSTRUCTION MANAGEMENT SYSTEM
+-- CREATE TABLES
 -- ============================================================
 
--- Architects
-CREATE TABLE Architects
+USE CONSTRUCTION_MANAGEMENT_SYSTEM;
+GO
+
+
+-- ARCHITECTS
+
+CREATE TABLE ARCHITECTS
 (
     ArchitectName NVARCHAR(100),
     BirthYear INT,
@@ -17,8 +23,9 @@ CREATE TABLE Architects
 GO
 
 
--- Contractors
-CREATE TABLE Contractors
+-- CONTRACTORS
+
+CREATE TABLE CONTRACTORS
 (
     ContractorName NVARCHAR(100),
     PhoneNumber NVARCHAR(20) NOT NULL,
@@ -30,8 +37,9 @@ CREATE TABLE Contractors
 GO
 
 
--- Clients
-CREATE TABLE Clients
+-- CLIENTS
+
+CREATE TABLE CLIENTS
 (
     ClientName NVARCHAR(100),
     Address NVARCHAR(200) NOT NULL,
@@ -42,8 +50,9 @@ CREATE TABLE Clients
 GO
 
 
--- Workers
-CREATE TABLE Workers
+-- WORKERS
+
+CREATE TABLE WORKERS
 (
     WorkerName NVARCHAR(100),
     BirthYear INT,
@@ -56,8 +65,9 @@ CREATE TABLE Workers
 GO
 
 
--- Construction Projects
-CREATE TABLE ConstructionProjects
+-- CONSTRUCTION PROJECTS
+
+CREATE TABLE CONSTRUCTION_PROJECTS
 (
     ProjectID NUMERIC IDENTITY(1,1),
     ProjectName NVARCHAR(200) NOT NULL,
@@ -82,8 +92,9 @@ CREATE TABLE ConstructionProjects
 GO
 
 
--- Worker Participation
-CREATE TABLE WorkerParticipation
+-- WORKER PARTICIPATION
+
+CREATE TABLE WORKER_PARTICIPATION
 (
     WorkerName NVARCHAR(100),
     ProjectID NUMERIC,
@@ -104,8 +115,9 @@ CREATE TABLE WorkerParticipation
 GO
 
 
--- Project Design
-CREATE TABLE ProjectDesign
+-- PROJECT DESIGN
+
+CREATE TABLE PROJECT_DESIGN
 (
     ArchitectName NVARCHAR(100),
     ProjectID NUMERIC,

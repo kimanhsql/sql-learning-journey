@@ -1,22 +1,11 @@
-/*
-    Project: Teaching Management System
-    Database: QLGiangDay
-
-    Source:
-    Database Fundamentals textbook
-    QLGiangDay exercise - Page 100
-*/
-
-USE master;
-GO
-
 -- ============================================================
--- Requirement 1
--- Create the QLGiangDay database.
+-- TEACHING MANAGEMENT SYSTEM
+-- CREATE DATABASE
 -- ============================================================
 
-CREATE DATABASE TeachingManagement;
+CREATE DATABASE TEACHING_MANAGEMENT_SYSTEM;
 GO
 
-USE TeachingManagement;
+
+USE TEACHING_MANAGEMENT_SYSTEM;
 GO

@@ -39,7 +39,6 @@ REMEMBER
 - Do not SELECT * when the question asks for specific columns.
 - Make the query answer the question directly instead of
   returning unnecessary data.
-
 ============================================================
 */
 

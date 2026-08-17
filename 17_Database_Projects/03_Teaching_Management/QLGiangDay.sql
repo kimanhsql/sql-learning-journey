@@ -107,6 +107,7 @@ ALTER TABLE GIAOVIEN
 GO
 
 -- Thêm ràng buộc toàn vẹn cho tuổi giáo viên.
+
 ALTER TABLE GIAOVIEN
     ADD CONSTRAINT CHK_GIAOVIEN CHECK(TUOI BETWEEN 22 AND 67)
 GO
@@ -143,22 +144,26 @@ ALTER TABLE MONHOC
 GO
 
 -- Số tín chỉ của môn học nằm trong khoảng từ 1 đến 4.
+
 ALTER TABLE MONHOC
     ADD CONSTRAINT CHK_SOTC CHECK(SOTC BETWEEN 1 AND 4)
 GO
 
 -- Số tín chỉ lý thuyết nằm trong khoảng từ 0 đến 4.
+
 ALTER TABLE MONHOC
     ADD CONSTRAINT CHK_TCLT CHECK(TCLT BETWEEN 0 AND 4)
 GO
 
 -- Số tín chỉ thực hành nằm trong khoảng từ 0 đến 4.
+
 ALTER TABLE MONHOC
     ADD CONSTRAINT CHK_TCTH CHECK(TCTH BETWEEN 0 AND 4)
 GO
 
 -- Tổng số tín chỉ phải bằng số tín chỉ lý thuyết
 -- cộng với số tín chỉ thực hành.
+
 ALTER TABLE MONHOC
     ADD CONSTRAINT CHK_TONGTC CHECK(SOTC = TCLT + TCTH)
 GO
@@ -173,6 +178,7 @@ ALTER TABLE LOP
 GO
 
 -- Sĩ số lớp phải lớn hơn 0.
+
 ALTER TABLE LOP
     ADD CONSTRAINT CHK_LOP CHECK(SISO > 0)
 GO

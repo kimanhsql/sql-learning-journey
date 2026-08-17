@@ -23,7 +23,6 @@ REMEMBER
 - ORDER BY changes only the order in which rows are displayed.
 - ORDER BY does not change the data stored in the table.
 - Use ORDER BY when the question requires a specific order.
-
 ============================================================
 */
 

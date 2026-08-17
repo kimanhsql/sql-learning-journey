@@ -34,7 +34,6 @@ REMEMBER
 - Use ORDER BY when the grouped result needs a specific order.
 - Make sure the grouping and aggregation produce exactly
   the level of detail requested by the question.
-
 ============================================================
 */
 

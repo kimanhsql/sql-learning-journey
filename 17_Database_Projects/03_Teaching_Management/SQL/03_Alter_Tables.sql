@@ -8,98 +8,92 @@
     QLGiangDay exercise - Page 100
 */
 
-USE TeachingManagement;
+USE TEACHING_MANAGEMENT_SYSTEM;
 GO
 
 
--- ============================================================
--- Requirement 4
--- Add date of birth, gender, and age to the Teachers table.
--- Original table: GIAOVIEN
--- ============================================================
+-- TEACHERS
 
-ALTER TABLE Teachers
+ALTER TABLE TEACHERS
     ADD BirthDate DATE;
 GO
 
-ALTER TABLE Teachers
+
+ALTER TABLE TEACHERS
     ADD Gender VARCHAR(3);
 GO
 
-ALTER TABLE Teachers
+
+ALTER TABLE TEACHERS
     ADD Age INT;
 GO
 
 
 -- Add an integrity constraint for teacher age.
-ALTER TABLE Teachers
+
+ALTER TABLE TEACHERS
     ADD CONSTRAINT CHK_Teachers_Age
         CHECK (Age BETWEEN 22 AND 67);
 GO
 
 
--- ============================================================
--- Requirement 5
--- Add classroom capacity to the Classrooms table.
--- Original table: PHONGHOC
--- ============================================================
+-- CLASSROOMS
 
-ALTER TABLE Classrooms
+ALTER TABLE CLASSROOMS
     ADD Capacity INT;
 GO
 
-ALTER TABLE Classrooms
+
+ALTER TABLE CLASSROOMS
     ADD CONSTRAINT CHK_Classrooms_Capacity
         CHECK (Capacity > 0);
 GO
 
 
--- ============================================================
--- Requirement 6
--- Add credit-related columns to the Subjects table.
--- Original table: MONHOC
--- ============================================================
+-- SUBJECTS
 
-ALTER TABLE Subjects
+ALTER TABLE SUBJECTS
     ADD TotalCredits INT;
 GO
 
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD TheoryCredits INT;
 GO
 
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD PracticalCredits INT;
 GO
 
 
 -- Validate the total number of credits.
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD CONSTRAINT CHK_Subjects_TotalCredits
         CHECK (TotalCredits BETWEEN 1 AND 4);
 GO
 
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD CONSTRAINT CHK_Subjects_TheoryCredits
         CHECK (TheoryCredits BETWEEN 0 AND 4);
 GO
 
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD CONSTRAINT CHK_Subjects_PracticalCredits
         CHECK (PracticalCredits BETWEEN 0 AND 4);
 GO
 
-ALTER TABLE Subjects
+
+ALTER TABLE SUBJECTS
     ADD CONSTRAINT CHK_Subjects_CreditTotal
         CHECK (TotalCredits = TheoryCredits + PracticalCredits);
 GO
 
 
--- ============================================================
--- Requirement 7
--- Add class size to the Classes table.
--- Original table: LOP
--- ============================================================
+-- CLASSES
 
 ALTER TABLE Classes
     ADD ClassSize INT;

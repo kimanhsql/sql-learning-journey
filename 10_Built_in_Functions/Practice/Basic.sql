@@ -1,19 +1,36 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before using a BUILT-IN FUNCTION, ask yourself:
 
-- Which function solves the problem?
-- What data type am I working with?
-- Does the function require one or more arguments?
-- Will the function return a single value or one value for each row?
-- Should I use a built-in function or an aggregate function?
+1. Which function solves the problem?
+2. What data type am I working with?
+3. Does the function require one argument or multiple arguments?
+4. Will the function return one value for each row?
+5. Should I use a scalar function or an aggregate function?
+6. What result should the function return?
+7. Does the function change the value or only its format?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
+- Built-in functions are provided by SQL Server to perform
+  common operations on data.
 - Scalar functions return one value for each row.
-- Aggregate functions return one value for a group or the entire table.
-- Choose the correct function before writing the query.
+- Aggregate functions return one value for a group or the
+  entire table.
+- Choose the function based on the data type and the required
+  result.
+- Check the function's arguments before using it.
+- Make sure the function is applied to the correct column.
+- Different functions may return different data types.
+- Test the function with simple data before using it in a
+  more complex query.
+
+Choose the correct function before writing the query.
 */
 
 

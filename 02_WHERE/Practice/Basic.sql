@@ -26,7 +26,6 @@ REMEMBER
   compared.
 - A WHERE condition determines which rows are returned.
 - Do not add conditions that are not required by the question.
-
 ============================================================
 */
 

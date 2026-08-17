@@ -8,7 +8,7 @@ The project is used to practice database design, data manipulation, SQL querying
 
 ## 1. Database Overview
 
-**Database:** `QLHANGHOA`
+**Database:** `QLHangHoa`
 
 The database manages information about:
 
@@ -61,7 +61,8 @@ The SQL implementation is written and organized in English for this repository.
 ## 3. Project Files
 
 QLHangHoa/
-│
+├── Images/
+|
 ├── SQL/
 |
 ├── Notes.md

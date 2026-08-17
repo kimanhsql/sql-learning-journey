@@ -26,7 +26,6 @@ REMEMBER
 - The condition in HAVING determines which groups are
   included in the final result.
 - HAVING does not modify the data stored in the table.
-
 ============================================================
 */
 

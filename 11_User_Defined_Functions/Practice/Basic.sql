@@ -1,20 +1,37 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before creating a USER-DEFINED FUNCTION, ask yourself:
 
-- What should the function return?
-- Does the function need parameters?
-- Should I create a scalar function or a table-valued function?
-- Which data type should the function return?
-- Can the function solve the problem by itself?
+1. What should the function return?
+2. Does the function need parameters?
+3. What parameters should the function receive?
+4. Should I create a scalar function or a table-valued function?
+5. Which data type should the function return?
+6. Can the function solve the problem by itself?
+7. Does the function need to query any table?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
+- A user-defined function is created to perform a specific
+  reusable task.
 - Scalar functions return a single value.
 - Table-valued functions return a result set.
 - Every function must specify RETURNS.
 - Scalar functions use RETURN to return one value.
+- Parameters allow a function to receive values from the
+  calling statement.
+- Choose the return type based on the result the function
+  needs to provide.
+- Keep a simple function focused on one clear purpose.
+- Test the function with simple inputs before using it
+  in a more complex query.
+
+Choose the correct function type before writing the function.
 */
 
 
@@ -34,7 +51,8 @@ GO
 
 
 -- Exercise 2
--- Create a function that returns the lowercase version of a club name.
+-- Create a function that returns
+-- the lowercase version of a club name.
 
 CREATE FUNCTION dbo.GetLowercaseClubName (@ClubName NVARCHAR(100))
 RETURNS NVARCHAR(100)
@@ -60,7 +78,8 @@ GO
 
 
 -- Exercise 4
--- Create a function that returns the number of players in a given club.
+-- Create a function that returns
+-- the number of players in a given club.
 
 CREATE FUNCTION dbo.GetNumOfPlayersInClub (@ClubName NVARCHAR(100))
 RETURNS INT
@@ -147,7 +166,7 @@ GO
 
 -- Exercise 9
 -- Create a function that returns the highest jersey number
--- in the PLAYER table.
+-- in the PLAYERS table.
 
 CREATE FUNCTION dbo.GetHighestJerseyNum ()
 RETURNS INT

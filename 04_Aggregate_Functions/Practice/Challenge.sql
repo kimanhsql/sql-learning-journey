@@ -34,7 +34,6 @@ REMEMBER
   represents the correct category.
 - Read the result carefully to make sure the aggregation
   matches the meaning of the question.
-
 ============================================================
 */
 

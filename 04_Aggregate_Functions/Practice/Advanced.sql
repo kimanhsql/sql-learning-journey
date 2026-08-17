@@ -36,7 +36,6 @@ REMEMBER
   requires unique values.
 - Make sure every non-aggregated column in the SELECT list
   is properly included in GROUP BY.
-
 ============================================================
 */
 

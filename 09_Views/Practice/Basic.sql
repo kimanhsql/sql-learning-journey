@@ -1,13 +1,40 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before creating a VIEW, ask yourself:
 
-- Why should I create a view instead of writing a SELECT statement?
-- Which columns should the view contain?
-- Should the view filter any records?
-- Will the view simplify future queries?
-- Which statement should I use: CREATE VIEW, ALTER VIEW, or DROP VIEW?
+1. Why should I create a VIEW instead of writing a SELECT
+   statement directly?
+2. Which tables and columns should the VIEW contain?
+3. Should the VIEW filter any records?
+4. Do I need JOIN, WHERE, or other clauses in the VIEW?
+5. Will the VIEW simplify future queries?
+6. Should I use CREATE VIEW, ALTER VIEW, or DROP VIEW?
+7. Is the VIEW name clear and meaningful?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- A VIEW is a virtual table based on a SELECT statement.
+- A VIEW can simplify frequently used queries.
+- Select only the columns that are necessary for the purpose
+  of the VIEW.
+- A VIEW can include filtering and JOINs when required.
+- Use CREATE VIEW to create a new VIEW.
+- Use ALTER VIEW to modify an existing VIEW.
+- Use DROP VIEW to remove a VIEW.
+- A VIEW does not normally store a separate copy of the
+  underlying table data.
+- Changes in the underlying data are reflected when the VIEW
+  is queried.
+- Give the VIEW a clear name that describes the information
+  it provides.
+
+Create a VIEW when it makes the data easier to access,
+understand, or reuse.
 */
 
 
@@ -30,9 +57,9 @@ CREATE VIEW V_CLUBS_STADIUM_NAME
 AS
 SELECT CLUB_NAME,
         STADIUM_NAME
-FROM CLUBS
-INNER JOIN STADIUMS
-        ON CLUB.STADIUM_ID = STADIUM.STADIUM_ID
+FROM CLUBS C
+INNER JOIN STADIUMS ST
+        ON C.STADIUM_ID = ST.STADIUM_ID
 
 GO
 
@@ -63,7 +90,8 @@ GO
 
 
 -- Exercise 5
--- Create a view that displays player names together with their club names.
+-- Create a view that displays player names
+-- together with their club names.
 
 CREATE VIEW V_PLAYERS_CLUBS
 AS

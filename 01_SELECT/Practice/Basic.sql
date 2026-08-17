@@ -28,7 +28,6 @@ REMEMBER
 - Do not select unnecessary columns.
 - Make sure the selected columns directly answer the question.
 - SELECT does not modify the data in the database.
-
 ============================================================
 */
 

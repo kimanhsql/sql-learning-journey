@@ -1,8 +1,8 @@
 # Mistakes
 
-## 1. Using `FROM` with `GETDATE()`
+## 1. Using FROM with GETDATE()
 
-**GETDATE()** returns the current date and time directly, so it does not need a **FROM** clause.
+GETDATE() returns the current date and time directly, so it does not need a FROM clause.
 
 Wrong
 
@@ -19,9 +19,9 @@ SELECT GETDATE()
 
 ---
 
-## Using `AS` outside `CAST()`
+## Using AS outside CAST()
 
-**AS** must be written inside the **CAST()** function.
+AS must be written inside the CAST() function.
 
 Wrong
 

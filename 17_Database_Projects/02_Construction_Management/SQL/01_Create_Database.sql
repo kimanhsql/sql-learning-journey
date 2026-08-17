@@ -1,19 +1,11 @@
-/*
-    Project: Construction Management System
-
-    This script creates the database and its tables
-    based on the QLCongTrinh database exercise.
-*/
-
-USE master;
-GO
-
 -- ============================================================
--- Create Database
+-- CONSTRUCTION MANAGEMENT SYSTEM
+-- CREATE DATABASE
 -- ============================================================
 
-CREATE DATABASE ConstructionManagement;
+CREATE DATABASE CONSTRUCTION_MANAGEMENT_SYSTEM;
 GO
 
-USE ConstructionManagement;
+
+USE CONSTRUCTION_MANAGEMENT_SYSTEM;
 GO

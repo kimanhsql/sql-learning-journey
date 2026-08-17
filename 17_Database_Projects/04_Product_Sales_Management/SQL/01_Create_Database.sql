@@ -1,22 +1,12 @@
-*
-    Project: Product Sales Management System
-    Database: QLHangHoa
-
-    Source:
-    Database Fundamentals textbook
-    QLGiangDay exercise - Page 100
-*/
-
-USE master;
-GO
-
 -- ============================================================
--- Requirement 1
--- Create the QLGiangDay database.
+-- PRODUCT SALES MANAGEMENT SYSTEM
+-- CREATE DATABASE
 -- ============================================================
 
-CREATE DATABASE ProductSalesManagement;
+
+CREATE DATABASE PRODUCT_SALES_MANAGEMENT_SYSTEM;
 GO
 
-USE ProductSalesManagement;
+
+USE PRODUCT_SALES_MANAGEMENT_SYSTEM;
 GO

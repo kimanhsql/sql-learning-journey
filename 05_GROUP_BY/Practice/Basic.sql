@@ -29,7 +29,6 @@ REMEMBER
 
 Group the data first.
 Then calculate the required result.
-
 ============================================================
 */
 

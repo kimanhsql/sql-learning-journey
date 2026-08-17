@@ -1,22 +1,15 @@
-/*
-    Project: Teaching Management System
-    Database: TeachingManagement
+-- ============================================================
+-- TEACHING MANAGEMENT SYSTEM
+-- CREATE TABLES
+-- ============================================================
 
-    This file creates the tables, primary keys,
-    and foreign keys required by the QLGiangDay exercise.
-*/
-
-USE TeachingManagement;
+USE TEACHING_MANAGEMENT_SYSTEM;
 GO
 
 
--- ============================================================
--- Requirement 2
--- Create the Department table.
--- Original table: KHOA
--- ============================================================
+-- DEPARTMENTS
 
-CREATE TABLE Departments
+CREATE TABLE DEPARTMENTS
 (
     DepartmentID VARCHAR(5),
     DepartmentName VARCHAR(200) NOT NULL,
@@ -27,12 +20,9 @@ CREATE TABLE Departments
 GO
 
 
--- ============================================================
--- Create the Teacher table.
--- Original table: GIAOVIEN
--- ============================================================
+-- TEACHERS
 
-CREATE TABLE Teachers
+CREATE TABLE TEACHERS
 (
     TeacherID VARCHAR(5),
     FullName VARCHAR(100) NOT NULL,
@@ -48,12 +38,9 @@ CREATE TABLE Teachers
 GO
 
 
--- ============================================================
--- Create the Subject table.
--- Original table: MONHOC
--- ============================================================
+-- SUBJECTS
 
-CREATE TABLE Subjects
+CREATE TABLE SUBJECTS
 (
     SubjectID VARCHAR(20),
     SubjectName VARCHAR(200) NOT NULL,
@@ -64,12 +51,9 @@ CREATE TABLE Subjects
 GO
 
 
--- ============================================================
--- Create the Classroom table.
--- Original table: PHONGHOC
--- ============================================================
+-- CLASSROOMS
 
-CREATE TABLE Classrooms
+CREATE TABLE CLASSROOMS
 (
     ClassroomID VARCHAR(5),
     FunctionDescription VARCHAR(200),
@@ -80,12 +64,9 @@ CREATE TABLE Classrooms
 GO
 
 
--- ============================================================
--- Create the Class table.
--- Original table: LOP
--- ============================================================
+-- CLASSES
 
-CREATE TABLE Classes
+CREATE TABLE CLASSES
 (
     ClassID VARCHAR(5),
     ClassName VARCHAR(200) NOT NULL,
@@ -101,12 +82,9 @@ CREATE TABLE Classes
 GO
 
 
--- ============================================================
--- Create the TeachingSchedule table.
--- Original table: LICHDAY
--- ============================================================
+-- TEACHING SCHEDULE
 
-CREATE TABLE TeachingSchedule
+CREATE TABLE TEACHING_SCHEDULE
 (
     TeacherID VARCHAR(5),
     SubjectID VARCHAR(20),

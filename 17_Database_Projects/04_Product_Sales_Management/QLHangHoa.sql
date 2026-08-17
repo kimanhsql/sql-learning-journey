@@ -74,24 +74,24 @@ CREATE TABLE CTHD
 GO
 
 -- Câu 2
--- Thêm vào thuộc tính GHICHU có kiểu dữ liệu varchar(20) cho quan hệ 
--- SANPHAM.
+-- Thêm vào thuộc tính GHICHU có kiểu dữ liệu varchar(20)
+-- cho quan hệ SANPHAM.
 
 ALTER TABLE SANPHAM
 	ADD GHICHU VARCHAR(20)
 GO
 
 -- Câu 3
--- Thêm vào thuộc tính LOAIKH có kiểu dữ liệu là tinyint cho quan hệ 
--- KHACHHANG.
+-- Thêm vào thuộc tính LOAIKH có kiểu dữ liệu là tinyint
+-- cho quan hệ KHACHHANG.
 
 ALTER TABLE KHACHHANG
 	ADD LOAIKH TINYINT
 GO
 
 -- Câu 4
--- Sửa kiểu dữ liệu của thuộc tính GHICHU trong quan hệ SANPHAM thành 
--- varchar(100).
+-- Sửa kiểu dữ liệu của thuộc tính GHICHU
+-- trong quan hệ SANPHAM thành varchar(100).
 
 ALTER TABLE SANPHAM
 	ALTER COLUMN GHICHU VARCHAR(100)
@@ -105,8 +105,8 @@ ALTER TABLE SANPHAM
 GO
 
 -- Câu 6
--- Cài đặt thuộc tính LOAIKH trong quan hệ KHACHHANG có thể lưu các giá trị 
--- là: ‘Vang lai’, ‘Thuong xuyen’, ‘Vip’, …
+-- Cài đặt thuộc tính LOAIKH trong quan hệ KHACHHANG
+-- có thể lưu các giá trị là: ‘Vang lai’, ‘Thuong xuyen’, ‘Vip’, …
 
 ALTER TABLE KHACHHANG
 	ADD CONSTRAINT CHK_LOAIKH
@@ -506,7 +506,7 @@ SELECT * FROM KHACHHANG1
 GO
 
 -- Câu 3
--- -- Cập nhật giá tăng 5% đối với những sản phẩm do ‘Thai Lan’
+-- Cập nhật giá tăng 5% đối với những sản phẩm do ‘Thai Lan’
 -- sản xuất (cho quan hệ SANPHAM1).
 
 UPDATE SANPHAM1
@@ -525,8 +525,8 @@ SELECT NUOCSX,GIA
 GO
 
 -- Câu 4
--- Cập nhật giá giảm 5% đối với những sản phẩm do ‘Trung Quốc’ sản xuất
--- có giá từ 10.000 trở xuống (cho quan hệ SANPHAM1).
+-- Cập nhật giá giảm 5% đối với những sản phẩm do ‘Trung Quốc’
+-- sản xuất có giá từ 10.000 trở xuống (cho quan hệ SANPHAM1).
 
 UPDATE SANPHAM1
 	SET GIA=GIA-(GIA*0.05)

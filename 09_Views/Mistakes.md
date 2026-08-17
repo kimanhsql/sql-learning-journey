@@ -1,8 +1,8 @@
 # Mistakes
 
-## 1. Forgetting the `AS` keyword
+## 1. Forgetting the AS keyword
 
-A view must be created using the **AS** keyword followed by a **SELECT** statement.
+A view must be created using the AS keyword followed by a SELECT statement.
 
 Wrong
 
@@ -23,9 +23,9 @@ FROM PLAYERS
 
 ---
 
-## 2. Using `ORDER BY` inside a view
+## 2. Using ORDER BY inside a view
 
-**ORDER BY** is not allowed in a view unless it is used together with **TOP**, **OFFSET**, or **FOR XML**.
+ORDER BY is not allowed in a view unless it is used together with TOP, OFFSET, or FOR XML.
 
 Wrong
 
@@ -83,7 +83,7 @@ FROM PLAYERS
 
 ## 4. Forgetting to alter a view when the query changes
 
-If the view definition needs to be modified, use **ALTER VIEW** instead of creating another view with the same name.
+If the view definition needs to be modified, use ALTER VIEW instead of creating another view with the same name.
 
 Wrong
 
@@ -147,7 +147,7 @@ Remember that a view only stores the SQL query, not the actual data.
 
 ## 7. Trying to insert or update data through a non-updatable view
 
-Not every view supports **INSERT**, **UPDATE**, or **DELETE**. Views containing joins, aggregate functions, or **GROUP BY** are often not updatable.
+Not every view supports INSERT, UPDATE, or DELETE. Views containing joins, aggregate functions, or GROUP BY are often not updatable.
 
 Wrong
 
@@ -162,9 +162,9 @@ Update the underlying table instead, or use an updatable view.
 
 ---
 
-## 8. Using `SELECT *` inside a view unnecessarily
+## 8. Using SELECT * inside a view unnecessarily
 
-Avoid using **SELECT *** because changes to the underlying table may affect the view unexpectedly.
+Avoid using SELECT * because changes to the underlying table may affect the view unexpectedly.
 
 Wrong
 

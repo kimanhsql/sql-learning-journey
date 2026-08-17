@@ -27,10 +27,11 @@ REMEMBER
 - Use IN when comparing a value with multiple possible values.
 - Use IS NULL or IS NOT NULL when checking for NULL values.
 - Use parentheses when combining AND and OR to make the logic explicit.
-- Be careful with NULL because it does not behave like an ordinary value.
+- Be careful with NULL because it does not behave
+  like an ordinary value.
 - Keep conditions clear and avoid unnecessary complexity.
-- Make sure the WHERE clause matches the exact requirements of the question.
-
+- Make sure the WHERE clause matches the exact requirements
+  of the question.
 ============================================================
 */
 

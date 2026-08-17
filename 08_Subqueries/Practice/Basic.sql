@@ -1,19 +1,35 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a SUBQUERY, ask yourself:
 
-- What is the main query?
-- What information should the subquery return?
-- Will the subquery return one value or multiple values?
-- Which comparison operator should I use?
-- Does the subquery belong in WHERE?
+1. What is the main query trying to find?
+2. What information should the subquery return?
+3. Will the subquery return one value or multiple values?
+4. Which comparison operator should I use?
+5. Does the subquery belong in WHERE?
+6. Which column should be compared with the subquery result?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- The subquery runs first.
-- The main query uses the result returned by the subquery.
-- A single-row subquery usually works with =, >, <, >=, <=, or <>.
+- A subquery is a query nested inside another SQL query.
+- The subquery provides a result that is used by the main query.
+- A single-row subquery usually works with =, >, <, >=, <=,
+  or <>.
+- If the subquery returns multiple rows, use an operator that
+  can handle multiple values, such as IN.
+- Make sure the subquery returns the type of value required
+  by the main query.
+- Build the subquery first and check its result before writing
+  the main query.
+- Keep the subquery simple and focused on returning the
+  information needed by the main query.
+
+Build the subquery first, then write the main query.
 */
 
 
@@ -108,7 +124,8 @@ WHERE COUNTRY_ID IN
 
 
 -- Exercise 8
--- Display players whose birth date is earlier than the average birth date.
+-- Display players whose birth date is earlier than
+-- the average birth date.
 
 SELECT PLAYER_NAME,
         BIRTH_DATE

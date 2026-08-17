@@ -3,8 +3,10 @@
 -- CREATE TABLES
 -- ============================================================
 
+
 USE FOOTBALL_MANAGEMENT_SYSTEM;
 GO
+
 
 -- Create the CONTRIES table.
 -- Stores countries and their unique country codes.
@@ -18,6 +20,7 @@ CREATE TABLE COUNTRIES
         PRIMARY KEY (COUNTRY_ID)
 );
 GO
+
 
 -- Create the STADIUMS table.
 -- Stores stadium information.
@@ -33,6 +36,7 @@ CREATE TABLE STADIUMS
 );
 GO
 
+
 -- Create the PROVINCES table.
 -- Stores province/city information.
 
@@ -45,6 +49,7 @@ CREATE TABLE PROVINCES
         PRIMARY KEY (PROVINCE_ID)
 );
 GO
+
 
 -- Create the CLUBS table.
 -- Stores football club information and its stadium/province relationships.
@@ -68,6 +73,7 @@ CREATE TABLE CLUBS
         REFERENCES PROVINCES(PROVINCE_ID)
 );
 GO
+
 
 -- Create the PLAYERS table.
 -- Stores player information.
@@ -96,6 +102,7 @@ CREATE TABLE PLAYERS
 );
 GO
 
+
 -- Create the COACHES table.
 -- Stores coach information.
 
@@ -116,6 +123,7 @@ CREATE TABLE COACHES
         REFERENCES COUNTRIES(COUNTRY_ID)
 );
 GO
+
 
 -- Create the COACH_CLUB table.
 -- Associates coaches with clubs and stores their roles.
@@ -138,6 +146,7 @@ CREATE TABLE COACH_CLUB
         REFERENCES CLUBS(CLUB_ID)
 );
 GO
+
 
 -- Create the MATCHES table.
 -- Stores match information.
@@ -169,6 +178,7 @@ CREATE TABLE MATCHES
         REFERENCES STADIUMS(STADIUM_ID)
 );
 GO
+
 
 -- Create the STANDINGS table.
 -- Stores league standings.

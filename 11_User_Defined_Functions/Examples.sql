@@ -25,7 +25,8 @@ GO
 
 
 -- Example 3
--- Create a function that returns the total number of players in a club.
+-- Create a function that returns
+-- the total number of players in a club.
 
 CREATE FUNCTION dbo.GetPlayerCountByClub (@ClubID INT)
 RETURNS INT
@@ -74,7 +75,8 @@ GO
 
 
 -- Example 6
--- Use the table-valued function to display players from country 1.
+-- Use the table-valued function to display players
+-- from country 1.
 
 SELECT *
 FROM dbo.GetPlayersByCountry(1)
@@ -83,7 +85,8 @@ GO
 
 
 -- Example 7
--- Create a function that returns the uppercase version of a player name.
+-- Create a function that returns
+-- the uppercase version of a player name.
 
 CREATE FUNCTION dbo.GetUpperPlayerName (@PlayerName VARCHAR(100))
 RETURNS VARCHAR(100)

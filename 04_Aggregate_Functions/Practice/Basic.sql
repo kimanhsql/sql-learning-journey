@@ -27,7 +27,6 @@ REMEMBER
 - Use the aggregate function that directly matches
   the requirement of the question.
 - Aggregate functions do not modify the data in the table.
-
 ============================================================
 */
 

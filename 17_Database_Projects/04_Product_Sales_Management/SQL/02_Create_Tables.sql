@@ -1,11 +1,13 @@
-USE ProductSalesManagement;
+-- ============================================================
+-- PRODUCT SALES MANAGEMENT SYSTEM
+-- CREATE TABLES
+-- ============================================================
+
+USE PRODUCT_SALES_MANAGEMENT;
 GO
 
--- ============================================================
--- Requirement 2
--- Create the Customers table.
--- Original table: KHACHHANG
--- ============================================================
+
+-- CUSTOMERS
 
 CREATE TABLE CUSTOMERS
 (
@@ -20,10 +22,8 @@ CREATE TABLE CUSTOMERS
 );
 GO
 
--- ============================================================
--- Create the Employees table.
--- Original table: NHANVIEN
--- ============================================================
+
+-- EMPLOYEES
 
 CREATE TABLE EMPLOYEES
 (
@@ -35,10 +35,8 @@ CREATE TABLE EMPLOYEES
 );
 GO
 
--- ============================================================
--- Create the Products table.
--- Original table: SANPHAM
--- ============================================================
+
+-- PRODUCTS
 
 CREATE TABLE PRODUCTS
 (
@@ -51,10 +49,8 @@ CREATE TABLE PRODUCTS
 );
 GO
 
--- ============================================================
--- Create the Invoices table.
--- Original table: HOADON
--- ============================================================
+
+-- INVOICES
 
 CREATE TABLE INVOICES
 (
@@ -71,10 +67,8 @@ CREATE TABLE INVOICES
 );
 GO
 
--- ============================================================
--- Create the Invoice_Details table.
--- Original table: CTHD
--- ============================================================
+
+-- INVOICE DETAILS
 
 CREATE TABLE INVOICE_DETAILS
 (

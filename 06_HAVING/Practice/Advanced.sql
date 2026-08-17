@@ -32,9 +32,9 @@ REMEMBER
 - Make sure every non-aggregated column in SELECT is included
   in GROUP BY.
 - Analyze the SQL execution order before writing the query.
-
 ============================================================
 */
+
 
 -- Exercise 1
 -- Display positions that have more than 3 players.
