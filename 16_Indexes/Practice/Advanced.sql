@@ -1,18 +1,57 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- Which columns are used together in the query?
-- Which column should appear first in a composite index?
-- Which columns should be index keys?
-- Which columns should be included columns?
-- Could the index be unnecessary or redundant?
-- What type of index is appropriate for the situation?
+Before creating an INDEX, ask yourself:
+
+1. Which columns are used together in the query?
+2. Which column should appear first in a composite index?
+3. Which columns should be index keys?
+4. Which columns should be included columns?
+5. Does the index support the WHERE, JOIN, ORDER BY, or
+   GROUP BY operations?
+6. Could the index be unnecessary or redundant?
+7. Could the index negatively affect INSERT, UPDATE, or
+   DELETE performance?
+8. What type of index is appropriate for the situation?
+9. Can I verify the index effectiveness with the execution plan?
+10. Can I simplify the index design without reducing
+    query performance?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- A composite index contains multiple key columns.
+- The column order in a composite index affects how the
+  index can be used by SQL Server.
+- Index key columns are used to organize and search the
+  indexed data.
+- Included columns can store additional data without
+  becoming part of the index key.
+- An index should support the queries that actually need
+  improved performance.
+- Avoid creating indexes that duplicate or unnecessarily
+  overlap with existing indexes.
+- Indexes can improve read performance but may increase
+  the cost of INSERT, UPDATE, and DELETE operations.
+- Different index types are designed for different
+  workloads and data access patterns.
+- The execution plan can help determine whether an index
+  is being used effectively.
+- Index design should be based on actual query patterns,
+  not simply on adding indexes to frequently used columns.
+
+Analyze the query and existing indexes before creating
+a new index.
+Test the index and verify its effect on query performance.
 */
 
 
 -- Exercise 1
--- Create a composite index for queries that filter players
--- by CLUB_ID and JERSEY_NUMBER.
+-- Create a composite index for queries that
+-- filter players by CLUB_ID and JERSEY_NUMBER.
 
 CREATE INDEX IX_PLAYERS_CLUBS_JERSEY
 ON PLAYERS (CLUB_ID, JERSEY_NUMBER)

@@ -1,24 +1,40 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a TRANSACTION, ask yourself:
 
-- Do I need a transaction?
-- Which SQL statements should belong to the same transaction?
-- Should the changes be committed or rolled back?
-- What happens if one operation fails?
-- Do I want to keep or undo the changes?
+1. Do I need a transaction?
+2. Which SQL statements should belong to the same transaction?
+3. Should the changes be committed or rolled back?
+4. What happens if one operation fails?
+5. Do I want to keep or undo the changes?
+6. Should multiple INSERT, UPDATE, or DELETE statements be
+   treated as one unit of work?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
 - BEGIN TRANSACTION starts a transaction.
-- COMMIT TRANSACTION permanently saves the changes.
-- ROLLBACK TRANSACTION undoes the changes made during the transaction.
+- COMMIT TRANSACTION permanently saves the changes made
+  during the transaction.
+- ROLLBACK TRANSACTION undoes the changes made during the
+  transaction.
 - A transaction can contain one or more SQL statements.
-- COMMIT should be used when all operations complete successfully.
+- COMMIT should be used when all required operations complete
+  successfully.
 - ROLLBACK should be used when the changes should be undone.
 - Multiple INSERT, UPDATE, or DELETE statements can belong to
-the same transaction.
+  the same transaction.
+- A transaction helps ensure that related operations are
+  completed together.
+- Keep the transaction focused on operations that should be
+  treated as one unit of work.
+
+Plan the transaction before writing SQL.
+Test both successful operations and rollback scenarios.
 */
 
 
@@ -28,7 +44,7 @@ the same transaction.
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 15
 WHERE PLAYER_ID = 2
 
@@ -41,7 +57,7 @@ COMMIT TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET POSITION = 'Midfielder'
 WHERE PLAYER_ID = 8
 
@@ -54,7 +70,7 @@ ROLLBACK TRANSACTION
 
 BEGIN TRANSACTION
 
-INSERT INTO PLAYER
+INSERT INTO PLAYERS
     (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
     CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
@@ -69,7 +85,8 @@ COMMIT TRANSACTION
 
 BEGIN TRANSACTION
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 5
 
 ROLLBACK TRANSACTION
@@ -81,11 +98,11 @@ ROLLBACK TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 20
 WHERE PLAYER_ID = 3
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 25
 WHERE PLAYER_ID = 4
 
@@ -98,7 +115,7 @@ COMMIT TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 22
 WHERE PLAYER_ID = 1
 
@@ -111,10 +128,12 @@ ROLLBACK TRANSACTION
 
 BEGIN TRANSACTION
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 6
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 7
 
 ROLLBACK TRANSACTION
@@ -126,7 +145,7 @@ ROLLBACK TRANSACTION
 
 BEGIN TRANSACTION
 
-INSERT INTO PLAYER
+INSERT INTO PLAYERS
     (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
     CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
@@ -142,7 +161,7 @@ COMMIT TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET CLUB_ID = 3
 WHERE PLAYER_ID = 9
 
@@ -155,11 +174,12 @@ ROLLBACK TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 30
 WHERE PLAYER_ID = 10
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 10
 
 ROLLBACK TRANSACTION

@@ -1,15 +1,54 @@
 /*
-Before writing SQL, analyze the query requirements carefully.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
+
+Before creating a INDEX, analyze the query
+requirements carefully.
 
 Ask yourself:
 
-- Which columns are used for filtering?
-- Which columns are used for sorting?
-- Are multiple columns used together?
-- Which columns should be index keys?
-- Which columns should be included?
-- Is the index actually necessary?
-- Could the index introduce unnecessary maintenance overhead?
+1. Which columns are used for filtering?
+2. Which columns are used for sorting?
+3. Which columns are used for JOIN conditions?
+4. Are multiple columns used together?
+5. Which columns should be index keys?
+6. Which columns should be included columns?
+7. What should the column order be in a composite index?
+8. Is the index actually necessary?
+9. Does a similar or redundant index already exist?
+10. Could the index introduce unnecessary maintenance
+    overhead?
+11. How will the index affect INSERT, UPDATE, and DELETE
+    operations?
+12. Can I verify the index effectiveness with the execution plan?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- Index design should be based on actual query requirements.
+- Columns frequently used for filtering, sorting, or JOIN
+  conditions may benefit from indexing.
+- Multiple columns can be combined into a composite index.
+- The order of key columns in a composite index affects how
+  SQL Server can use the index.
+- Included columns can provide additional data without
+  becoming part of the index key.
+- An index should support the query without adding
+  unnecessary complexity or maintenance cost.
+- Avoid creating indexes that duplicate or unnecessarily
+  overlap with existing indexes.
+- Indexes can improve read performance but can increase the
+  cost of INSERT, UPDATE, and DELETE operations.
+- The execution plan can help determine whether the index
+  is being used effectively.
+- Always consider the trade-off between query performance,
+  storage, and maintenance overhead.
+
+Analyze the query before designing the index.
+Create the index based on the actual access pattern.
+Test the query and verify the effect of the index.
 */
 
 
@@ -112,7 +151,8 @@ GO
 
 -- Challenge 10
 -- Analyze the indexes created for PLAYERS.
--- Identify one index that may be unnecessary or redundant and explain why.
+-- Identify one index that may be unnecessary
+-- or redundant and explain why.
 
 ALTER INDEX IX_PLAYERS_CLUBS_JERSEY
 ON PLAYERS

@@ -1,15 +1,52 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before creating an TRIGGER, ask yourself:
 
-- Should the trigger validate data?
-- Should I use inserted or deleted?
-- Can multiple rows be affected?
-- Will this trigger prevent an operation?
-- Will it affect database performance?
+1. What event should activate the trigger?
+2. Should the trigger validate data, modify data, or perform
+   another action?
+3. Should I use INSERTED, DELETED, or both?
+4. Can multiple rows be affected?
+5. How should the trigger handle multiple affected rows?
+6. Do I need JOIN, GROUP BY, HAVING, subqueries, or other
+   SQL logic?
+7. Will the trigger prevent the original operation?
+8. Could the trigger cause unexpected side effects?
+9. Will the trigger affect database performance?
+10. Can I simplify the trigger without changing its behavior?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- A trigger is automatically executed when a specified
+  database event occurs.
+- INSERTED and DELETED contain the rows affected by the
+  triggering statement.
+- Always design the trigger to handle multiple rows, not
+  only a single row.
+- Use INSERTED when working with newly inserted or updated
+  values.
+- Use DELETED when working with deleted or previous values.
+- Use both when the logic requires comparing old and new data.
+- A trigger can validate data, enforce business rules, or
+  perform additional database operations.
+- A trigger can prevent an operation when its conditions are
+  not satisfied.
+- Avoid unnecessary logic inside triggers because triggers
+  can affect database performance.
+- Keep the trigger focused on a clear purpose and make its
+  behavior predictable.
+- Test the trigger with both single-row and multi-row
+  operations.
+- Check whether the trigger interacts with other triggers
+  or database operations.
 
 Analyze the trigger logic before writing SQL.
+Test different scenarios before using the trigger in the database.
 */
 
 

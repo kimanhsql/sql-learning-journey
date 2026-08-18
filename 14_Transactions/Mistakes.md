@@ -144,14 +144,16 @@ A comparison condition must contain a valid comparison operator such as `=`, `<>
 Wrong
 
 ```sql
-DELETE FROM PLAYERS
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID  22
 ```
 
 Correct
 
 ```sql
-DELETE FROM PLAYERS
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 22
 ```
 

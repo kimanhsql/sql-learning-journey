@@ -1,21 +1,45 @@
-/*
-Think before writing SQL.
-
-Ask yourself:
-
-- What is the main task of the procedure?
-- Which SQL statements are required to solve the problem?
-- Should I use parameters?
-- Do I need JOIN, GROUP BY, HAVING, or a subquery?
-- Will the procedure return data or modify data?
-- Can the procedure be reused with different inputs?
-
-Remember:
-
-- Write and test the SQL query first.
-- Then place the SQL inside the stored procedure.
-- Keep the procedure reusable by using parameters whenever possible.
-- Make the procedure simple, readable, and easy to maintain.
+/* 
+============================================================ 
+THINK BEFORE WRITING SQL 
+============================================================ 
+ 
+Before creating a STORED PROCEDURE, ask yourself: 
+ 
+1. What problem should the procedure solve? 
+2. What SQL statements are required to solve the problem? 
+3. What parameters does the procedure need? 
+4. Will the procedure return data or modify data? 
+5. Will the procedure query one table or multiple tables? 
+6. Do I need JOIN, GROUP BY, HAVING, or a subquery? 
+7. Do I need local variables or conditional logic? 
+8. Can the procedure be reused with different inputs? 
+9. Can I simplify the procedure without changing its result? 
+10. Does the procedure handle the input and output as expected? 
+ 
+------------------------------------------------------------ 
+REMEMBER 
+------------------------------------------------------------ 
+ 
+- A stored procedure is a precompiled set of SQL statements 
+  created to perform a specific task. 
+- Parameters allow a procedure to receive values from the 
+  calling statement and make it reusable with different inputs. 
+- A procedure can return data, modify data, or perform both 
+  depending on the required task. 
+- A procedure can contain one or multiple SQL statements. 
+- JOIN, GROUP BY, HAVING, and subqueries can be used when 
+  they are required by the business logic. 
+- Local variables can be used when intermediate values or 
+  additional processing are needed. 
+- Keep the procedure focused on one clear purpose so that 
+  it is easier to understand, test, and maintain. 
+- Write and test the SQL logic before placing it inside 
+  the stored procedure. 
+- Make sure the parameters, returned data, and modified data 
+  match what the calling statement expects. 
+ 
+Write the procedure step by step. 
+Verify the SQL logic before creating the procedure. 
 */
 
 
@@ -39,8 +63,8 @@ GO
 
 
 -- Exercise 2
--- Create a stored procedure that displays players
--- from a given country name.
+-- Create a stored procedure that
+-- displays players from a given country name.
 
 CREATE PROCEDURE prd_display_players_by_country
     @CountryName NVARCHAR(60)
@@ -58,8 +82,8 @@ GO
 
 
 -- Exercise 3
--- Create a stored procedure that displays
--- the total number of players in each club.
+-- Create a stored procedure that
+-- displays the total number of players in each club.
 
 CREATE PROCEDURE prd_display_total_players_per_club
 AS
@@ -76,8 +100,8 @@ GO
 
 
 -- Exercise 4
--- Create a stored procedure that displays
--- the average jersey number for each position.
+-- Create a stored procedure that
+-- displays the average jersey number for each position.
 
 CREATE PROCEDURE prd_display_avg_jersey_num_per_position
 AS
@@ -112,8 +136,8 @@ GO
 
 
 -- Exercise 6
--- Create a stored procedure that displays all players
--- born after a given year.
+-- Create a stored procedure that
+-- displays all players born after a given year.
 
 CREATE PROCEDURE prd_display_players_born_after_year
     @Year INT
@@ -129,8 +153,8 @@ GO
 
 
 -- Exercise 7
--- Create a stored procedure that displays clubs
--- having more than a given number of players.
+-- Create a stored procedure that
+-- displays clubs having more than a given number of players.
 
 CREATE PROCEDURE prd_display_clubs_with_more_than_n_players
     @NumPlayers INT
@@ -149,8 +173,8 @@ GO
 
 
 -- Exercise 8
--- Create a stored procedure that displays players
--- together with their club and country names.
+-- Create a stored procedure that
+-- displays players together with their club and country names.
 
 CREATE PROCEDURE prd_display_players_with_club_and_country_names
 AS
@@ -169,8 +193,8 @@ GO
 
 
 -- Exercise 9
--- Create a stored procedure that displays
--- the oldest player in each position.
+-- Create a stored procedure that
+-- displays the oldest player in each position.
 
 CREATE PROCEDURE prd_display_oldest_player_per_position
 AS
@@ -178,7 +202,7 @@ BEGIN
     SELECT POSITION,
             PLAYER_NAME,
             BIRTH_DATE
-    FROM PLAYERS PL
+    FROM PLAYERS
     WHERE BIRTH_DATE IN
     (
         SELECT MIN(BIRTH_DATE)

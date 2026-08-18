@@ -1,10 +1,10 @@
 # Mistakes
 
-## 1. Including a key column again in `INCLUDE`
+## 1. Including a key column again in INCLUDE
 
-A column that is already an index key does not need to be added again to the **INCLUDE** clause.
+A column that is already an index key does not need to be added again to the INCLUDE clause.
 
-The **INCLUDE** clause is used for additional non-key columns that are needed by a query.
+The INCLUDE clause is used for additional non-key columns that are needed by a query.
 
 Wrong
 
@@ -14,7 +14,7 @@ ON PLAYERS (PLAYER_NAME)
 INCLUDE (PLAYER_ID, PLAYER_NAME)
 ```
 
-**PLAYER_NAME** is already an index key, so including it again is unnecessary.
+PLAYER_NAME is already an index key, so including it again is unnecessary.
 
 Correct
 
@@ -27,9 +27,9 @@ ON PLAYERS (PLAYER_NAME)
 
 ## 2. Using a non-unique index when a unique index is required
 
-**CREATE INDEX** creates a non-unique index by default.
+CREATE INDEX creates a non-unique index by default.
 
-When the requirement is to prevent duplicate values, **CREATE UNIQUE INDEX** must be used.
+When the requirement is to prevent duplicate values, CREATE UNIQUE INDEX must be used.
 
 Wrong
 
@@ -71,15 +71,15 @@ ON PLAYERS (CLUB_ID)
 INCLUDE (PLAYER_NAME)
 ```
 
-**CLUB_ID** is the index key because the requirement is to create the index on **CLUB_ID**.
+CLUB_ID is the index key because the requirement is to create the index on CLUB_ID.
 
-**PLAYER_NAME** is an included column because it is only required as additional data.
+PLAYER_NAME is an included column because it is only required as additional data.
 
 ---
 
 ## 4. Forgetting to specify the required sort order
 
-When an exercise requires a specific sort order for index keys, the **ASC** or **DESC** direction should be explicitly specified.
+When an exercise requires a specific sort order for index keys, the ASC or DESC direction should be explicitly specified.
 
 Wrong
 
@@ -99,9 +99,9 @@ The index key order and sort direction should match the requirements of the quer
 
 ---
 
-## 5. Using `ALTER INDEX` with a column list
+## 5. Using ALTER INDEX with a column list
 
-**ALTER INDEX** is used to modify or maintain an existing index. It does not define the indexed columns.
+ALTER INDEX is used to modify or maintain an existing index. It does not define the indexed columns.
 
 Wrong
 
@@ -118,4 +118,4 @@ ON PLAYERS
 REBUILD
 ```
 
-The indexed columns are defined when the index is created. **ALTER INDEX** is used for operations such as **REBUILD**, **REORGANIZE**, and disabling or enabling an index.
+The indexed columns are defined when the index is created. ALTER INDEX is used for operations such as REBUILD, REORGANIZE, and disabling or enabling an index.

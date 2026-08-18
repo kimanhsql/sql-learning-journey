@@ -1,17 +1,3 @@
-/*
-Think before writing SQL.
-
-Ask yourself:
-
-- Do I need to combine result sets?
-- Do the SELECT statements return the same number of columns?
-- Are the corresponding data types compatible?
-- Should duplicate rows be removed?
-- Should I use UNION or UNION ALL?
-- Where should ORDER BY be applied?
-*/
-
-
 -- Example 1
 -- Combine player names from PLAYERS and coach names from COACHES.
 
@@ -113,20 +99,20 @@ GO
 -- Example 7
 -- Use JOIN inside each SELECT.
 
-SELECT PL.PLAYER_NAME,
+SELECT PLAYER_NAME,
         COUNTRY_NAME
 FROM PLAYERS PL
 INNER JOIN COUNTRIES CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 WHERE CT.COUNTRY_ID = 1
 
 UNION
 
-SELECT PL.PLAYER_NAME,
+SELECT PLAYER_NAME,
         COUNTRY_NAME
 FROM PLAYERS PL
 INNER JOIN COUNTRIES CT
-ON PL.COUNTRY_ID = CT.COUNTRY_ID
+        ON PL.COUNTRY_ID = CT.COUNTRY_ID
 WHERE CT.COUNTRY_ID = 2
 
 GO

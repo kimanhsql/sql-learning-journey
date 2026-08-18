@@ -2,9 +2,9 @@
 
 ## 1. Using the wrong trigger syntax for SQL Server
 
-SQL Server triggers do not use **FOR EACH ROW**.
+SQL Server triggers do not use FOR EACH ROW.
 
-The trigger syntax places the table name before the trigger event and uses **AS** before the trigger body.
+The trigger syntax places the table name before the trigger event and uses AS before the trigger body.
 
 Wrong
 
@@ -32,15 +32,15 @@ END
 
 ---
 
-## 2. Using `PRINT` instead of selecting rows from inserted or deleted
+## 2. Using PRINT instead of selecting rows from inserted or deleted
 
-**PRINT** only displays a message.
+PRINT only displays a message.
 
 When the exercise asks you to display the affected rows, use the inserted or deleted virtual table.
 
-For **DELETE**, use deleted.
+For DELETE, use deleted.
 
-For **UPDATE**, both inserted and deleted can be used.
+For UPDATE, both inserted and deleted can be used.
 
 Wrong
 
@@ -69,13 +69,13 @@ END
 
 ---
 
-## 3. Using `UPDATE()` to check whether a column value actually changed
+## 3. Using UPDATE() to check whether a column value actually changed
 
-**UPDATE(column_name)** only checks whether the column was included in the UPDATE statement.
+UPDATE(column_name) only checks whether the column was included in the UPDATE statement.
 
 It does not check whether the column value actually changed.
 
-To detect an actual change, compare the values in the **inserted** and **deleted** tables.
+To detect an actual change, compare the values in the inserted and deleted tables.
 
 Wrong
 
@@ -186,7 +186,7 @@ IF EXISTS
 
 ## 6. Checking whether an updated row exists in the same table
 
-The inserted table contains the rows affected by the **UPDATE**.
+The inserted table contains the rows affected by the UPDATE.
 
 Checking whether those rows exist in the target table does not validate whether the player existed before the update.
 

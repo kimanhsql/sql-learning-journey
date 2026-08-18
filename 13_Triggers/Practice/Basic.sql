@@ -1,19 +1,39 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before creating a TRIGGER, ask yourself:
 
-- Which event should fire the trigger?
-- Should I use AFTER or INSTEAD OF?
-- Which table should the trigger belong to?
-- What action should happen automatically?
+1. Which event should fire the trigger?
+2. Should I use AFTER or INSTEAD OF?
+3. Which table should the trigger belong to?
+4. What action should happen automatically?
+5. What SQL statements are required inside the trigger?
+6. Should the trigger respond to INSERT, UPDATE, or DELETE?
+7. Can the trigger logic be kept simple and easy to maintain?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- Triggers execute automatically.
+- A trigger is automatically executed when a specified
+  database event occurs.
 - Triggers cannot be executed manually by using EXEC.
-- AFTER triggers run after the SQL statement succeeds.
+- AFTER triggers run after the triggering SQL statement
+  succeeds.
 - INSTEAD OF triggers replace the original SQL statement.
+- A trigger can be defined for INSERT, UPDATE, or DELETE
+  operations.
+- The trigger should belong to the table where the relevant
+  database event occurs.
+- Keep the trigger focused on one clear automatic action.
+- Test the triggering operation to verify that the trigger
+  behaves as expected.
+
+Understand the triggering event before writing SQL.
+Test the trigger with the corresponding INSERT, UPDATE,
+or DELETE statement.
 */
 
 

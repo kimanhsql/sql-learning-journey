@@ -1,34 +1,50 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing an TRANSACTION, ask yourself:
 
-- Should multiple operations be treated as one unit of work?
-- Should I use a savepoint?
-- Where should the savepoint be created?
-- What should be committed?
-- What should be rolled back?
-- Should I use TRY...CATCH?
-- What should happen if an error occurs?
+1. Should multiple operations be treated as one unit of work?
+2. Should I use a savepoint?
+3. Where should the savepoint be created?
+4. What changes should be committed?
+5. What changes should be rolled back?
+6. Should I use TRY...CATCH?
+7. What should happen if an error occurs?
+8. Should I roll back the entire transaction or only part of it?
+9. Do I need to check @@TRANCOUNT or XACT_STATE()?
+10. Can the transaction logic remain clear and easy to maintain?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- SAVE TRANSACTION creates a savepoint inside an active transaction.
+- SAVE TRANSACTION creates a savepoint inside an active
+  transaction.
 - A savepoint does not end the transaction.
-- ROLLBACK TRANSACTION savepoint_name rolls back only the changes
-made after the savepoint.
-- Changes made before the savepoint remain part of the transaction.
-- COMMIT TRANSACTION commits all remaining changes in the transaction.
+- ROLLBACK TRANSACTION savepoint_name rolls back only the
+  changes made after the specified savepoint.
+- Changes made before the savepoint remain part of the
+  transaction.
+- COMMIT TRANSACTION commits all remaining changes in the
+  transaction.
 - A transaction can contain multiple savepoints.
 - TRY...CATCH can be used to handle errors inside a transaction.
-- If an error occurs, ROLLBACK TRANSACTION can undo the entire transaction.
+- If an error occurs, ROLLBACK TRANSACTION can undo the
+  entire transaction.
 - @@TRANCOUNT returns the number of active transactions.
-- XACT_STATE() indicates whether the current transaction is committable,
-uncommittable, or has no active transaction.
-- Savepoints are useful when only part of a transaction should be
-rolled back.
+- XACT_STATE() indicates whether the current transaction is
+  committable, uncommittable, or has no active transaction.
+- Savepoints are useful when only part of a transaction should
+  be rolled back.
 - TRY...CATCH is useful when a transaction requires controlled
-error handling.
+  error handling.
+- Always make sure the transaction is properly committed or
+  rolled back.
+
+Plan the transaction flow before writing SQL.
+Test both successful operations and error scenarios.
 */
 
 
@@ -122,7 +138,6 @@ SET JERSEY_NUMBER = 16
 WHERE PLAYER_ID = 8
 
 COMMIT TRANSACTION
-
 END TRY
 
 BEGIN CATCH
@@ -151,7 +166,6 @@ SET JERSEY_NUMBER = 17
 WHERE PLAYER_ID = 9
 
 COMMIT TRANSACTION
-
 END TRY
 
 BEGIN CATCH
@@ -196,11 +210,11 @@ INSERT INTO PLAYERS
 VALUES
     (21, 'Eve White', 'Defender', '1993-02-20', '987 Cedar St', 5, 1, 5)
 
-DELETE FROM PLAYERS
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 12
 
 COMMIT TRANSACTION
-
 END TRY
 
 BEGIN CATCH
@@ -255,11 +269,11 @@ INSERT INTO PLAYERS
 VALUES
     (22, 'Frank Black', 'Goalkeeper', '1992-07-15', '123 Birch St', 6, 1, 1)
 
-DELETE FROM PLAYERS
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 16
 
 COMMIT TRANSACTION
-
 END TRY
 
 BEGIN CATCH

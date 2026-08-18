@@ -1,13 +1,40 @@
-/*
-Before writing SQL, ask yourself:
+ /*
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- Which event should fire the trigger?
-- Which virtual table should I use?
-- Will multiple rows be inserted or updated?
-- Should the operation continue or be blocked?
+Before creating an TRIGGER, ask yourself:
 
-Triggers should protect data consistency while keeping the database
-easy to maintain.
+1. Which event should fire the trigger?
+2. Which virtual table should I use?
+3. Do I need INSERTED, DELETED, or both?
+4. Will multiple rows be inserted, updated, or deleted?
+5. Can the trigger handle multiple affected rows correctly?
+6. Should the operation continue or be blocked?
+7. What data consistency rule should the trigger enforce?
+8. Can the trigger logic be kept simple and maintainable?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- INSERTED and DELETED are virtual tables provided by SQL
+  Server inside a trigger.
+- INSERTED contains the new rows affected by the operation.
+- DELETED contains the old rows affected by the operation.
+- UPDATE operations can use both INSERTED and DELETED.
+- A trigger must be designed to handle multiple affected
+  rows, not only a single row.
+- A trigger can allow an operation to continue or prevent
+  it when a defined condition is not satisfied.
+- Triggers can be used to enforce data consistency and
+  business rules automatically.
+- Keep trigger logic clear and avoid unnecessary complexity.
+- Test the trigger with both single-row and multi-row
+  operations.
+
+Analyze the trigger logic before writing SQL.
+Test different data scenarios to verify data consistency.
 */
 
 
@@ -47,7 +74,7 @@ BEGIN
         SELECT 1
         FROM deleted d
         INNER JOIN PLAYERS PL
-        ON PL.CLUB_ID = d.CLUB_ID
+            ON PL.CLUB_ID = d.CLUB_ID
     )
     BEGIN
         RAISERROR('Cannot delete clubs that still have players.', 16, 1)
@@ -227,8 +254,8 @@ BEGIN
     IF UPDATE(JERSEY_NUMBER)
     BEGIN
         SELECT d.PLAYERS_ID,
-               d.JERSEY_NUMBER AS Old_Jersey_Number,
-               i.JERSEY_NUMBER AS New_Jersey_Number
+                d.JERSEY_NUMBER AS Old_Jersey_Number,
+                i.JERSEY_NUMBER AS New_Jersey_Number
         FROM deleted d
         INNER JOIN inserted i
             ON d.PLAYER_ID = i.PLAYER_ID

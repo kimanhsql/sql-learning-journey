@@ -1,27 +1,54 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing a STORED PROCEDURE, ask yourself:
 
-- What task should the stored procedure perform?
-- Which SQL statements are required?
-- Do I need parameters?
-- Should I use JOIN, GROUP BY, HAVING, or a subquery?
-- Can I divide the problem into smaller SQL queries first?
-- Is the procedure reusable for different inputs?
+1. What is the main problem that the stored procedure
+   should solve?
+2. Can I break the problem into smaller SQL queries first?
+3. Which SQL statements are required to solve each part?
+4. Do I need parameters to make the procedure reusable?
+5. Do I need JOIN, GROUP BY, HAVING, subqueries, or CTEs?
+6. Do I need multiple SQL statements inside the procedure?
+7. Do I need local variables or conditional logic?
+8. Should the procedure return data, modify data, or perform
+   multiple operations?
+9. Can the procedure handle different inputs correctly?
+10. Can I simplify the logic without changing the result?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- Focus on solving the SQL problem first.
-- Then place the SQL inside the stored procedure.
-- Test the SQL before creating the procedure.
-- Keep the procedure reusable and easy to maintain.
+- Focus on understanding and solving the SQL problem first.
+- Break complex problems into smaller SQL queries before
+  combining them into the stored procedure.
+- Use parameters when the procedure needs to work with
+  different inputs.
+- Use JOIN, GROUP BY, HAVING, subqueries, or CTEs only when
+  they are required by the problem.
+- Multiple SQL statements can be combined when the procedure
+  requires multiple steps to complete its task.
+- Local variables and conditional logic can be used when
+  intermediate values or decisions are required.
+- Test each part of the SQL logic before creating the
+  stored procedure.
+- Make sure the procedure produces the expected result for
+  different inputs and edge cases.
+- Keep the procedure focused, readable, reusable, and easy
+  to maintain.
+
+Solve the SQL problem step by step.
+Test each part of the logic before combining it.
+Then place the complete solution inside the stored procedure.
 */
 
 
 -- Exercise 1
--- Create a stored procedure that displays the top N players
--- with the highest jersey numbers.
+-- Create a stored procedure that
+-- displays the top N players with the highest jersey numbers.
 
 CREATE PROCEDURE prd_top_n_players
     @top_n INT
@@ -38,8 +65,8 @@ GO
 
 
 -- Exercise 2
--- Create a stored procedure that searches players
--- by a keyword in their names.
+-- Create a stored procedure that
+-- searches players by a keyword in their names.
 
 CREATE PROCEDURE prd_search_players
     @keyword VARCHAR(100)
@@ -57,8 +84,9 @@ GO
 
 
 -- Exercise 3
--- Create a stored procedure that displays the number of players
--- in each country, sorted from highest to lowest.
+-- Create a stored procedure that displays
+-- the number of players in each country,
+-- sorted from highest to lowest.
 
 CREATE PROCEDURE prd_players_by_country
 AS
@@ -92,15 +120,15 @@ GO
 
 
 -- Exercise 5
--- Create a stored procedure that displays all players
--- belonging to clubs located in a given stadium.
+-- Create a stored procedure that displays
+-- all players belonging to clubs located in a given stadium.
 
 CREATE PROCEDURE prd_players_by_stadium
     @stadium_name VARCHAR(100)
 AS
 BEGIN
     SELECT PL.PLAYER_ID,
-            PL.PLAYER_NAME,
+            PLAYER_NAME,
             POSITION,
             JERSEY_NUMBER,
             PL.CLUB_ID
@@ -116,8 +144,9 @@ GO
 
 
 -- Exercise 6
--- Create a stored procedure that displays players
--- whose jersey number is greater than the average jersey number.
+-- Create a stored procedure that displays
+-- players whose jersey number is greater than
+-- the average jersey number.
 
 CREATE PROCEDURE prd_players_above_average_jersey
 AS
@@ -138,8 +167,8 @@ GO
 
 
 -- Exercise 7
--- Create a stored procedure that displays
--- the oldest player in each club.
+-- Create a stored procedure that
+-- displays the oldest player in each club.
 
 CREATE PROCEDURE prd_oldest_player_each_club
 AS
@@ -161,8 +190,8 @@ GO
 
 
 -- Exercise 8
--- Create a stored procedure that displays
--- the number of players in each position
+-- Create a stored procedure that
+-- displays the number of players in each position
 -- whose total players are greater than a given value.
 
 CREATE PROCEDURE prd_positions_with_min_players
@@ -180,16 +209,16 @@ GO
 
 
 -- Exercise 9
--- Create a stored procedure that displays
--- all coaches together with the clubs they manage.
+-- Create a stored procedure that
+-- displays all coaches together with the clubs they manage.
 
 CREATE PROCEDURE prd_coaches_with_clubs
 AS
 BEGIN
     SELECT CH.COACH_ID,
-            CH.COACH_NAME,
+            COACH_NAME,
             C.CLUB_ID,
-            C.CLUB_NAME
+            CLUB_NAME
     FROM COACHES CH
     INNER JOIN CLUBS C
         ON CH.CLUB_ID = C.CLUB_ID
@@ -199,9 +228,8 @@ GO
 
 
 -- Exercise 10
--- Create a stored procedure that displays
--- the club having the highest average jersey number
--- together with its stadium name.
+-- Create a stored procedure that displays the club having
+-- the highest average jersey number together with its stadium name.
 
 CREATE PROCEDURE prd_club_highest_average_jersey
 AS
@@ -210,7 +238,7 @@ BEGIN
         C.CLUB_ID,
         CLUB_NAME,
         STADIUM_NAME,
-        AVG(PL.JERSEY_NUMBER) AS AverageJerseyNumber
+        AVG(JERSEY_NUMBER) AS AverageJerseyNumber
     FROM CLUBS C
     INNER JOIN PLAYERS PL
         ON C.CLUB_ID = PL.CLUB_ID
@@ -218,7 +246,7 @@ BEGIN
         ON C.STADIUM_ID = ST.STADIUM_ID
     GROUP BY
         C.CLUB_ID,
-        C.CLUB_NAME,
+        CLUB_NAME,
         STADIUM_NAME
     ORDER BY AverageJerseyNumber DESC
 END

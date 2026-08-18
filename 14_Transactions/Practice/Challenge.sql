@@ -1,42 +1,61 @@
 /*
-Think before writing SQL.
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-Ask yourself:
+Before writing an TRANSACTION, ask yourself:
 
-- Do I need to handle errors inside the transaction?
-- Should I use TRY...CATCH?
-- What should happen when an error occurs?
-- Do I need a savepoint for a partial rollback?
-- Should the entire transaction be rolled back or only part of it?
-- How can I check the transaction state?
-- How many active transactions are currently open?
+1. Do I need to handle errors inside the transaction?
+2. Should I use TRY...CATCH?
+3. What should happen when an error occurs?
+4. Should the entire transaction be rolled back or only
+   part of it?
+5. Do I need a savepoint for a partial rollback?
+6. How can I check the current transaction state?
+7. How many active transactions are currently open?
+8. What should happen if the transaction becomes
+   uncommittable?
 
-Remember:
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
 
-- TRY...CATCH can be used to handle errors during a transaction.
+- TRY...CATCH can be used to handle errors during a
+  transaction.
 - ROLLBACK TRANSACTION can undo the entire transaction.
-- SAVE TRANSACTION creates a savepoint inside an active transaction.
-- ROLLBACK TRANSACTION savepoint_name rolls back only to the specified savepoint.
-- COMMIT TRANSACTION commits the remaining changes in the transaction.
+- SAVE TRANSACTION creates a savepoint inside an active
+  transaction.
+- ROLLBACK TRANSACTION savepoint_name rolls back only to
+  the specified savepoint.
+- COMMIT TRANSACTION commits the remaining changes in
+  the transaction.
 - A savepoint does not end the transaction.
 - A transaction can contain multiple savepoints.
 - @@TRANCOUNT returns the number of active transactions.
-- XACT_STATE() indicates whether the current transaction is committable, uncommittable, or has no active transaction.
-- TRY...CATCH should be used when a transaction needs controlled error handling.
+- XACT_STATE() indicates whether the current transaction
+  is committable, uncommittable, or has no active transaction.
+- TRY...CATCH is useful when a transaction requires
+  controlled error handling.
+- Always make sure the transaction is properly committed
+  or rolled back after an error.
+
+Plan the transaction and error-handling flow before
+writing SQL.
+Test both successful operations and error scenarios.
 */
 
 
 -- Exercise 1
--- Create a transaction that updates the jersey numbers of
--- two players and commits both changes.
+-- Create a transaction that updates
+-- the jersey numbers of two players and commits both changes.
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 20
 WHERE PLAYER_ID = 1
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 21
 WHERE PLAYER_ID = 2
 
@@ -49,11 +68,11 @@ COMMIT TRANSACTION
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET CLUB_ID = 2
 WHERE PLAYER_ID = 3
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 18
 WHERE PLAYER_ID = 3
 
@@ -61,24 +80,26 @@ ROLLBACK TRANSACTION
 
 
 -- Exercise 3
--- Create a transaction that inserts a new player and updates an existing player.
+-- Create a transaction that inserts a new player
+-- and updates an existing player.
 -- Use TRY...CATCH to handle errors.
 
 BEGIN TRY
     BEGIN TRANSACTION
 
-    INSERT INTO PLAYER
+    INSERT INTO PLAYERS
         (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
         CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
     VALUES
         (14, 'David Lee', 'Goalkeeper', '1994-11-30', '987 Maple St', 3, 1, 1)
 
-    UPDATE PLAYER
+    UPDATE PLAYERS
     SET JERSEY_NUMBER = 17
     WHERE PLAYER_ID = 4
 
     COMMIT TRANSACTION
 END TRY
+
 BEGIN CATCH
     ROLLBACK TRANSACTION
 END CATCH
@@ -92,17 +113,17 @@ END CATCH
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 23
 WHERE PLAYER_ID = 5
 
 SAVE TRANSACTION Savepoint4
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 24
 WHERE PLAYER_ID = 6
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 25
 WHERE PLAYER_ID = 7
 
@@ -118,7 +139,7 @@ COMMIT TRANSACTION
 BEGIN TRY
     BEGIN TRANSACTION
 
-    INSERT INTO PLAYER
+    INSERT INTO PLAYERS
         (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
         CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
     VALUES
@@ -127,6 +148,7 @@ BEGIN TRY
 
     COMMIT TRANSACTION
 END TRY
+
 BEGIN CATCH
     ROLLBACK TRANSACTION
 END CATCH
@@ -140,14 +162,17 @@ END CATCH
 BEGIN TRY
     BEGIN TRANSACTION
 
-    DELETE FROM PLAYER
+    DELETE
+    FROM PLAYERS
     WHERE PLAYER_ID = 8
 
-    DELETE FROM PLAYER
+    DELETE
+    FROM PLAYERS
     WHERE PLAYER_ID = 9
 
     COMMIT TRANSACTION
 END TRY
+
 BEGIN CATCH
     ROLLBACK TRANSACTION
 END CATCH
@@ -160,17 +185,17 @@ END CATCH
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 30
 WHERE PLAYER_ID = 10
 
 SAVE TRANSACTION Savepoint7
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 31
 WHERE PLAYER_ID = 11
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 32
 WHERE PLAYER_ID = 12
 
@@ -180,43 +205,48 @@ COMMIT TRANSACTION
 
 
 -- Exercise 8
--- Create a transaction that performs an INSERT, an UPDATE, and a DELETE.
+-- Create a transaction that performs an INSERT,
+-- an UPDATE, and a DELETE.
 -- Commit all operations if they succeed.
 
 BEGIN TRANSACTION
 
-INSERT INTO PLAYER
+INSERT INTO PLAYERS
     (PLAYER_ID, PLAYER_NAME, POSITION, BIRTH_DATE, ADDRESS,
     CLUB_ID, COUNTRY_ID, JERSEY_NUMBER)
 VALUES
     (17, 'Olivia Davis', 'Defender', '1997-05-10', '789 Elm St', 5, 1, 4)
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 33
 WHERE PLAYER_ID = 13
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 14
 
 COMMIT TRANSACTION
 
 
 -- Exercise 9
--- Create a transaction that performs multiple operations on PLAYER.
--- Use TRY...CATCH and roll back the entire transaction if any error occurs.
+-- Create a transaction that performs multiple operations on PLAYERS.
+-- Use TRY...CATCH and roll back the entire transaction
+-- if any error occurs.
 
 BEGIN TRY
     BEGIN TRANSACTION
 
-    UPDATE PLAYER
+    UPDATE PLAYERS
     SET JERSEY_NUMBER = 33
     WHERE PLAYER_ID = 13
 
-    DELETE FROM PLAYER
+    DELETE
+    FROM PLAYERS
     WHERE PLAYER_ID = 14
 
     COMMIT TRANSACTION
 END TRY
+
 BEGIN CATCH
     ROLLBACK TRANSACTION
 END CATCH
@@ -224,20 +254,23 @@ END CATCH
 
 -- Exercise 10
 -- Create a transaction that performs several operations.
--- Use a savepoint to partially roll back the transaction while keeping the earlier changes.
+-- Use a savepoint to partially roll back the transaction
+-- while keeping the earlier changes.
 
 BEGIN TRANSACTION
 
-UPDATE PLAYER
+UPDATE PLAYERS
 SET JERSEY_NUMBER = 33
 WHERE PLAYER_ID = 13
 
 SAVE TRANSACTION Savepoint8
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 14
 
-DELETE FROM PLAYER
+DELETE
+FROM PLAYERS
 WHERE PLAYER_ID = 22
 
 ROLLBACK TRANSACTION Savepoint8

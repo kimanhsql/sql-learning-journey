@@ -1,12 +1,42 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- Which column is frequently searched or filtered?
-- Should I create a single-column index?
-- Should the index be unique?
-- Should the index be clustered or nonclustered?
-- Do I need to remove an existing index?
-*/
+Before creating a INDEX, ask yourself:
+
+1. Which column is frequently searched or filtered?
+2. Should I create a single-column index?
+3. Should the index be unique?
+4. Should the index be clustered or nonclustered?
+5. Does an index already exist for this column?
+6. Do I need to remove an existing index?
+7. Will the index improve the queries that use this column?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- An index can improve the performance of queries that search,
+  filter, or retrieve data from a table.
+- A single-column index contains one key column.
+- A UNIQUE index prevents duplicate values in the indexed
+  key column.
+- A clustered index determines the physical order of data
+  rows in a table.
+- A nonclustered index is a separate structure that points
+  to the corresponding data rows.
+- A table can have only one clustered index.
+- A table can have multiple nonclustered indexes.
+- Indexes can improve read performance but can add overhead
+  to INSERT, UPDATE, and DELETE operations.
+- DROP INDEX can be used to remove an existing index.
+- Avoid creating unnecessary indexes because each index
+  requires storage and maintenance.
+
+Analyze the query before creating an index.
+Test the query performance after creating the index.
+*/ 
 
 
 -- Exercise 1

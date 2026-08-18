@@ -1,10 +1,43 @@
 /*
-Before writing SQL, ask yourself:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- Should duplicates remain?
-- Are the columns aligned correctly?
-- Should filtering happen before UNION?
-- Where should ORDER BY be applied?
+Before writing an UNION query, ask yourself:
+
+1. Should duplicates remain or be removed?
+2. Are the columns aligned correctly between the queries?
+3. Do the corresponding columns have compatible data types?
+4. Should filtering happen before or after the UNION?
+5. Should I use UNION or UNION ALL?
+6. Do I need to combine more than two result sets?
+7. Where should ORDER BY be applied?
+8. Can each query be tested separately before combining them?
+9. Can I simplify the query without changing the result?
+
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- UNION combines the result sets of multiple SELECT statements
+  and removes duplicate rows.
+- UNION ALL combines result sets without removing duplicates.
+- Each SELECT statement must return the same number of columns.
+- Corresponding columns should have compatible data types.
+- The order of the columns determines how the result sets
+  are combined.
+- WHERE clauses can be used inside individual SELECT statements
+  to filter rows before the UNION.
+- ORDER BY is applied to the final combined result set.
+- Test each SELECT statement separately before combining
+  the result sets.
+- Use UNION when duplicate rows should be removed.
+- Use UNION ALL when duplicate rows should be preserved.
+- Keep the combined query clear and make sure each result set
+  represents compatible data.
+
+Test each SELECT statement first.
+Then combine the result sets and verify the final output.
 */
 
 

@@ -1,18 +1,38 @@
 /*
-Before writing SQL, think about the following questions:
+============================================================
+THINK BEFORE WRITING SQL
+============================================================
 
-- What task should the stored procedure perform?
-- Does it need parameters?
-- Should the procedure display data or modify data?
-- Can this logic be reused?
-- Which SQL statements should be placed inside the procedure?
+Before writing a STORED PROCEDURE, ask yourself:
 
-Remember:
+1. What task should the stored procedure perform?
+2. Does the procedure need parameters?
+3. Should the procedure return data or modify data?
+4. Which SQL statements are required to perform the task?
+5. Can the procedure be reused with different inputs?
+6. Can the SQL logic be simplified without changing the result?
 
-- CREATE PROCEDURE is used to create a new procedure.
-- EXEC is used to execute a procedure.
-- ALTER PROCEDURE modifies an existing procedure.
-- DROP PROCEDURE removes a procedure.
+------------------------------------------------------------
+REMEMBER
+------------------------------------------------------------
+
+- CREATE PROCEDURE is used to create a new stored procedure.
+- EXEC is used to execute a stored procedure.
+- ALTER PROCEDURE is used to modify an existing stored procedure.
+- DROP PROCEDURE is used to remove an existing stored procedure.
+- Parameters allow a procedure to receive values from the
+  calling statement.
+- A stored procedure can return data, modify data, or perform
+  both depending on its purpose.
+- Stored procedures can contain one or multiple SQL statements.
+- Reusable procedures should use parameters when different
+  inputs may be required.
+- Keep the procedure focused on one clear task so that it is
+  easier to understand, test, and maintain.
+- Test the SQL logic before creating the stored procedure.
+
+Write the procedure step by step.
+Verify the logic before executing the procedure.
 */
 
 
@@ -53,7 +73,8 @@ GO
 
 
 -- Exercise 4
--- Create a stored procedure that displays players from a given club.
+-- Create a stored procedure that
+-- displays players from a given club.
 
 CREATE PROCEDURE prd_display_players_by_club
     @ClubID INT
@@ -76,7 +97,8 @@ GO
 
 
 -- Exercise 6
--- Create a stored procedure that displays players from a given position.
+-- Create a stored procedure that
+-- displays players from a given position.
 
 CREATE PROCEDURE prd_display_players_by_position
     @Position NVARCHAR(20)
@@ -91,8 +113,8 @@ GO
 
 
 -- Exercise 7
--- Create a stored procedure that displays players whose jersey number
--- is greater than a given value.
+-- Create a stored procedure that displays players
+-- whose jersey number is greater than a given value.
 
 CREATE PROCEDURE prd_display_players_by_jerey_number
     @JerseyNumber INT
@@ -130,7 +152,8 @@ GO
 
 
 -- Exercise 10
--- Create a stored procedure that displays players from a given country.
+-- Create a stored procedure that
+-- displays players from a given country.
 
 CREATE PROCEDURE prd_display_players_by_country
     @Country NVARCHAR(60)
